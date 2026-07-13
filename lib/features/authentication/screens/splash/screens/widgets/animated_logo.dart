@@ -21,7 +21,8 @@ class _AnimatedLogoState extends State<AnimatedLogo>
       vsync: this,
       duration: const Duration(milliseconds: 900),
     );
-    _animation = CurvedAnimation(parent: _controller, curve: Curves.easeOutBack);
+    _animation =
+        CurvedAnimation(parent: _controller, curve: Curves.easeOutBack);
     _controller.forward();
   }
 

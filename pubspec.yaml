@@ -21,6 +21,7 @@ dependencies:
 
   # iOS-style icons.
   cupertino_icons: ^1.0.8
+  iconsax_flutter: ^1.0.1
 
 dev_dependencies:
   flutter_test:

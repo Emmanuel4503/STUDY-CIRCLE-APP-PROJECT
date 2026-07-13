@@ -6,8 +6,7 @@ import 'routes/app_pages.dart';
 import 'routes/app_routes.dart';
 import 'theme/app_theme.dart';
 import '../utils/constants/strings.dart';
-import '../features/authentication/screens/login_screen.dart';
-
+import '../features/authentication/screens/login/login_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -17,13 +16,9 @@ class App extends StatelessWidget {
     return GetMaterialApp(
       title: SStrings.appName,
       debugShowCheckedModeBanner: false,
-
-   
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-
-   
       initialRoute: AppRoutes.splash,
       initialBinding: SplashBinding(),
       getPages: AppPages.pages,

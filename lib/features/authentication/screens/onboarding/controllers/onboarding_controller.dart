@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studycycle/features/authentication/screens/onboarding/models/onboarding_model.dart';
 
-
 import '../../../../../../app/routes/app_routes.dart';
 import '../../../../../../utils/services/storage_service.dart';
 import '../../../../../../utils/storage/dummy_data.dart';

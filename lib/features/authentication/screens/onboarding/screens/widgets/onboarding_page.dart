@@ -3,8 +3,6 @@ import 'package:studycycle/features/authentication/screens/onboarding/models/onb
 import 'package:studycycle/utils/constants/sizes.dart';
 import 'package:studycycle/utils/constants/spacing.dart';
 
-
-
 class OnboardingPage extends StatelessWidget {
   final OnboardingModel data;
 
@@ -24,7 +22,6 @@ class OnboardingPage extends StatelessWidget {
             child: Image.asset(
               data.image,
               fit: BoxFit.contain,
-             
               errorBuilder: (_, __, ___) => Icon(
                 Icons.image_outlined,
                 size: 120,

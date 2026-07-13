@@ -20,7 +20,8 @@ class SplashController extends GetxController {
     await Future.delayed(const Duration(seconds: 2));
 
     final hasSeenOnboarding = _storage.hasSeenOnboarding;
-    debugPrint('SplashController._decideNextRoute hasSeenOnboarding=$hasSeenOnboarding');
+    debugPrint(
+        'SplashController._decideNextRoute hasSeenOnboarding=$hasSeenOnboarding');
 
     if (hasSeenOnboarding) {
       debugPrint('SplashController navigating to ${AppRoutes.login}');

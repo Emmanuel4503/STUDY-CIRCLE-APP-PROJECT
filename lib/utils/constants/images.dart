@@ -12,6 +12,8 @@ abstract class SImages {
   // ---- Logos ----
   static const String logo = 'assets/logos/studycycle_logo.png';
   static const String logoDark = 'assets/logos/studycycle_logo_dark.png';
+  static const String googleIcon = 'assets/icons/google.png';
+  static const String facebookIcon = 'assets/icons/social.png';
 
   // ---- Splash ----
   static const String splashBackground = 'assets/images/splash_bg.png';

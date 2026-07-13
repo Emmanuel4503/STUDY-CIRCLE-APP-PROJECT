@@ -1,15 +1,44 @@
-# v0 sandbox internal files
-__v0_runtime_loader.js
-__v0_devtools.tsx
-__v0_jsx-dev-runtime.ts
-.snowflake/
-.v0-trash/
-.vercel/
+# -------------------------------------------------------------------------
+# Dart & Flutter Internals (Fixes the LF/CRLF warnings on auto-generated code)
+# -------------------------------------------------------------------------
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+ephemeral/
 
-# Environment variables
-.env*.local
+# -------------------------------------------------------------------------
+# Web Platform Specifics (Since you are testing/building for web)
+# -------------------------------------------------------------------------
+.pub-cache/
+.pub/
+/web/web_plugin_registrant.dart
 
-# Common ignores
-node_modules
-.next/
+# -------------------------------------------------------------------------
+# Secrets, Environment Variables, and Local Properties (Crucial for Security)
+# -------------------------------------------------------------------------
+*.env
+*.g.dart
+*.mocks.dart
+/android/local.properties
+/android/key.properties
+/android/app/**.keystore
+/android/app/**.p12
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/flutter_export_environment.sh
+/ios/Flash/secrets.json
+
+# -------------------------------------------------------------------------
+# IDE Settings (Prevents team conflicts over workspace styling configs)
+# -------------------------------------------------------------------------
+# VS Code
+.vscode/
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+*.iws
+
+# Mac OS System Files
 .DS_Store

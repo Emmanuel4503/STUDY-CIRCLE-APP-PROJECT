@@ -39,7 +39,7 @@ abstract class AppBottomSheet {
       ),
       isScrollControlled: isScrollControlled,
       backgroundColor: Get.theme.colorScheme.surface,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(SRadius.xl)),
       ),
     );

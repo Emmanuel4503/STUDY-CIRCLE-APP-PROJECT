@@ -5,7 +5,7 @@ import '../bindings/splash_binding.dart';
 import '../bindings/onboarding_binding.dart';
 
 import '../../features/authentication/screens/onboarding/screens/onboarding_screen.dart';
-import '../../features/authentication/screens/login_screen.dart';
+import '../../features/authentication/screens/login/login_screen.dart';
 
 import 'app_routes.dart';
 
@@ -22,11 +22,10 @@ abstract class AppPages {
       name: AppRoutes.onboarding,
       page: () => const OnboardingScreen(),
       binding: OnboardingBinding(),
-    ),    GetPage(
+    ),
+    GetPage(
       name: AppRoutes.login,
       page: () => const LoginScreen(),
     ),
-  
-  
   ];
 }
