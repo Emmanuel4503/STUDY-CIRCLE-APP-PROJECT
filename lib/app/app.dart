@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:studycycle/features/authentication/screens/verify_email/verify_email.dart';
 import 'bindings/splash_binding.dart';
 import 'routes/app_pages.dart';
 import 'routes/app_routes.dart';
 import 'theme/app_theme.dart';
 import '../utils/constants/strings.dart';
-import '../features/authentication/screens/login/login_screen.dart';
+//import '../features/authentication/screens/login/login_screen.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -24,7 +24,7 @@ class App extends StatelessWidget {
       getPages: AppPages.pages,
       unknownRoute: GetPage(
         name: '/notfound',
-        page: () => const LoginScreen(),
+        page: () => const VerifyEmailScreen(),
       ),
     );
   }
