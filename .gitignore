@@ -1,0 +1,44 @@
+# -------------------------------------------------------------------------
+# Dart & Flutter Internals (Fixes the LF/CRLF warnings on auto-generated code)
+# -------------------------------------------------------------------------
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+ephemeral/
+
+# -------------------------------------------------------------------------
+# Web Platform Specifics (Since you are testing/building for web)
+# -------------------------------------------------------------------------
+.pub-cache/
+.pub/
+/web/web_plugin_registrant.dart
+
+# -------------------------------------------------------------------------
+# Secrets, Environment Variables, and Local Properties (Crucial for Security)
+# -------------------------------------------------------------------------
+*.env
+*.g.dart
+*.mocks.dart
+/android/local.properties
+/android/key.properties
+/android/app/**.keystore
+/android/app/**.p12
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/flutter_export_environment.sh
+/ios/Flash/secrets.json
+
+# -------------------------------------------------------------------------
+# IDE Settings (Prevents team conflicts over workspace styling configs)
+# -------------------------------------------------------------------------
+# VS Code
+.vscode/
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+*.iws
+
+# Mac OS System Files
+.DS_Store

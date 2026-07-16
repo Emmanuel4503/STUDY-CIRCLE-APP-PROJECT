@@ -1,0 +1,52 @@
+name: studycycle
+description: "StudyCycle - A modern, scalable Flutter boilerplate using Feature-First architecture."
+publish_to: "none"
+
+# App version. Format: <version>+<build number>
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management + routing + dependency injection.
+  # GetX powers the `controllers/` and `bindings/` layers in this boilerplate.
+  get: ^4.6.6
+
+  # Persistent key-value storage (used later for onboarding-seen flag, tokens, etc.).
+  get_storage: ^2.1.1
+
+  # iOS-style icons.
+  cupertino_icons: ^1.0.8
+  iconsax_flutter: ^1.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Register asset folders here. Drop the images listed in ASSETS.md into these folders.
+  assets:
+    - assets/images/
+    - assets/images/onboarding/
+    - assets/icons/
+    - assets/logos/
+    - assets/images/animations/
+
+  # Register custom fonts here once you add them to assets/fonts/.
+  # fonts:
+  #   - family: Poppins
+  #     fonts:
+  #       - asset: assets/fonts/Poppins-Regular.ttf
+  #       - asset: assets/fonts/Poppins-Medium.ttf
+  #         weight: 500
+  #       - asset: assets/fonts/Poppins-SemiBold.ttf
+  #         weight: 600
+  #       - asset: assets/fonts/Poppins-Bold.ttf
+  #         weight: 700
