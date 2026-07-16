@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:studycycle/features/cycle/dashboard/dashboard.dart';
+import 'package:studycycle/utils/constants/colors.dart';
+
+class BottomNavigationBar extends StatelessWidget {
+  const BottomNavigationBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final controller = Get.put(NavigationMenuController());
+   
+    return Scaffold(
+      bottomNavigationBar: Obx(()=> NavigationBar(
+        height: 80,
+        elevation: 0,
+        selectedIndex: controller.selectedIndex.value,
+        onDestinationSelected: (index) => controller.selectedIndex.value = index,
+        backgroundColor: SColors.white,
+        indicatorColor: SColors.black.withAlpha(30),
+        destinations: [
+       const NavigationDestination(icon: Icon(Iconsax.home), label: "Dashboard"),
+       const NavigationDestination(icon: Icon(Iconsax.user), label: "Profile"),
+      ]
+      ),),
+      body: Obx(()=> controller.screens[controller.selectedIndex.value]),
+    );
+  }
+}
+
+
+
+class NavigationMenuController extends GetxController{
+  final Rx<int> selectedIndex = 0.obs;
+
+  final screens = [
+    DashboardScreen(),
+    Container(color: Colors.blue),
+  ];
+}

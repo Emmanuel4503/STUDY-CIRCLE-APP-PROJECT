@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
+import 'package:studycycle/bottom_navigation_bar.dart';
 import 'package:studycycle/features/authentication/screens/splash/screens/splash_screen.dart';
+import 'package:studycycle/features/personalization/setup_profile/setup_profile.dart';
 
 import '../bindings/splash_binding.dart';
 import '../bindings/onboarding_binding.dart';
@@ -26,6 +28,14 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.login,
       page: () => const LoginScreen(),
+    ),
+     GetPage(
+      name: AppRoutes.home,
+      page: () => const BottomNavigationBar(),
+    ),
+    GetPage(
+      name: AppRoutes.setupProfile,
+      page: () => const SSetupProfile(),
     ),
   ];
 }

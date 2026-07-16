@@ -1,4 +1,6 @@
 import 'package:studycycle/features/authentication/screens/onboarding/models/onboarding_model.dart';
+import 'package:studycycle/features/personalization/setup_profile/model/institution_type_model.dart';
+import 'package:studycycle/features/personalization/setup_profile/model/setup_profile_model.dart';
 
 import '../constants/images.dart';
 import '../constants/strings.dart';
@@ -28,4 +30,81 @@ abstract class DummyData {
       description: SStrings.onboardingBody3,
     ),
   ];
+
+  // Data for setUp profile screen
+   static const List<SetupProfileModel> setupProfileData = [
+
+   SetupProfileModel(
+    category: 'Primary School',
+    levels: [
+      'Primary 1',
+      'Primary 2',
+      'Primary 3',
+      'Primary 4',
+      'Primary 5',
+      'Primary 6',
+    ],
+  ),
+
+   SetupProfileModel(
+    category: 'Secondary School',
+    levels: [
+      'JSS 1',
+      'JSS 2',
+      'JSS 3',
+      'SS 1',
+      'SS 2',
+      'SS 3',
+    ],
+  ),
+
+  SetupProfileModel(
+    category: 'Tertiary',
+    institutions: [
+
+      InstitutionTypeModel(
+        name: 'University',
+        levels: [
+          '100 Level',
+          '200 Level',
+          '300 Level',
+          '400 Level',
+          '500 Level',
+          '600 Level',
+        ],
+      ),
+
+      InstitutionTypeModel(
+        name: 'Polytechnic',
+        levels: [
+          'ND 1',
+          'ND 2',
+          'HND 1',
+          'HND 2',
+        ],
+      ),
+
+      InstitutionTypeModel(
+        name: 'College of Education',
+        levels: [
+          'NCE 1',
+          'NCE 2',
+          'NCE 3',
+        ],
+      ),
+
+    ],
+  ),
+
+  SetupProfileModel(
+    category: 'Postgraduate',
+    levels: [
+      'PGD',
+      'Masters',
+      'MPhil',
+      'PhD',
+    ],
+  ),
+
+];
 }

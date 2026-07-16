@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studycycle/features/authentication/screens/onboarding/screens/widgets/onboarding_page.dart';
-import 'package:studycycle/features/authentication/screens/onboarding/screens/widgets/page_indicator.dart';
+import 'package:studycycle/app/common/widgets/page_indicator.dart';
 
 import '../../../../../../utils/constants/spacing.dart';
 import '../../../../../../utils/constants/strings.dart';
