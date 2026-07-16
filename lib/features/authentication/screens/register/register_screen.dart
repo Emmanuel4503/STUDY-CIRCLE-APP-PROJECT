@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:studycycle/features/authentication/screens/login/widgets/social_button.dart';
+import 'package:studycycle/features/authentication/screens/verify_email/verify_email.dart';
 import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
@@ -168,7 +170,9 @@ class RegisterScreen extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(const VerifyEmailScreen());
+                        },
                         child: const Text('Register'),
                       ),
                     ),
