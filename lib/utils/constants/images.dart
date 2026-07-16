@@ -25,4 +25,8 @@ abstract class SImages {
 
   // ---- Misc / placeholders ----
   static const String placeholder = 'assets/images/placeholder.png';
+
+  // -- Animations
+  static const String emailDeliveredIllustration =
+      "assets/images/animations/e-mail_delivered.gif";
 }

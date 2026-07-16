@@ -1,8 +1,8 @@
-// lib/features/authentication/screens/login/login_screen.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:studycycle/features/authentication/screens/login/widgets/social_button.dart';
+import 'package:studycycle/features/authentication/screens/register/register_screen.dart';
 import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
@@ -93,7 +93,9 @@ class LoginScreen extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: OutlinedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(const RegisterScreen());
+                        },
                         child: const Text('Create Account'),
                       ),
                     ),
