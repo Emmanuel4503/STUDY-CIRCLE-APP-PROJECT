@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:studycycle/features/authentication/screens/verify_email/verify_email.dart';
+import 'package:studycycle/features/authentication/screens/register/register_screen.dart';
+//import 'package:studycycle/features/authentication/screens/verify_email/verify_email.dart';
 import 'bindings/splash_binding.dart';
 import 'routes/app_pages.dart';
 import 'routes/app_routes.dart';
@@ -24,7 +25,7 @@ class App extends StatelessWidget {
       getPages: AppPages.pages,
       unknownRoute: GetPage(
         name: '/notfound',
-        page: () => const VerifyEmailScreen(),
+        page: () => const RegisterScreen(),
       ),
     );
   }
