@@ -1,7 +1,5 @@
 import 'package:get/get.dart';
-import 'package:studycycle/features/authentication/screens/register/register_screen.dart';
 import 'package:studycycle/features/authentication/screens/splash/screens/splash_screen.dart';
-import 'package:studycycle/features/authentication/screens/verify_email/verify_email.dart';
 
 import '../bindings/splash_binding.dart';
 import '../bindings/onboarding_binding.dart';
@@ -28,14 +26,6 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.login,
       page: () => const LoginScreen(),
-    ),
-    GetPage(
-      name: AppRoutes.verifyEmail,
-      page: () => const VerifyEmailScreen(),
-    ),
-    GetPage(
-      name: AppRoutes.register,
-      page: () => const RegisterScreen(),
     ),
   ];
 }

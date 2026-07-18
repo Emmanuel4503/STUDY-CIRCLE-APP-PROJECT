@@ -26,7 +26,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: ^6.0.0
 
 flutter:
   uses-material-design: true
@@ -37,7 +37,6 @@ flutter:
     - assets/images/onboarding/
     - assets/icons/
     - assets/logos/
-    - assets/images/animations/
 
   # Register custom fonts here once you add them to assets/fonts/.
   # fonts:
