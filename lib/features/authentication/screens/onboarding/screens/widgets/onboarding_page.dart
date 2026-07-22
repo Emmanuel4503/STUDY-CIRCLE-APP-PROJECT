@@ -22,7 +22,7 @@ class OnboardingPage extends StatelessWidget {
             child: Image.asset(
               data.image,
               fit: BoxFit.contain,
-              errorBuilder: (_, __, ___) => Icon(
+              errorBuilder: (_, _, _) => Icon(
                 Icons.image_outlined,
                 size: 120,
                 color: Theme.of(context).dividerColor,

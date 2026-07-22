@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:studycycle/features/cycle/circle/circle.dart';
 import 'package:studycycle/features/cycle/dashboard/dashboard.dart';
 import 'package:studycycle/features/cycle/library/library.dart';
 import 'package:studycycle/utils/constants/colors.dart';
@@ -24,6 +25,7 @@ class BottomNavigationBar extends StatelessWidget {
        const NavigationDestination(icon: Icon(Iconsax.home), label: "Dashboard"),
        const NavigationDestination(icon: Icon(Iconsax.book_saved), label: "Library"),
        const NavigationDestination(icon: Icon(Iconsax.user), label: "Profile"),
+       const NavigationDestination(icon: Icon(Iconsax.people), label: "Circle"),
        
       ]
       ),),
@@ -41,5 +43,6 @@ class NavigationMenuController extends GetxController{
     DashboardScreen(),
     const LibraryScreen(),
     Container(color: Colors.red),
+    const SCircleScreen(),
   ];
 }
