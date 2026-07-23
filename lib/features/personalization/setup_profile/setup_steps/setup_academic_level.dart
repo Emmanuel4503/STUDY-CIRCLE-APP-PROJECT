@@ -24,13 +24,26 @@ class SetupAcademicLevel extends GetView<SetupProfileController> {
         const SizedBox(height: SSizes.defaultSpace),
 
         Expanded(
-          child: ListView(
-            children: controller.setupProfileData.map((category) {
-              return SetupOptionTile(
-                title: category.category,
-                onTap: () => controller.selectCategory(category),
+          child: GridView.builder(
+            itemCount: controller.setupProfileData.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16,
+              childAspectRatio: 1.3,
+            ),
+            itemBuilder: (context, index) {
+              final category = controller.setupProfileData[index];
+
+              return Obx(
+                () => SetupOptionTile(
+                  title: category.category,
+                  isSelected:
+                      controller.selectedCategory.value == category,
+                  onTap: () => controller.selectCategory(category),
+                ),
               );
-            }).toList(),
+            },
           ),
         ),
       ],

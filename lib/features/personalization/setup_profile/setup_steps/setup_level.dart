@@ -27,17 +27,29 @@ class SetupLevel extends GetView<SetupProfileController> {
           ),
           const SizedBox(height: 24),
 
-          Expanded(
-            child: ListView(
-              children: levels.map((level) {
-                return SetupOptionTile(
-                  title: level,
-                  isSelected: controller.selectedLevel.value == level,
-                  onTap: () => controller.selectLevel(level),
-                );
-              }).toList(),
+           Expanded(
+          child: GridView.builder(
+            itemCount: levels.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 16,
+              mainAxisSpacing: 16,
+              childAspectRatio: 1.3,
             ),
+            itemBuilder: (context, index) {
+               final level = levels[index];
+
+              return Obx(
+                () => SetupOptionTile(
+                  title: level,
+                  isSelected:
+                      controller.selectedLevel.value == level,
+                  onTap: () => controller.selectLevel(level),
+                ),
+              );
+            },
           ),
+        ),
         ],
       );
     });

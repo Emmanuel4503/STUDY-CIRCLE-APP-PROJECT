@@ -16,11 +16,11 @@ class SSetupProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(SetupProfileController());
     const pages = [
-       SetupAcademicLevel(),
-       SetupInstitution(),
-       SetupLevel(),
-       SetupSchool(),
-    ];
+  SetupAcademicLevel(key: ValueKey('academic')),
+  SetupInstitution(key: ValueKey('institution')),
+  SetupLevel(key: ValueKey('level')),
+  SetupSchool(key: ValueKey('school')),
+];
     return Scaffold(
         appBar: const CustomAppBar(
           title: "Complete Profile",
@@ -32,7 +32,7 @@ class SSetupProfile extends StatelessWidget {
               children: [
                 PageIndicator(
                   count: controller.totalSteps,
-                  currentIndex: controller.progressStep.value,
+                  currentIndex: controller.progressStep,
                   onTap: controller.goToStep,
                 ),
                 const SizedBox(height: SSizes.spaceBtwSections),

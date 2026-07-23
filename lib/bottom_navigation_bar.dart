@@ -26,8 +26,9 @@ class BottomNavigationBar extends StatelessWidget {
         destinations: [
        const NavigationDestination(icon: Icon(Iconsax.home), label: "Dashboard"),
        const NavigationDestination(icon: Icon(Iconsax.book_saved), label: "Library"),
-       const NavigationDestination(icon: Icon(Iconsax.user), label: "Profile"),
        const NavigationDestination(icon: Icon(Iconsax.people), label: "Circle"),
+       const NavigationDestination(icon: Icon(Iconsax.user), label: "Profile"),
+       
        
       ]
       ),),
@@ -44,7 +45,7 @@ class NavigationMenuController extends GetxController{
   final screens = [
     const DashboardScreen(),
     const LibraryScreen(),
-    Container(color: Colors.red),
     const SCircleScreen(),
+    Container(color: Colors.red),
   ];
 }
