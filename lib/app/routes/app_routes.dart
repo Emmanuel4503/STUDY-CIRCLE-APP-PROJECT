@@ -11,4 +11,5 @@ abstract class AppRoutes {
   static const String profile = '/profile';
   static const String setupProfile = '/setup-profile';
   static const String library = '/library';
+  static const String circle = '/circle';
 }
