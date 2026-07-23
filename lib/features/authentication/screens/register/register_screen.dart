@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:studycycle/features/authentication/screens/login/widgets/social_button.dart';
-import 'package:studycycle/features/authentication/screens/verify_email/verify_email.dart';
+import 'package:studycycle/features/class_room/class_room.dart';
 import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    // Academic levels list for design dropdown definition
+  // Helper method to display the Academic Level Bottom Sheet
+  void _showAcademicLevelBottomSheet(BuildContext context) {
     final List<String> academicLevels = [
       'Jambite',
       'Undergraduate',
@@ -20,6 +19,59 @@ class RegisterScreen extends StatelessWidget {
       'PhD'
     ];
 
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (BuildContext context) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: SSizes.defaultSpace,
+            horizontal: SSizes.md,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min, // Wrap content height smoothly
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Container(
+                  width: 40,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              const SizedBox(height: SSizes.spaceBtwItems),
+              Text(
+                'Choose Academic Level',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              const SizedBox(height: SSizes.spaceBtwItems),
+              const Divider(),
+
+              // List mapping each level option to a uniform selection tile
+              ...academicLevels.map((level) => ListTile(
+                    leading: const Icon(Iconsax.teacher, size: 20),
+                    title: Text(level,
+                        style: Theme.of(context).textTheme.bodyLarge),
+                    trailing: const Icon(Iconsax.arrow_right_3_copy, size: 16),
+                    onTap: () {
+                      // Handled natively to close the sheet upon selection
+                      Navigator.pop(context);
+                    },
+                  )),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -39,7 +91,7 @@ class RegisterScreen extends StatelessWidget {
               Form(
                 child: Column(
                   children: [
-                    // First & Last Name
+                    // First & Last Name row layout
                     Row(
                       children: [
                         Expanded(
@@ -63,15 +115,6 @@ class RegisterScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: SSizes.spaceBtwInputFields),
 
-                    // Username Field
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: 'Username',
-                        prefixIcon: Icon(Iconsax.user_edit),
-                      ),
-                    ),
-                    const SizedBox(height: SSizes.spaceBtwInputFields),
-
                     // Email Field
                     TextFormField(
                       decoration: const InputDecoration(
@@ -81,22 +124,18 @@ class RegisterScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: SSizes.spaceBtwInputFields),
 
-                    // Academic Level Dropdown Selection Field
-                    DropdownButtonFormField<String>(
+                    // Academic Level Bottom Sheet Trigger Field
+                    TextFormField(
+                      readOnly: true, // Prevents keyboard layout popup
+                      onTap: () => _showAcademicLevelBottomSheet(
+                          context), // Triggers bottom drawer
                       decoration: const InputDecoration(
                         labelText: 'Academic Level',
+                        hintText: 'Select your academic level',
                         prefixIcon: Icon(Iconsax.teacher),
+                        suffixIcon: Icon(Iconsax.arrow_down_1_copy,
+                            size: 18), // Visual menu indicator
                       ),
-                      initialValue: null,
-                      hint: Text('Select your academic level',
-                          style: Theme.of(context).textTheme.bodyLarge),
-                      items: academicLevels.map((String level) {
-                        return DropdownMenuItem<String>(
-                          value: level,
-                          child: Text(level),
-                        );
-                      }).toList(),
-                      onChanged: (value) {},
                     ),
                     const SizedBox(height: SSizes.spaceBtwInputFields),
 
@@ -171,7 +210,7 @@ class RegisterScreen extends StatelessWidget {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                          Get.to(const VerifyEmailScreen());
+                          Get.to(const ClassroomScreen());
                         },
                         child: const Text('Register'),
                       ),
