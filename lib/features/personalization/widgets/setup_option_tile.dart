@@ -17,37 +17,43 @@ class SetupOptionTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(SSizes.md),
       onTap: onTap,
+      hoverColor: SColors.primaryLight.withAlpha(3),
+  splashColor: SColors.primary.withAlpha(8),
+  highlightColor: Colors.transparent,
+  focusColor: Colors.transparent,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 250),
         margin: const EdgeInsets.only(bottom: SSizes.spaceBtwItems),
         padding: const EdgeInsets.symmetric(
-          horizontal: SSizes.md,
-          vertical: SSizes.lg,
+          horizontal: SSizes.sm,
+          vertical: SSizes.md,
         ),
         decoration: BoxDecoration(
-          color: isSelected ? SColors.primary.withAlpha(123) : SColors.white,
-          borderRadius: BorderRadius.circular(16),
+          color: isSelected ? SColors.primary.withAlpha(2) : SColors.white,
+          borderRadius: BorderRadius.circular(SSizes.md),
           border: Border.all(
             color: isSelected ? SColors.primary : SColors.grey,
-            width: isSelected ? 2 : 1,
+            width: isSelected ? 1 : .5,
           ),
         ),
-        child: Row(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: Text(
-                title,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-            ),
             Icon(
               isSelected
                   ? Icons.check_circle
-                  : Icons.arrow_forward_ios_rounded,
-              color: isSelected ? SColors.primary : SColors.darkGrey,
-              size: 18,
+                  : Icons.school_outlined,
+              color: isSelected
+                  ? SColors.primary
+                  : Colors.grey.shade600,
+            ),
+            const SizedBox(height: SSizes.sm),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ],
         ),
