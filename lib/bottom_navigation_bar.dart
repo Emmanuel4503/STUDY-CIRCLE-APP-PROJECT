@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+
 import 'package:studycycle/features/cycle/circle/circle.dart';
-import 'package:studycycle/features/cycle/dashboard/dashboard.dart';
 import 'package:studycycle/features/cycle/library/library.dart';
 import 'package:studycycle/utils/constants/colors.dart';
+
+import 'features/dashboard/screens/dashboard_screen.dart';
 
 class BottomNavigationBar extends StatelessWidget {
   const BottomNavigationBar({super.key});
@@ -40,7 +42,7 @@ class NavigationMenuController extends GetxController{
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    DashboardScreen(),
+    const DashboardScreen(),
     const LibraryScreen(),
     Container(color: Colors.red),
     const SCircleScreen(),
