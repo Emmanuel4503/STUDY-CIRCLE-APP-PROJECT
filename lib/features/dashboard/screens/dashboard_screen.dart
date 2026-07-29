@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:studycycle/features/dashboard/widgets/active_groups.dart';
 import 'package:studycycle/features/dashboard/widgets/dashboard_header.dart';
 import 'package:studycycle/features/dashboard/widgets/dashboard_search_bar.dart';
 import 'package:studycycle/features/dashboard/widgets/progress_overview.dart';
@@ -53,6 +54,13 @@ class DashboardScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
               child: RecommendedResources(),
             ),
+
+            const SizedBox(height: SSizes.lg),
+
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: SSizes.lg), 
+              child: ActiveGroups()
+              ),
 
             const SizedBox(height: SSizes.lg),
 
