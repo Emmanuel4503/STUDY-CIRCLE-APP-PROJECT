@@ -8,8 +8,9 @@ abstract class AppRoutes {
   static const String login = '/login';
   static const String register = '/register';
   static const String home = '/home';
-  static const String profile = '/profile';
-  static const String setupProfile = '/setup-profile';
   static const String library = '/library';
   static const String circle = '/circle';
+  static const String groupChat = '/group-chat';
+  static const String profile = '/profile';
+  static const String setupProfile = '/setup-profile';
 }

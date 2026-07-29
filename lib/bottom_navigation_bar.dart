@@ -14,32 +14,34 @@ class BottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationMenuController());
-   
+
     return Scaffold(
-      bottomNavigationBar: Obx(()=> NavigationBar(
-        height: 80,
-        elevation: 0,
-        selectedIndex: controller.selectedIndex.value,
-        onDestinationSelected: (index) => controller.selectedIndex.value = index,
-        backgroundColor: SColors.white,
-        indicatorColor: SColors.black.withAlpha(30),
-        destinations: [
-       const NavigationDestination(icon: Icon(Iconsax.home), label: "Dashboard"),
-       const NavigationDestination(icon: Icon(Iconsax.book_saved), label: "Library"),
-       const NavigationDestination(icon: Icon(Iconsax.people), label: "Circle"),
-       const NavigationDestination(icon: Icon(Iconsax.user), label: "Profile"),
-       
-       
-      ]
-      ),),
-      body: Obx(()=> controller.screens[controller.selectedIndex.value]),
+      bottomNavigationBar: Obx(
+        () => NavigationBar(
+            height: 80,
+            elevation: 0,
+            selectedIndex: controller.selectedIndex.value,
+            onDestinationSelected: (index) =>
+                controller.selectedIndex.value = index,
+            backgroundColor: SColors.white,
+            indicatorColor: SColors.black.withAlpha(30),
+            destinations: [
+              const NavigationDestination(
+                  icon: Icon(Iconsax.home), label: "Dashboard"),
+              const NavigationDestination(
+                  icon: Icon(Iconsax.book_saved), label: "Library"),
+              const NavigationDestination(
+                  icon: Icon(Iconsax.user), label: "Profile"),
+              const NavigationDestination(
+                  icon: Icon(Iconsax.people), label: "Circle"),
+            ]),
+      ),
+      body: Obx(() => controller.screens[controller.selectedIndex.value]),
     );
   }
 }
 
-
-
-class NavigationMenuController extends GetxController{
+class NavigationMenuController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [

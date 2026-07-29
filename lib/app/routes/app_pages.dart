@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:studycycle/bottom_navigation_bar.dart';
 import 'package:studycycle/features/authentication/screens/splash/screens/splash_screen.dart';
 import 'package:studycycle/features/cycle/circle/circle.dart';
+import 'package:studycycle/features/cycle/circle/screens/group_chat_screen.dart';
 import 'package:studycycle/features/cycle/library/library.dart';
 import 'package:studycycle/features/personalization/setup_profile/setup_profile.dart';
 
@@ -31,21 +32,25 @@ abstract class AppPages {
       name: AppRoutes.login,
       page: () => const LoginScreen(),
     ),
-     GetPage(
+    GetPage(
       name: AppRoutes.home,
       page: () => const BottomNavigationBar(),
     ),
     GetPage(
-      name: AppRoutes.setupProfile,
-      page: () => const SSetupProfile(),
-    ),
-     GetPage(
       name: AppRoutes.library,
       page: () => const LibraryScreen(),
     ),
-     GetPage(
+    GetPage(
       name: AppRoutes.circle,
       page: () => const SCircleScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.groupChat,
+      page: () => const GroupChatScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.setupProfile,
+      page: () => const SSetupProfile(),
     ),
   ];
 }
