@@ -11,16 +11,11 @@ class LibraryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return const Scaffold(
-      appBar: CustomAppBar(title: "Library"),
-      body: Text(""),
-=======
     return Scaffold(
       appBar: const CustomAppBar(title: "Library"),
       body: CustomScrollView(
         slivers: [
-          /// Search Bar
+          // Search Bar
           const SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.all(SSizes.defaultSpace),
@@ -35,7 +30,7 @@ class LibraryScreen extends StatelessWidget {
             ),
           ),
 
-          /// Section Header
+          // Section Header
           const SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.symmetric(
@@ -52,7 +47,7 @@ class LibraryScreen extends StatelessWidget {
             child: SizedBox(height: SSizes.spaceBtwItems),
           ),
 
-          /// Grid
+          // Grid
           BookDisplay(
             count: DummyData.books.length - 4,
           ),
@@ -77,7 +72,6 @@ class LibraryScreen extends StatelessWidget {
           BookDisplay(count: DummyData.books.length),
         ],
       ),
->>>>>>> fb73e452e480a89920bc9e40b7e2bdce880c6bbd
     );
-  ]}
+  }
 }
