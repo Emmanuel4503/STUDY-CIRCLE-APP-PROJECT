@@ -9,22 +9,22 @@ class DashboardSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox(
-      height: 55,
+      height: 60,
       child: TextField(
         decoration: InputDecoration(
           hintText: 'Search groups...',
           hintStyle: TextStyle(
-            color: SColors.grey,
+            color: SColors.darkGrey,
           ),
 
           prefixIcon: Icon(
             Iconsax.search_normal,
-            color: SColors.grey,
+            color: SColors.primary,
           ),
 
           suffixIcon: Icon(
             Iconsax.setting_4,
-            color: SColors.grey,
+            color: SColors.primary,
           ),
 
         ),

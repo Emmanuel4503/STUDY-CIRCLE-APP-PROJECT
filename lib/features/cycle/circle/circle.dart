@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:studycycle/app/routes/app_routes.dart';
 import 'package:studycycle/utils/constants/spacing.dart';
 import 'package:studycycle/utils/widgets/bottom_sheet.dart';
 import 'package:studycycle/utils/widgets/custom_appbar.dart';
+import 'package:studycycle/utils/widgets/filter_list.dart';
 import 'package:studycycle/utils/widgets/study_group_card.dart';
-import '../../../utils/widgets/filter_list.dart';
 
 class SCircleScreen extends StatelessWidget {
   const SCircleScreen({super.key});
@@ -43,7 +45,7 @@ class SCircleScreen extends StatelessWidget {
               ],
             ),
 
-            const SizedBox(height: SSpacing.lg),
+            const SizedBox(height: SSpacing.md),
 
             Expanded(
               child: ListView(
@@ -70,35 +72,32 @@ class SCircleScreen extends StatelessWidget {
                     "Groups Available",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(height:SSpacing.md ),
-                  const SGroup(
+                  const SizedBox(height: SSpacing.md),
+                  SGroup(
                     title: "Mathematics 101",
                     members: "40 Members",
-                    buttonText: "Join",
+                    buttonText: "Chat",
                     joined: false,
+                    onPressed: () => Get.toNamed(AppRoutes.groupChat),
                   ),
-              
                   const SGroup(
                     title: "Chemistry Revision",
                     members: "22 Members",
                     buttonText: "Join",
                     joined: false,
                   ),
-                 
                   const SGroup(
                     title: "Computer Science",
                     members: "18 Members",
                     buttonText: "Join",
                     joined: false,
                   ),
-           
                   const SGroup(
                     title: "Eco-Math 102",
                     members: "18 Members",
                     buttonText: "Join",
                     joined: false,
                   ),
-                
                   const SGroup(
                     title: "History 001",
                     members: "18 Members",
@@ -114,3 +113,4 @@ class SCircleScreen extends StatelessWidget {
     );
   }
 }
+

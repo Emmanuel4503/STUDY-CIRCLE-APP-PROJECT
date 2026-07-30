@@ -35,6 +35,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/onboarding/
+    - assets/images/books/
     - assets/icons/
 
   # Register custom fonts here once you add them to assets/fonts/.

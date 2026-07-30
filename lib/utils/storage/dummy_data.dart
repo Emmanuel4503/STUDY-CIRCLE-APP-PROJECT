@@ -1,4 +1,5 @@
 import 'package:studycycle/features/authentication/screens/onboarding/models/onboarding_model.dart';
+import 'package:studycycle/features/cycle/library/model/book_model.dart';
 import 'package:studycycle/features/personalization/setup_profile/model/institution_type_model.dart';
 import 'package:studycycle/features/personalization/setup_profile/model/setup_profile_model.dart';
 
@@ -30,6 +31,46 @@ abstract class DummyData {
       description: SStrings.onboardingBody3,
     ),
   ];
+
+  // Data for Library 
+  static const List<BookModel> books = [
+  BookModel(
+    title: "Automated Gas Station",
+    author: "Techtopsy",
+    coverImage: "assets/images/books/book1.jpg",
+    rating: 4.8,
+  ),
+  BookModel(
+    title: "The creative Work",
+    author: "Eniola",
+    coverImage: "assets/images/books/book2.jpg",
+    rating: 4.7,
+  ),
+  BookModel(
+    title: "Solidarity",
+    author: "Temidayo",
+    coverImage: "assets/images/books/book3.jpg",
+    rating: 4.6,
+  ),
+  BookModel(
+    title: "Survival of the best price",
+    author: "Emmanuel",
+    coverImage: "assets/images/books/book4.jpg",
+    rating: 4.9,
+  ),
+  BookModel(
+    title: "Lets study together",
+    author: "Ade",
+    coverImage: "assets/images/books/book2.jpg",
+    rating: 4.9,
+  ),
+  BookModel(
+    title: "Fresh Produce",
+    author: "Emma",
+    coverImage: "assets/images/books/book3.jpg",
+    rating: 4.9,
+  ),
+];
 
   // Data for setUp profile screen
    static const List<SetupProfileModel> setupProfileData = [
