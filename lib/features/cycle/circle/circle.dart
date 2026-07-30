@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studycycle/app/routes/app_routes.dart';
 import 'package:studycycle/utils/constants/spacing.dart';
-import 'package:studycycle/utils/widgets/bottom_sheet.dart';
 import 'package:studycycle/utils/widgets/custom_appbar.dart';
+import 'package:studycycle/utils/widgets/search_and_filter.dart';
 import 'package:studycycle/utils/widgets/study_group_card.dart';
-import '../../../utils/widgets/filter_list.dart';
 
 class SCircleScreen extends StatelessWidget {
   const SCircleScreen({super.key});
@@ -37,7 +36,9 @@ class SCircleScreen extends StatelessWidget {
                   icon: const Icon(Icons.filter_list),
                   onPressed: () {
                     AppBottomSheet.show(
-                        child: const FilterList(), isScrollControlled: true);
+                      child: const FilterList(),
+                      isScrollControlled: true
+                    );
                   },
                 ),
               ],
@@ -111,3 +112,4 @@ class SCircleScreen extends StatelessWidget {
     );
   }
 }
+
