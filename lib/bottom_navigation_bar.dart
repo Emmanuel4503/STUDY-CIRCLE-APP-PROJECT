@@ -46,7 +46,7 @@ class NavigationMenuController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    const DashboardScreen(),
+    DashboardScreen(),
     const LibraryScreen(),
     const SCircleScreen(),
     const ProfileScreen(),
