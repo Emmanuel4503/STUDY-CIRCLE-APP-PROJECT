@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studycycle/app/routes/app_routes.dart';
 import 'package:studycycle/utils/constants/spacing.dart';
+import 'package:studycycle/utils/widgets/bottom_sheet.dart';
 import 'package:studycycle/utils/widgets/custom_appbar.dart';
-import 'package:studycycle/utils/widgets/search_and_filter.dart';
+import 'package:studycycle/utils/widgets/filter_list.dart';
 import 'package:studycycle/utils/widgets/study_group_card.dart';
 
 class SCircleScreen extends StatelessWidget {
