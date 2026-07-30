@@ -79,5 +79,5 @@ class LibraryScreen extends StatelessWidget {
       ),
 >>>>>>> fb73e452e480a89920bc9e40b7e2bdce880c6bbd
     );
-  }
+  ]}
 }
