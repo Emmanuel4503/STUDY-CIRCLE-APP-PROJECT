@@ -14,34 +14,43 @@ class OnboardingPage extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: SSpacing.lg),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: SSizes.onboardingImageHeight,
-            child: Image.asset(
-              data.image,
-              fit: BoxFit.contain,
-              errorBuilder: (_, __, ___) => Icon(
-                Icons.image_outlined,
-                size: 120,
-                color: Theme.of(context).dividerColor,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: SSizes.onboardingImageHeight,
+                    child: Image.asset(
+                      data.image,
+                      fit: BoxFit.contain,
+                      errorBuilder: (_, __, ___) => Icon(
+                        Icons.image_outlined,
+                        size: 120,
+                        color: Theme.of(context).dividerColor,
+                      ),
+                    ),
+                  ),
+                  SSpacing.gapVxl,
+                  Text(
+                    data.title,
+                    textAlign: TextAlign.center,
+                    style: textTheme.headlineMedium,
+                  ),
+                  SSpacing.gapVmd,
+                  Text(
+                    data.description,
+                    textAlign: TextAlign.center,
+                    style: textTheme.bodyMedium,
+                  ),
+                ],
               ),
             ),
-          ),
-          SSpacing.gapVxl,
-          Text(
-            data.title,
-            textAlign: TextAlign.center,
-            style: textTheme.headlineMedium,
-          ),
-          SSpacing.gapVmd,
-          Text(
-            data.description,
-            textAlign: TextAlign.center,
-            style: textTheme.bodyMedium,
-          ),
-        ],
+          );
+        },
       ),
     );
   }

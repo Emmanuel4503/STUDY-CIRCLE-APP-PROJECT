@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:studycycle/features/authentication/screens/login/widgets/social_button.dart';
-import 'package:studycycle/features/class_room/class_room.dart';
+import 'package:studycycle/features/authentication/screens/register/academic_level.dart';
 import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
@@ -210,7 +210,7 @@ class RegisterScreen extends StatelessWidget {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                          Get.to(const ClassroomScreen());
+                          Get.to(const AcademicLevel());
                         },
                         child: const Text('Register'),
                       ),
