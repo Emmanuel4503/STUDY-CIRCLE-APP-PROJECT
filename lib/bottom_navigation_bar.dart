@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
+import 'package:studycycle/features/cycle/Profile/profile.dart';
 import 'package:studycycle/features/cycle/circle/circle.dart';
 import 'package:studycycle/features/cycle/library/library.dart';
 import 'package:studycycle/utils/constants/colors.dart';
@@ -46,6 +47,6 @@ class NavigationMenuController extends GetxController{
     const DashboardScreen(),
     const LibraryScreen(),
     const SCircleScreen(),
-    Container(color: Colors.red),
+    const ProfileScreen(),
   ];
 }

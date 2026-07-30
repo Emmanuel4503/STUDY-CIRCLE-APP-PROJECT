@@ -8,7 +8,7 @@ class LibraryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: CustomAppBar(title: "Library"),
-      body: Text("data"),
+      body: Text(""),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studycycle/features/authentication/screens/register/post_graduate.dart';
-import 'package:studycycle/features/authentication/screens/register/under_graduate.dart';
+import 'package:studycycle/features/authentication/screens/register/undergraduate/under_graduate_level.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
 class AcademicLevel extends StatelessWidget {
@@ -23,7 +23,7 @@ class AcademicLevel extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () {Get.to(const UnderGraduateScreen());},
+                      onPressed: () {Get.to(const UnderGraduateLevel());},
                       child: const Text('UNDERGRADUATE'),
                     ),
                   ),
