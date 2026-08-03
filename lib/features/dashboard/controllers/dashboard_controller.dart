@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:studycycle/features/personalization/setup_popup.dart';
 
-
 class DashboardController extends GetxController {
   @override
   void onReady() {
@@ -12,6 +11,7 @@ class DashboardController extends GetxController {
       barrierDismissible: false,
     );
   }
+
   final RxString username = "Emmanuel".obs;
 
   final RxString greeting = "Good Morning".obs;
