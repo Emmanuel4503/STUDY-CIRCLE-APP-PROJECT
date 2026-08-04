@@ -24,11 +24,10 @@ class ActiveGroupCard extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(SSizes.md),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
           children: [
             CircleAvatar(
-              radius: 22,
+              radius: 24,
               backgroundColor: group.color.withValues(alpha: 0.15),
               child: Icon(
                 group.icon,
@@ -37,41 +36,52 @@ class ActiveGroupCard extends StatelessWidget {
               ),
             ),
 
-            SSpacing.gapVmd,
+            SSpacing.gapHmd,
 
-            Text(
-              group.title,
-              style: const TextStyle(
-                fontSize: SSizes.fontMd,
-                fontWeight: FontWeight.w600,
-                color: SColors.lightTextPrimary,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    group.title,
+                    style: const TextStyle(
+                      fontSize: SSizes.fontMd,
+                      fontWeight: FontWeight.w600,
+                      color: SColors.lightTextPrimary,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+
+                  SSpacing.gapVxs,
+
+                  Row(
+                    children: [
+                      const Icon(
+                        Iconsax.profile_2user,
+                        size: SSizes.iconSm,
+                        color: SColors.grey,
+                      ),
+
+                      SSpacing.gapHsm,
+
+                      Text(
+                        group.members,
+                        style: const TextStyle(
+                          fontSize: SSizes.fontSm,
+                          color: SColors.lightTextSecondary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
             ),
 
-            SSpacing.gapVxs,
-
-            Row(
-              children: [
-                const Icon(
-                  Iconsax.profile_2user,
-                  size: SSizes.iconSm,
-                  color: SColors.grey,
-                ),
-
-                SSpacing.gapHsm,
-
-                Expanded(
-                  child: Text(
-                    group.members,
-                    style: const TextStyle(
-                      fontSize: SSizes.fontSm,
-                      color: SColors.lightTextSecondary,
-                    ),
-                  ),
-                ),
-              ],
+            const Icon(
+              Iconsax.arrow_right_3,
+              color: SColors.primary,
+              size: SSizes.iconSm,
             ),
           ],
         ),
