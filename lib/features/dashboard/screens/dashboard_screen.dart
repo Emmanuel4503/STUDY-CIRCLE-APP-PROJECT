@@ -36,11 +36,12 @@ class DashboardScreen extends StatelessWidget {
               child: QuickActions(),
             ),
 
+            // Active Groups moved here
             const SizedBox(height: SSizes.lg),
 
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
-              child: UpcomingSessions(),
+              child: ActiveGroups(),
             ),
 
             const SizedBox(height: SSizes.lg),
@@ -54,15 +55,15 @@ class DashboardScreen extends StatelessWidget {
 
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
-              child: RecommendedResources(),
+              child: UpcomingSessions(),
             ),
 
             const SizedBox(height: SSizes.lg),
 
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: SSizes.lg), 
-              child: ActiveGroups()
-              ),
+              padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
+              child: RecommendedResources(),
+            ),
 
             const SizedBox(height: SSizes.lg),
 

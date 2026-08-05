@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:studycycle/utils/constants/colors.dart';
+import 'package:studycycle/utils/constants/radius.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
 class ProgressOverview extends StatelessWidget {
@@ -8,28 +9,36 @@ class ProgressOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      elevation: SSizes.cardElevation,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: SRadius.allLg,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(SSizes.defaultSpace),
+        padding: const EdgeInsets.all(SSizes.md),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Progress Overview',
-              style: Theme.of(context).textTheme.headlineSmall,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Progress Overview',
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+
+                Text(
+                  '65%',
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: SColors.primary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ],
             ),
 
-            const SizedBox(height: 20),
-
-            Text(
-              'Overall Progress',
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-
-            const SizedBox(height: 12),
+            const SizedBox(height: SSizes.sm),
 
             LinearProgressIndicator(
               value: 0.65,
@@ -41,14 +50,21 @@ class ProgressOverview extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 10),
+            const SizedBox(height: SSizes.sm),
 
-            const Text("65% Completed"),
+            Text(
+              "Keep up the great work! You're making steady progress.",
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
 
-            const SizedBox(height: 24),
+            const SizedBox(height: SSizes.md),
+
+            const Divider(),
+
+            const SizedBox(height: SSizes.sm),
 
             const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 _ProgressItem(
                   title: "Courses",
@@ -83,10 +99,17 @@ class _ProgressItem extends StatelessWidget {
       children: [
         Text(
           value,
-          style: Theme.of(context).textTheme.headlineSmall,
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
         ),
+
         const SizedBox(height: 4),
-        Text(title),
+
+        Text(
+          title,
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
       ],
     );
   }
