@@ -33,9 +33,8 @@ class BottomNavigationBar extends StatelessWidget {
                   icon: Icon(Iconsax.book_saved), label: "Library"),
                    const NavigationDestination(
                   icon: Icon(Iconsax.people), label: "Circle"),
-              const NavigationDestination(
+                const NavigationDestination(
                   icon: Icon(Iconsax.user), label: "Profile"),
-             
             ]),
       ),
       body: Obx(() => controller.screens[controller.selectedIndex.value]),
@@ -47,7 +46,7 @@ class NavigationMenuController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
 
   final screens = [
-    const DashboardScreen(),
+    DashboardScreen(),
     const LibraryScreen(),
     const SCircleScreen(),
     const ProfileScreen(),

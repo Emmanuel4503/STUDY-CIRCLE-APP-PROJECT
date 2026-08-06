@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:studycycle/utils/constants/colors.dart';
+import 'package:studycycle/utils/constants/sizes.dart';
 
 import '../models/activity_model.dart';
 import 'activity_card.dart';
@@ -39,12 +41,37 @@ class RecentActivity extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Recent Activity",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Recent Activity",
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+
+            GestureDetector(
+              onTap: () {},
+              child: const Row(
+                children: [
+                  Text(
+                    "See All",
+                    style: TextStyle(
+                      color: SColors.primary,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  SizedBox(width: 4),
+                  Icon(
+                    Iconsax.arrow_right_3,
+                    size: SSizes.iconSm,
+                    color: SColors.primary,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
 
         const SizedBox(height: 15),

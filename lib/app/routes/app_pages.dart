@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:studycycle/bottom_navigation_bar.dart';
 import 'package:studycycle/features/authentication/screens/splash/screens/splash_screen.dart';
+import 'package:studycycle/features/class_room/class_room.dart';
 import 'package:studycycle/features/cycle/circle/circle.dart';
 import 'package:studycycle/features/cycle/circle/screens/group_chat_screen.dart';
 import 'package:studycycle/features/cycle/library/library.dart';
@@ -51,6 +52,10 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.setupProfile,
       page: () => const SSetupProfile(),
+    ),
+    GetPage(
+      name: AppRoutes.classroom,
+      page: () => const ClassroomScreen(),
     ),
   ];
 }

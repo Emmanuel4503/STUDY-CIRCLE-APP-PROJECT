@@ -38,6 +38,8 @@ class ActiveGroups extends StatelessWidget {
       ),
     ];
 
+    final displayedGroups = groups.take(3).toList();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -54,30 +56,36 @@ class ActiveGroups extends StatelessWidget {
               ),
             ),
 
-            TextButton(
+            TextButton.icon(
               onPressed: () {},
-              child: const Text('See All'),
+              icon: const Text(
+                'See All',
+                style: TextStyle(
+                  color: SColors.primary,
+                ),
+              ),
+              label: const Icon(
+                Iconsax.arrow_right_3,
+                size: 16,
+                color: SColors.primary,
+              ),
             ),
           ],
         ),
 
         SSpacing.gapVmd,
 
-        GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: groups.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: SSizes.md,
-            mainAxisSpacing: SSizes.md,
-            childAspectRatio: 1.15,
-          ),
-          itemBuilder: (context, index) {
-            return ActiveGroupCard(
-              group: groups[index],
+        Column(
+          children: displayedGroups.map((group) {
+            return Padding(
+              padding: const EdgeInsets.only(
+                bottom: SSizes.sm,
+              ),
+              child: ActiveGroupCard(
+                group: group,
+              ),
             );
-          },
+          }).toList(),
         ),
       ],
     );

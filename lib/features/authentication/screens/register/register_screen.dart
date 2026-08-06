@@ -8,8 +8,6 @@ import 'package:studycycle/utils/constants/sizes.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
-
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,8 +60,8 @@ class RegisterScreen extends StatelessWidget {
                         prefixIcon: Icon(Iconsax.direct),
                       ),
                     ),
-                    const SizedBox(height: SSizes.spaceBtwInputFields),
 
+                    const SizedBox(height: SSizes.spaceBtwInputFields),
                     // Password Input Field
                     TextFormField(
                       obscureText: true,

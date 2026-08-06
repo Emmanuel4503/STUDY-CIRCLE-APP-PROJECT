@@ -37,9 +37,7 @@ class SCircleScreen extends StatelessWidget {
                   icon: const Icon(Icons.filter_list),
                   onPressed: () {
                     AppBottomSheet.show(
-                      child: const FilterList(),
-                      isScrollControlled: true
-                    );
+                        child: const FilterList(), isScrollControlled: true);
                   },
                 ),
               ],
@@ -113,4 +111,3 @@ class SCircleScreen extends StatelessWidget {
     );
   }
 }
-

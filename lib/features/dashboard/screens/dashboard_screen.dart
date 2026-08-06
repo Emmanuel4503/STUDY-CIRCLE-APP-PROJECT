@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:studycycle/features/dashboard/controllers/dashboard_controller.dart';
 import 'package:studycycle/features/dashboard/widgets/active_groups.dart';
 import 'package:studycycle/features/dashboard/widgets/dashboard_header.dart';
 import 'package:studycycle/features/dashboard/widgets/dashboard_search_bar.dart';
@@ -10,8 +12,8 @@ import 'package:studycycle/features/dashboard/widgets/upcoming_sessions.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
 class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({super.key});
-
+  DashboardScreen({super.key});
+  final controller = Get.put(DashboardController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,11 +36,12 @@ class DashboardScreen extends StatelessWidget {
               child: QuickActions(),
             ),
 
+            // Active Groups moved here
             const SizedBox(height: SSizes.lg),
 
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
-              child: UpcomingSessions(),
+              child: ActiveGroups(),
             ),
 
             const SizedBox(height: SSizes.lg),
@@ -52,15 +55,15 @@ class DashboardScreen extends StatelessWidget {
 
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
-              child: RecommendedResources(),
+              child: UpcomingSessions(),
             ),
 
             const SizedBox(height: SSizes.lg),
 
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: SSizes.lg), 
-              child: ActiveGroups()
-              ),
+              padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
+              child: RecommendedResources(),
+            ),
 
             const SizedBox(height: SSizes.lg),
 
@@ -79,3 +82,4 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 }
+

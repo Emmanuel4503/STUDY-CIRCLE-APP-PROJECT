@@ -13,4 +13,5 @@ abstract class AppRoutes {
   static const String groupChat = '/group-chat';
   static const String profile = '/profile';
   static const String setupProfile = '/setup-profile';
+  static const String classroom = '/classroom';
 }
