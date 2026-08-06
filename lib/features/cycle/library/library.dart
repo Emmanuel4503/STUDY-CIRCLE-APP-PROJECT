@@ -45,11 +45,8 @@ class LibraryScreen extends StatelessWidget {
           const SliverToBoxAdapter(
             child: SizedBox(height: SSizes.spaceBtwItems),
           ),
-<<<<<<< HEAD
-=======
 
           // Grid
->>>>>>> 835eefe789538eac19e5f37918ddd919e0cfdafc
           BookDisplay(
             count: DummyData.books.length - 4,
           ),
