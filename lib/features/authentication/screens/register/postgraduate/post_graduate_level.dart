@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:studycycle/features/authentication/screens/register/undergraduate/college_of_edu/college_of_edu_tab.dart';
-import 'package:studycycle/features/authentication/screens/register/undergraduate/polytechnic/polytechnic_tab.dart';
-import 'package:studycycle/features/authentication/screens/register/undergraduate/university/university_tab.dart';
+import 'package:studycycle/features/authentication/screens/register/postgraduate/masters/masters_tab.dart';
+import 'package:studycycle/features/authentication/screens/register/postgraduate/phd/phd_tab.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
-class UnderGraduateLevel extends StatelessWidget {
-  const UnderGraduateLevel({super.key});
+class PostGraduateLevel extends StatelessWidget {
+  const PostGraduateLevel({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('UNDERGRADUATE LEVEL'),
+        title: const Text('POSTGRADUATE LEVEL'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -23,11 +22,13 @@ class UnderGraduateLevel extends StatelessWidget {
               InkWell(
                 borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
                 onTap: () {
-                  Get.to(const CollegeOfEduTab());
+                  Get.to(const MastersTab());
                 },
                 child: Container(
                   width: double.infinity,
-                  height: 72,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: SSizes.lg,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
@@ -37,7 +38,7 @@ class UnderGraduateLevel extends StatelessWidget {
                   ),
                   alignment: Alignment.center,
                   child: Text(
-                    'College of Education',
+                    'Masters Level',
                     style: Theme.of(context).textTheme.labelLarge?.copyWith(
                           color: Theme.of(context).colorScheme.primary,
                           fontWeight: FontWeight.w600,
@@ -49,11 +50,13 @@ class UnderGraduateLevel extends StatelessWidget {
               InkWell(
                 borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
                 onTap: () {
-                  Get.to(const PolytechnicTab());
+                  Get.to(const PhdTab());
                 },
                 child: Container(
                   width: double.infinity,
-                  height: 72,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: SSizes.lg,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
@@ -63,33 +66,7 @@ class UnderGraduateLevel extends StatelessWidget {
                   ),
                   alignment: Alignment.center,
                   child: Text(
-                    'Polytechnic',
-                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontWeight: FontWeight.w600,
-                        ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: SSizes.defaultSpace),
-              InkWell(
-                borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
-                onTap: () {
-                  Get.to(const UniversityTab());
-                },
-                child: Container(
-                  width: double.infinity,
-                  height: 72,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
-                    border: Border.all(
-                      color: Theme.of(context).colorScheme.primary,
-                    ),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text(
-                    'University',
+                    'PHD Level',
                     style: Theme.of(context).textTheme.labelLarge?.copyWith(
                           color: Theme.of(context).colorScheme.primary,
                           fontWeight: FontWeight.w600,

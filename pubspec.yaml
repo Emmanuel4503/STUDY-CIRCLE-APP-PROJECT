@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+
   # State management + routing + dependency injection.
   # GetX powers the `controllers/` and `bindings/` layers in this boilerplate.
   get: ^4.6.6

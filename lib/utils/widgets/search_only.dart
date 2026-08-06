@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:studycycle/utils/constants/spacing.dart';
 
 
-class SSearchAndFilter extends StatelessWidget {
-  const SSearchAndFilter({
+class SSearchOnly extends StatelessWidget {
+  const SSearchOnly({
     super.key,
     required this.text
   });
@@ -23,11 +22,6 @@ class SSearchAndFilter extends StatelessWidget {
               ),
             ),
           ),
-        ),
-        const SizedBox(width: SSpacing.md),
-        IconButton(
-          icon: const Icon(Icons.filter_list),
-          onPressed: (){}
         ),
       ], 
     );

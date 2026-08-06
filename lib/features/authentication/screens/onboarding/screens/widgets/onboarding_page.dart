@@ -14,7 +14,6 @@ class OnboardingPage extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: SSpacing.lg),
-<<<<<<< HEAD
       child: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
@@ -28,7 +27,7 @@ class OnboardingPage extends StatelessWidget {
                     child: Image.asset(
                       data.image,
                       fit: BoxFit.contain,
-                      errorBuilder: (_, __, ___) => Icon(
+                      errorBuilder: (context, error, stackTrace) => Icon(
                         Icons.image_outlined,
                         size: 120,
                         color: Theme.of(context).dividerColor,
@@ -48,20 +47,6 @@ class OnboardingPage extends StatelessWidget {
                     style: textTheme.bodyMedium,
                   ),
                 ],
-=======
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: SSizes.onboardingImageHeight,
-            child: Image.asset(
-              data.image,
-              fit: BoxFit.contain,
-              errorBuilder: (context, error, stackTrace) => Icon(
-                Icons.image_outlined,
-                size: 120,
-                color: Theme.of(context).dividerColor,
->>>>>>> fb73e452e480a89920bc9e40b7e2bdce880c6bbd
               ),
             ),
           );

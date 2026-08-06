@@ -9,67 +9,7 @@ import 'package:studycycle/utils/constants/sizes.dart';
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
-  // Helper method to display the Academic Level Bottom Sheet
-  void _showAcademicLevelBottomSheet(BuildContext context) {
-    final List<String> academicLevels = [
-      'Jambite',
-      'Undergraduate',
-      'Postgraduate',
-      'Masters',
-      'PhD'
-    ];
-
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (BuildContext context) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: SSizes.defaultSpace,
-            horizontal: SSizes.md,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min, // Wrap content height smoothly
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Container(
-                  width: 40,
-                  height: 4,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              const SizedBox(height: SSizes.spaceBtwItems),
-              Text(
-                'Choose Academic Level',
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              const SizedBox(height: SSizes.spaceBtwItems),
-              const Divider(),
-
-              // List mapping each level option to a uniform selection tile
-              ...academicLevels.map((level) => ListTile(
-                    leading: const Icon(Iconsax.teacher, size: 20),
-                    title: Text(level,
-                        style: Theme.of(context).textTheme.bodyLarge),
-                    trailing: const Icon(Iconsax.arrow_right_3_copy, size: 16),
-                    onTap: () {
-                      // Handled natively to close the sheet upon selection
-                      Navigator.pop(context);
-                    },
-                  )),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,21 +60,6 @@ class RegisterScreen extends StatelessWidget {
                       decoration: const InputDecoration(
                         labelText: 'Email',
                         prefixIcon: Icon(Iconsax.direct),
-                      ),
-                    ),
-                    const SizedBox(height: SSizes.spaceBtwInputFields),
-
-                    // Academic Level Bottom Sheet Trigger Field
-                    TextFormField(
-                      readOnly: true, // Prevents keyboard layout popup
-                      onTap: () => _showAcademicLevelBottomSheet(
-                          context), // Triggers bottom drawer
-                      decoration: const InputDecoration(
-                        labelText: 'Academic Level',
-                        hintText: 'Select your academic level',
-                        prefixIcon: Icon(Iconsax.teacher),
-                        suffixIcon: Icon(Iconsax.arrow_down_1_copy,
-                            size: 18), // Visual menu indicator
                       ),
                     ),
                     const SizedBox(height: SSizes.spaceBtwInputFields),

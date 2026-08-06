@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:studycycle/features/authentication/screens/register/post_graduate.dart';
+import 'package:studycycle/features/authentication/screens/register/postgraduate/post_graduate_level.dart';
 import 'package:studycycle/features/authentication/screens/register/undergraduate/under_graduate_level.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
@@ -19,25 +19,60 @@ class AcademicLevel extends StatelessWidget {
           padding: const EdgeInsets.all(SSizes.defaultSpace),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {Get.to(const UnderGraduateLevel());},
-                      child: const Text('UNDERGRADUATE'),
+              InkWell(
+                borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
+                onTap: () {
+                  Get.to(const UnderGraduateLevel());
+                },
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: SSizes.lg,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
+                    border: Border.all(
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-                  const SizedBox(width: SSizes.defaultSpace),
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {Get.to(const PostgraduateScreen());},
-                      child: const Text('POSTGRADUATE'),
+                  alignment: Alignment.center,
+                  child: Text(
+                    'UNDERGRADUATE',
+                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: SSizes.defaultSpace),
+              InkWell(
+                borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
+                onTap: () {
+                  Get.to(const PostGraduateLevel());
+                },
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(
+                    vertical: SSizes.lg,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
+                    border: Border.all(
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
-
-
-                    
-                ],
+                  alignment: Alignment.center,
+                  child: Text(
+                    'POSTGRADUATE',
+                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                ),
               ),
             ],
           ),

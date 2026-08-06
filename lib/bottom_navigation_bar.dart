@@ -31,10 +31,11 @@ class BottomNavigationBar extends StatelessWidget {
                   icon: Icon(Iconsax.home), label: "Dashboard"),
               const NavigationDestination(
                   icon: Icon(Iconsax.book_saved), label: "Library"),
+                   const NavigationDestination(
+                  icon: Icon(Iconsax.people), label: "Circle"),
               const NavigationDestination(
                   icon: Icon(Iconsax.user), label: "Profile"),
-              const NavigationDestination(
-                  icon: Icon(Iconsax.people), label: "Circle"),
+             
             ]),
       ),
       body: Obx(() => controller.screens[controller.selectedIndex.value]),
