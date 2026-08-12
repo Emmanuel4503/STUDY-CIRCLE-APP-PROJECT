@@ -48,7 +48,7 @@ class NavigationMenuController extends GetxController {
   final screens = [
     DashboardScreen(),
     const LibraryScreen(),
-    const SCircleScreen(),
+    const SCirclePage(),
     const ProfileScreen(),
   ];
 }

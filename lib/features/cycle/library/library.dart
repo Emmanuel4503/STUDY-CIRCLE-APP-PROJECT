@@ -12,7 +12,9 @@ class LibraryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: "Library"),
+      appBar: const CustomAppBar(
+        title: "Library",
+      ),
       body: CustomScrollView(
         slivers: [
           // Search Bar
