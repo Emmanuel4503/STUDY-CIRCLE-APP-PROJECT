@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:studycycle/features/cycle/Profile/profile_header.dart';
-import 'package:studycycle/features/cycle/Profile/profile_setting.dart';
+import 'package:studycycle/features/personalization/Profile/change_password.dart';
+import 'package:studycycle/features/personalization/Profile/edit_profile_header.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class EditPassword extends StatelessWidget {
+  const EditPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +12,13 @@ class ProfileScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ProfileHeader(),
+            EditProfileHeader(),
             SizedBox(height: SSizes.md),
 
             Padding(
               padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
             ),
-            ProfileSetting(),
+           ChangePassword(),
           ]
         )
       )

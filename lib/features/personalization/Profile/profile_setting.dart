@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:studycycle/features/personalization/Profile/edit_name.dart';
+import 'package:studycycle/features/personalization/Profile/edit_password.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
 class ProfileSetting extends StatelessWidget {
@@ -23,7 +26,9 @@ class ProfileSetting extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Icon(Icons.person, color: Theme.of(context).colorScheme.primary),
+                   Icon(Icons.person,
+                    color: Theme.of(context).colorScheme.primary,),
+                
                 const SizedBox(width: SSizes.md),
                 Expanded(
                   child: Column(
@@ -47,7 +52,13 @@ class ProfileSetting extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: SSizes.md),
-                Icon(Icons.chevron_right, color: Colors.grey.shade600),
+                IconButton(onPressed: () {
+                   Get.to(const EditName());
+                },
+                icon: Icon(Icons.chevron_right, 
+                color: Colors.grey.shade600)
+                ),
+                
               ],
             ),
           ),
@@ -64,7 +75,7 @@ class ProfileSetting extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Icon(Icons.person, color: Theme.of(context).colorScheme.primary),
+                Icon(Icons.lock, color: Theme.of(context).colorScheme.primary),
                 const SizedBox(width: SSizes.md),
                 Expanded(
                   child: Column(
@@ -86,7 +97,12 @@ class ProfileSetting extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: SSizes.md),
-                Icon(Icons.chevron_right, color: Colors.grey.shade600),
+                 IconButton(onPressed: () {
+                Get.to(const EditPassword());
+                 },
+                icon: Icon(Icons.chevron_right, 
+                color: Colors.grey.shade600)
+                ),
               ],
             ),
           ),
@@ -103,7 +119,7 @@ class ProfileSetting extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Icon(Icons.person, color: Theme.of(context).colorScheme.primary),
+                Icon(Icons.group_add, color: Theme.of(context).colorScheme.primary),
                 const SizedBox(width: SSizes.md),
                 Expanded(
                   child: Column(
@@ -119,7 +135,11 @@ class ProfileSetting extends StatelessWidget {
                     ],
                   ),
                 ),
-               
+               const SizedBox(width: SSizes.md),
+                IconButton(onPressed: () {},
+                icon: Icon(Icons.chevron_right, 
+                color: Colors.grey.shade600)
+                ),
               ],
             ),
           ),
@@ -136,7 +156,7 @@ class ProfileSetting extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Icon(Icons.person, color: Theme.of(context).colorScheme.primary),
+                Icon(Icons.groups_2, color: Theme.of(context).colorScheme.primary),
                 const SizedBox(width: SSizes.md),
                 Expanded(
                   child: Column(
@@ -149,15 +169,19 @@ class ProfileSetting extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                       ),
-                    ],
+                       ],
                   ),
                 ),
-               
+               const SizedBox(width: SSizes.md),
+                IconButton(onPressed: () {},
+                icon: Icon(Icons.chevron_right, 
+                color: Colors.grey.shade600)
+                ),
               ],
             ),
           ),
           const SizedBox(height: SSizes.md),
-          Container(//Full Name
+          Container(//Add Socials
             width: double.infinity,
             padding: const EdgeInsets.all(SSizes.md),
             decoration: BoxDecoration(
@@ -169,7 +193,7 @@ class ProfileSetting extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Icon(Icons.person, color: Theme.of(context).colorScheme.primary),
+                Icon(Icons.forum, color: Theme.of(context).colorScheme.primary),
                 const SizedBox(width: SSizes.md),
                 Expanded(
                   child: Column(
@@ -184,7 +208,10 @@ class ProfileSetting extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: SSizes.md),
-                Icon(Icons.chevron_right, color: Colors.grey.shade600),
+                IconButton(onPressed: () {},
+                icon: Icon(Icons.chevron_right, 
+                color: Colors.grey.shade600)
+                ),
               ],
             ),
           ),

@@ -45,7 +45,7 @@ class ProfileHeader extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            "feranmiemmanuel@gmail.com",
+            "feranmiemmanuel01@gmail.com",
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Colors.white70,
                 ),
