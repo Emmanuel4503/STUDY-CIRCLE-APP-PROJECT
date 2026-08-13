@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:studycycle/features/dashboard/models/group_model.dart';
+import 'package:studycycle/features/dashboard/screens/group_details_screen.dart';
+import 'package:studycycle/features/dashboard/screens/groups_screen.dart';
 import 'package:studycycle/features/dashboard/widgets/active_group_card.dart';
 import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
@@ -57,7 +60,9 @@ class ActiveGroups extends StatelessWidget {
             ),
 
             TextButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                Get.to(() => const GroupsScreen());
+              },
               icon: const Text(
                 'See All',
                 style: TextStyle(
@@ -83,6 +88,13 @@ class ActiveGroups extends StatelessWidget {
               ),
               child: ActiveGroupCard(
                 group: group,
+                onTap: () {
+                  Get.to(
+                    () => GroupDetailsScreen(
+                      group: group,
+                    ),
+                  );
+                },
               ),
             );
           }).toList(),

@@ -3,9 +3,10 @@ import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/icons.dart';
 import 'package:studycycle/utils/widgets/custom_card.dart';
 
-class SGroup extends StatelessWidget {
-  const SGroup({
+class GroupCard extends StatelessWidget {
+  const GroupCard({
     super.key,
+
     required this.title,
     required this.members,
     required this.joined,
@@ -23,14 +24,14 @@ class SGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomCard(
       child: ListTile(
-        leading: const CircleAvatar(child: Icon(SIcons.groups)),
+        leading: const CircleAvatar(child: Icon(SIcons.groups, color:SColors.primaryLight ,)),
         title: Text(title),
-        subtitle: const Text(''),
-        trailing: ElevatedButton(
-            onPressed: onPressed ?? () {},
-            style: const ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(SColors.primary)),
-            child: Text(buttonText)),
+        subtitle: Text(members),
+        trailing: ElevatedButton(onPressed: () {},
+        style: const ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(Color(0xFF2E7D32))),
+         child: Text(buttonText, style:const TextStyle(color: Colors.white) ,),
+         ),
       ),
     );
   }

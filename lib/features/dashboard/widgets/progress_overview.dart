@@ -9,9 +9,14 @@ class ProgressOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: SSizes.cardElevation,
+      elevation: 0,
+      color: SColors.lightCard,
       shape: RoundedRectangleBorder(
         borderRadius: SRadius.allLg,
+        side: const BorderSide(
+          color: SColors.lightBorder,
+          width: 1,
+        ),
       ),
       child: Padding(
         padding: const EdgeInsets.all(SSizes.md),
@@ -27,7 +32,6 @@ class ProgressOverview extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                 ),
-
                 Text(
                   '65%',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -70,7 +74,6 @@ class ProgressOverview extends StatelessWidget {
                   title: "Courses",
                   value: "12",
                 ),
-
                 _ProgressItem(
                   title: "Streak",
                   value: "15 Days",
@@ -99,16 +102,19 @@ class _ProgressItem extends StatelessWidget {
       children: [
         Text(
           value,
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
                 fontWeight: FontWeight.bold,
+                color: SColors.lightTextPrimary,
               ),
         ),
 
-        const SizedBox(height: 4),
+        const SizedBox(height: 2),
 
         Text(
           title,
-          style: Theme.of(context).textTheme.bodySmall,
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                color: SColors.lightTextSecondary,
+              ),
         ),
       ],
     );

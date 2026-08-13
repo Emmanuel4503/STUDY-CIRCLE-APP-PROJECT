@@ -1,106 +1,145 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:studycycle/app/routes/app_routes.dart';
+import 'package:studycycle/utils/constants/icons.dart';
+import 'package:studycycle/utils/constants/sizes.dart';
 import 'package:studycycle/utils/constants/spacing.dart';
-import 'package:studycycle/utils/widgets/bottom_sheet.dart';
 import 'package:studycycle/utils/widgets/custom_appbar.dart';
 import 'package:studycycle/utils/widgets/filter_list.dart';
 import 'package:studycycle/utils/widgets/study_group_card.dart';
 
-class SCircleScreen extends StatelessWidget {
-  const SCircleScreen({super.key});
+void main() {
+  runApp(const SCirclePage());
+}
+
+class SCirclePage extends StatelessWidget {
+  const SCirclePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: StudyCirclePage(),
+    );
+  }
+}
+
+class StudyCirclePage extends StatelessWidget {
+  const StudyCirclePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: 'Circle'),
+      appBar: const CustomAppBar(
+        title: "Circle",
+      ),
       body: Padding(
-        padding: const EdgeInsetsGeometry.all(SSpacing.screenPadding),
+        padding: const EdgeInsets.all(SSpacing.screenPadding),
         child: Column(
           children: [
-            //search bar and filter
+            // Search Bar and Filter
             Row(
               children: [
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: 'search study groups...',
-                      prefixIcon: const Icon(Icons.search),
+                      hintText: "Search study groups...",
+                      prefixIcon: const Icon(SIcons.search),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(width: SSpacing.md),
+                const SizedBox(width: SSpacing.sm),
                 IconButton(
                   icon: const Icon(Icons.filter_list),
                   onPressed: () {
-                    AppBottomSheet.show(
-                        child: const FilterList(), isScrollControlled: true);
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return const FilterList();
+                      },
+                    );
                   },
                 ),
               ],
             ),
 
-            const SizedBox(height: SSpacing.md),
+            const SizedBox(height: SSpacing.lg),
 
             Expanded(
               child: ListView(
                 children: [
                   const Text(
                     "Groups Joined",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: SSizes.fontLg, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: SSpacing.sm),
-                  const SGroup(
+                  GroupCard(
                     title: "Philosophy",
-                    members: "28 Members",
+                    members: "12 members",
                     buttonText: "Open",
                     joined: true,
+                    onPressed: () => (),
                   ),
-                  const SGroup(
+                  
+                  GroupCard(
+                    title: "Flutter Developer",
+                    members: "15 members",
+                    buttonText: "Open",
+                    joined: true,
+                    onPressed: () => (),
+                  ),
+                  GroupCard(
                     title: "Law",
-                    members: "15 Members",
+                    members: "15 members",
                     buttonText: "Open",
                     joined: true,
+                    onPressed: () => (),
                   ),
+
                   const SizedBox(height: SSpacing.lg),
                   const Text(
                     "Groups Available",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: SSizes.fontLg, fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(height: SSpacing.md),
-                  SGroup(
+                  const SizedBox(height: SSpacing.sm),
+                  GroupCard(
                     title: "Mathematics 101",
-                    members: "40 Members",
-                    buttonText: "Chat",
+                    members: "40 members",
+                    buttonText: "join",
                     joined: false,
-                    onPressed: () => Get.toNamed(AppRoutes.groupChat),
+                    onPressed: () => (),
                   ),
-                  const SGroup(
+
+                  GroupCard(
                     title: "Chemistry Revision",
-                    members: "22 Members",
+                    members: "30 members",
                     buttonText: "Join",
                     joined: false,
+                    onPressed: () => (),
                   ),
-                  const SGroup(
+                  GroupCard(
                     title: "Computer Science",
-                    members: "18 Members",
+                    members: "18 members",
                     buttonText: "Join",
                     joined: false,
+                    onPressed: () => (),
                   ),
-                  const SGroup(
+                  GroupCard(
                     title: "Eco-Math 102",
-                    members: "18 Members",
+                    members: "7 members",
                     buttonText: "Join",
                     joined: false,
+                    onPressed: () => (),
                   ),
-                  const SGroup(
+                  GroupCard(
                     title: "History 001",
-                    members: "18 Members",
+                    members: "12 members",
                     buttonText: "Join",
                     joined: false,
+                    onPressed: () => (),
                   ),
                 ],
               ),

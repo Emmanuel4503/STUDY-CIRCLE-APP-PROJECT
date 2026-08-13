@@ -6,28 +6,26 @@ import 'package:studycycle/utils/constants/radius.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 import 'package:studycycle/utils/constants/spacing.dart';
 
-class ActiveGroupCard extends StatelessWidget {
-  const ActiveGroupCard({
+class GroupCard extends StatelessWidget {
+  const GroupCard({
     super.key,
     required this.group,
+    this.isJoined = true,
     this.onTap,
   });
 
   final GroupModel group;
+  final bool isJoined;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Card(
-        elevation: 0,
-        color: SColors.lightCard,
-        shape: RoundedRectangleBorder(
-          borderRadius: SRadius.allLg,
-          side: const BorderSide(
-            color: SColors.lightBorder,
-            width: 1,
-          ),
-        ),
+      elevation: SSizes.cardElevation,
+      color: SColors.lightCard,
+      shape: RoundedRectangleBorder(
+        borderRadius: SRadius.allLg,
+      ),
       child: InkWell(
         onTap: onTap,
         borderRadius: SRadius.allLg,
@@ -36,7 +34,7 @@ class ActiveGroupCard extends StatelessWidget {
           child: Row(
             children: [
               CircleAvatar(
-                radius: 24,
+                radius: 26,
                 backgroundColor: group.color.withValues(alpha: 0.15),
                 child: Icon(
                   group.icon,
@@ -83,12 +81,43 @@ class ActiveGroupCard extends StatelessWidget {
                         ),
                       ],
                     ),
+
+                    SSpacing.gapVxs,
+
+                    Row(
+                      children: [
+                        Icon(
+                          isJoined
+                              ? Iconsax.tick_circle
+                              : Iconsax.add_circle,
+                          size: SSizes.iconSm,
+                          color: isJoined
+                              ? SColors.success
+                              : SColors.primary,
+                        ),
+
+                        SSpacing.gapHsm,
+
+                        Text(
+                          isJoined ? 'Active' : 'Join Group',
+                          style: TextStyle(
+                            fontSize: SSizes.fontSm,
+                            fontWeight: FontWeight.w500,
+                            color: isJoined
+                                ? SColors.success
+                                : SColors.primary,
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
 
-              const Icon(
-                Iconsax.arrow_right_3,
+              Icon(
+                isJoined
+                    ? Iconsax.arrow_right_3
+                    : Iconsax.add,
                 color: SColors.primary,
                 size: SSizes.iconSm,
               ),

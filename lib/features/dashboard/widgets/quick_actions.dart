@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
+import 'package:studycycle/features/dashboard/screens/groups_screen.dart';
 import 'package:studycycle/features/dashboard/widgets/quick_action_card.dart';
 
 class QuickActions extends StatelessWidget {
@@ -34,7 +36,9 @@ class QuickActions extends StatelessWidget {
           child: QuickActionCard(
             icon: Iconsax.people,
             title: 'Groups',
-            onTap: () {},
+            onTap: () {
+              Get.to(() => const GroupsScreen());
+            },
           ),
         ),
       ],
