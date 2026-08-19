@@ -1,45 +1,135 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:studycycle/features/cycle/circle/screens/group_chat_screen.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:studycycle/features/dashboard/models/group_model.dart';
+import 'package:studycycle/features/dashboard/screens/group_details_screen.dart';
+import 'package:studycycle/features/dashboard/widgets/group_card.dart';
+import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/icons.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 import 'package:studycycle/utils/constants/spacing.dart';
 import 'package:studycycle/utils/widgets/custom_appbar.dart';
 import 'package:studycycle/utils/widgets/filter_list.dart';
-import 'package:studycycle/utils/widgets/study_group_card.dart';
-
-void main() {
-  runApp(const SCirclePage());
-}
 
 class SCirclePage extends StatelessWidget {
   const SCirclePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: StudyCirclePage(),
-    );
-  }
-}
+    final activeGroups = [
+      const GroupModel(
+        title: 'Accounting 101',
+        members: '24 Members',
+        icon: Iconsax.receipt_item,
+        color: SColors.primary,
+      ),
+      const GroupModel(
+        title: 'Mathematics',
+        members: '18 Members',
+        icon: Iconsax.calculator,
+        color: SColors.info,
+      ),
+      const GroupModel(
+        title: 'Flutter Development',
+        members: '15 Members',
+        icon: Iconsax.code,
+        color: SColors.warning,
+      ),
+    ];
 
-class StudyCirclePage extends StatelessWidget {
-  const StudyCirclePage({super.key});
+    final discoverGroups = [
+      const GroupModel(
+        title: 'Data Science',
+        members: '20 Members',
+        icon: Iconsax.chart_2,
+        color: SColors.success,
+      ),
+      const GroupModel(
+        title: 'Web Development',
+        members: '16 Members',
+        icon: Iconsax.global,
+        color: SColors.info,
+      ),
+    ];
 
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-        title: "Circle",
+        title: 'Circle',
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(SSpacing.screenPadding),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(SSizes.lg),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Search Bar and Filter
-            Row(
+            /// My Groups
+            const Text(
+              'My Groups',
+              style: TextStyle(
+                fontSize: SSizes.fontLg,
+                fontWeight: FontWeight.bold,
+                color: SColors.lightTextPrimary,
+              ),
+            ),
+
+            SSpacing.gapVxs,
+
+            Text(
+              'Study and collaborate with your groups.',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: SColors.lightTextSecondary,
+                  ),
+            ),
+
+            SSpacing.gapVmd,
+
+            Column(
+              children: activeGroups.map((group) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: SSizes.sm,
+                  ),
+                  child: GroupCard(
+                    group: group,
+                    isJoined: true,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => GroupDetailsScreen(
+                            group: group,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                );
+              }).toList(),
+            ),
+
+            const SizedBox(height: SSizes.lg),
+
+            /// Discover Groups
+            const Text(
+              'Discover Groups',
+              style: TextStyle(
+                fontSize: SSizes.fontLg,
+                fontWeight: FontWeight.bold,
+                color: SColors.lightTextPrimary,
+              ),
+            ),
+
+            SSpacing.gapVxs,
+
+            Text(
+              'Find groups that match your learning interests.',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: SColors.lightTextSecondary,
+                  ),
+            ),
+
+            SSpacing.gapVmd,
+
+            /// Search
+             Row(
               children: [
                 Expanded(
                   child: TextField(
@@ -66,91 +156,24 @@ class StudyCirclePage extends StatelessWidget {
                 ),
               ],
             ),
+            SSpacing.gapVmd,
 
-            const SizedBox(height: SSpacing.lg),
-
-            Expanded(
-              child: ListView(
-                children: [
-                  const Text(
-                    "Groups Joined",
-                    style: TextStyle(
-                        fontSize: SSizes.fontLg, fontWeight: FontWeight.bold),
+            Column(
+              children: discoverGroups.map((group) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: SSizes.sm,
                   ),
-                  const SizedBox(height: SSpacing.sm),
-                  GroupCard(
-                    title: "Philosophy",
-                    members: "12 members",
-                    buttonText: "Open",
-                    joined: true,
-                    onPressed: () => { 
-                      Get.to (() => const GroupChatScreen())
-                    },
+                  child: GroupCard(
+                    group: group,
+                    isJoined: false,
+                    onTap: () {},
                   ),
-                  
-                  GroupCard(
-                    title: "Flutter Developer",
-                    members: "15 members",
-                    buttonText: "Open",
-                    joined: true,
-                    onPressed: () => ({ 
-                      Get.to (() => const GroupChatScreen())
-                    },),
-                  ),
-                  GroupCard(
-                    title: "Law",
-                    members: "15 members",
-                    buttonText: "Open",
-                    joined: true,
-                    onPressed: () => (),
-                  ),
-
-                  const SizedBox(height: SSpacing.lg),
-                  const Text(
-                    "Groups Available",
-                    style: TextStyle(
-                        fontSize: SSizes.fontLg, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: SSpacing.sm),
-                  GroupCard(
-                    title: "Mathematics 101",
-                    members: "40 members",
-                    buttonText: "join",
-                    joined: false,
-                    onPressed: () => (),
-                  ),
-
-                  GroupCard(
-                    title: "Chemistry Revision",
-                    members: "30 members",
-                    buttonText: "Join",
-                    joined: false,
-                    onPressed: () => (),
-                  ),
-                  GroupCard(
-                    title: "Computer Science",
-                    members: "18 members",
-                    buttonText: "Join",
-                    joined: false,
-                    onPressed: () => (),
-                  ),
-                  GroupCard(
-                    title: "Eco-Math 102",
-                    members: "7 members",
-                    buttonText: "Join",
-                    joined: false,
-                    onPressed: () => (),
-                  ),
-                  GroupCard(
-                    title: "History 001",
-                    members: "12 members",
-                    buttonText: "Join",
-                    joined: false,
-                    onPressed: () => (),
-                  ),
-                ],
-              ),
+                );
+              }).toList(),
             ),
+
+            const SizedBox(height: SSizes.lg),
           ],
         ),
       ),
