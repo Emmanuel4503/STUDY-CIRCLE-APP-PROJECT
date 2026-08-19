@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:studycycle/features/dashboard/models/group_model.dart';
+import 'package:studycycle/features/dashboard/screens/dashboard_screen.dart';
 import 'package:studycycle/features/dashboard/screens/group_details_screen.dart';
 import 'package:studycycle/features/dashboard/widgets/group_card.dart';
 import 'package:studycycle/utils/constants/colors.dart';
@@ -52,7 +54,10 @@ class SCirclePage extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
+        onBack: () {
+          Get.offAll(() => DashboardScreen());
+        },
         title: 'Circle',
       ),
       body: SingleChildScrollView(
@@ -129,7 +134,7 @@ class SCirclePage extends StatelessWidget {
             SSpacing.gapVmd,
 
             /// Search
-             Row(
+            Row(
               children: [
                 Expanded(
                   child: TextField(
