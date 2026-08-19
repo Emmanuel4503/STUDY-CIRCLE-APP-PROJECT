@@ -87,7 +87,7 @@ class ClassroomScreen extends StatelessWidget {
 
                 // Extra styling for selected tab
                 indicator: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.zero,
                   gradient: LinearGradient(
                     colors: [
                       primaryColor,
@@ -101,7 +101,7 @@ class ClassroomScreen extends StatelessWidget {
                       color: primaryColor.withValues(alpha: 0.3),
                       blurRadius: 8,
                       offset: const Offset(0, 4),
-                    )
+                    ),
                   ],
                 ),
 

@@ -144,7 +144,7 @@ class _FilterListState extends State<FilterList> {
             },
             style: const ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(SColors.primary)),
-            child: const Text("Apply"),
+            child: const Text("Apply", style: TextStyle(color: Colors.white)),
           ),
         ],
       ),

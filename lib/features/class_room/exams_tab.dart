@@ -98,7 +98,7 @@ class ExamsTab extends StatelessWidget {
             title: '1st Semester Mock Examination',
             course: 'General Studies (GST 101)',
             timeDetail: 'Scheduled: Oct 28, 9:00AM',
-            statusText: 'Locked',
+            statusText: 'Coming Soon',
             statusColor: Color(0xFF607D8B), // Smooth BlueGrey accent
             icon: Iconsax.note_2_copy,
             isInteractive: false,

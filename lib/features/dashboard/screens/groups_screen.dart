@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:studycycle/features/dashboard/models/group_model.dart';
-import 'package:studycycle/features/dashboard/screens/dashboard_screen.dart';
 import 'package:studycycle/features/dashboard/screens/group_details_screen.dart';
 import 'package:studycycle/features/dashboard/widgets/group_card.dart';
 import 'package:studycycle/utils/constants/colors.dart';
-import 'package:studycycle/utils/constants/icons.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 import 'package:studycycle/utils/constants/spacing.dart';
 import 'package:studycycle/utils/widgets/custom_appbar.dart';
-import 'package:studycycle/utils/widgets/filter_list.dart';
 
-class SCirclePage extends StatelessWidget {
-  const SCirclePage({super.key});
+class GroupsScreen extends StatelessWidget {
+  const GroupsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -54,11 +50,8 @@ class SCirclePage extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: CustomAppBar(
-        onBack: () {
-          Get.offAll(() => DashboardScreen());
-        },
-        title: 'Circle',
+      appBar: const CustomAppBar(
+        title: 'Groups',
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(SSizes.lg),
@@ -134,33 +127,24 @@ class SCirclePage extends StatelessWidget {
             SSpacing.gapVmd,
 
             /// Search
-            Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search study groups...",
-                      prefixIcon: const Icon(SIcons.search),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Search groups...',
+                prefixIcon: const Icon(
+                  Iconsax.search_normal,
+                  size: SSizes.iconSm,
+                ),
+                filled: true,
+                fillColor: SColors.lightGrey,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(
+                    SSizes.inputFieldRadius,
                   ),
+                  borderSide: BorderSide.none,
                 ),
-                const SizedBox(width: SSpacing.sm),
-                IconButton(
-                  icon: const Icon(Icons.filter_list),
-                  onPressed: () {
-                    showModalBottomSheet(
-                      context: context,
-                      builder: (context) {
-                        return const FilterList();
-                      },
-                    );
-                  },
-                ),
-              ],
+              ),
             ),
+
             SSpacing.gapVmd,
 
             Column(
