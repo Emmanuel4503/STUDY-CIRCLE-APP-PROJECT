@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
+import 'package:studycycle/features/cycle/Profile/widgets/profile_setting_item.dart';
+import 'package:studycycle/features/cycle/Profile/widgets/invite_friend_widget.dart';
+import 'package:studycycle/features/cycle/Profile/widgets/add_socials_widget.dart';
 
 class ProfileSetting extends StatelessWidget {
   const ProfileSetting({super.key});
@@ -11,188 +14,34 @@ class ProfileSetting extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(//Full Name
-            width: double.infinity,
-            padding: const EdgeInsets.all(SSizes.md),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
-              border: Border.all(
-                color: Colors.grey.shade300,
-              ),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.person, color: Theme.of(context).colorScheme.primary),
-                const SizedBox(width: SSizes.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Full Name',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        'Change your full name',
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Colors.grey,
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: SSizes.md),
-                Icon(Icons.chevron_right, color: Colors.grey.shade600),
-              ],
-            ),
+          ProfileSettingItem(
+            title: 'Full Name',
+            subtitle: 'Change your full name',
+            icon: Icons.person_outline,
+            onTap: () {},
           ),
           const SizedBox(height: SSizes.md),
-           Container(//Password
-            width: double.infinity,
-            padding: const EdgeInsets.all(SSizes.md),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
-              border: Border.all(
-                color: Colors.grey.shade300,
-              ),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.person, color: Theme.of(context).colorScheme.primary),
-                const SizedBox(width: SSizes.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Password',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        'Change your password',
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Colors.grey,),),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: SSizes.md),
-                Icon(Icons.chevron_right, color: Colors.grey.shade600),
-              ],
-            ),
+          ProfileSettingItem(
+            title: 'Password',
+            subtitle: 'Change your password',
+            icon: Icons.lock_outline,
+            onTap: () {},
           ),
           const SizedBox(height: SSizes.md),
-           Container(//Invite a Friend
-            width: double.infinity,
-            padding: const EdgeInsets.all(SSizes.md),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
-              border: Border.all(
-                color: Colors.grey.shade300,
-              ),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.person, color: Theme.of(context).colorScheme.primary),
-                const SizedBox(width: SSizes.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Invite a Friend',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-               
-              ],
-            ),
+          const InviteFriendWidget(),
+          const SizedBox(height: SSizes.md),
+          ProfileSettingItem(
+            title: 'Check Active Groups',
+            subtitle: 'View and manage your study groups',
+            icon: Icons.groups_outlined,
+            onTap: () {},
           ),
           const SizedBox(height: SSizes.md),
-           Container(//Check Active Groups
-            width: double.infinity,
-            padding: const EdgeInsets.all(SSizes.md),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
-              border: Border.all(
-                color: Colors.grey.shade300,
-              ),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.person, color: Theme.of(context).colorScheme.primary),
-                const SizedBox(width: SSizes.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Check Active Groups',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-               
-              ],
-            ),
-          ),
+          const AddSocialsWidget(),
           const SizedBox(height: SSizes.md),
-          Container(//Full Name
-            width: double.infinity,
-            padding: const EdgeInsets.all(SSizes.md),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
-              border: Border.all(
-                color: Colors.grey.shade300,
-              ),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.person, color: Theme.of(context).colorScheme.primary),
-                const SizedBox(width: SSizes.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Add Socials',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold, ),),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: SSizes.md),
-                Icon(Icons.chevron_right, color: Colors.grey.shade600),
-              ],
-            ),
-          ),
-          const SizedBox(height: SSizes.md),
-
-
         ],
       ),
     );
   }
 }
+
