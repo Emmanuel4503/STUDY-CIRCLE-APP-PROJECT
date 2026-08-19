@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:studycycle/features/cycle/circle/screens/group_chat_screen.dart';
 import 'package:studycycle/utils/constants/icons.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 import 'package:studycycle/utils/constants/spacing.dart';
@@ -80,7 +83,9 @@ class StudyCirclePage extends StatelessWidget {
                     members: "12 members",
                     buttonText: "Open",
                     joined: true,
-                    onPressed: () => (),
+                    onPressed: () => { 
+                      Get.to (() => const GroupChatScreen())
+                    },
                   ),
                   
                   GroupCard(
@@ -88,7 +93,9 @@ class StudyCirclePage extends StatelessWidget {
                     members: "15 members",
                     buttonText: "Open",
                     joined: true,
-                    onPressed: () => (),
+                    onPressed: () => ({ 
+                      Get.to (() => const GroupChatScreen())
+                    },),
                   ),
                   GroupCard(
                     title: "Law",
