@@ -19,7 +19,7 @@ class DashboardCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: SSizes.cardElevation,
+      elevation: 0,
       color: SColors.white,
       margin: margin ??
           const EdgeInsets.only(
@@ -27,6 +27,10 @@ class DashboardCard extends StatelessWidget {
           ),
       shape: RoundedRectangleBorder(
         borderRadius: SRadius.allMd,
+        side: const BorderSide(
+          color: SColors.lightBorder,
+          width: 1,
+        ),
       ),
       child: Padding(
         padding: padding ??

@@ -1,0 +1,72 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+RPCError: ext.flutter.inspector.show: (-32603) Unexpected DWDS error for callServiceExtension: WipError -32000 Promise was collected
+
+```
+#0      new _OutstandingRequest (package:vm_service/src/vm_service.dart:268:34)
+#1      VmService._call.<anonymous closure> (package:vm_service/src/vm_service.dart:1950:25)
+#2      VmService._call (package:vm_service/src/vm_service.dart:1962:8)
+#3      VmService.callServiceExtension (package:vm_service/src/vm_service.dart:1901:14)
+#4      FlutterVmService._checkedCallServiceExtension (package:flutter_tools/src/vmservice.dart:771:28)
+#5      FlutterVmService.invokeFlutterExtensionRpcRaw (package:flutter_tools/src/vmservice.dart:790:49)
+#6      FlutterVmService._flutterToggle (package:flutter_tools/src/vmservice.dart:636:21)
+<asynchronous suspension>
+#7      ResidentHandlers.debugToggleWidgetInspector (package:flutter_tools/src/resident_runner.dart:751:9)
+<asynchronous suspension>
+#8      TerminalHandler.processTerminalInput (package:flutter_tools/src/resident_runner.dart:1805:7)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[32m[✓][39m Flutter (Channel stable, 3.44.6, on Microsoft Windows [Version 10.0.26200.9168], locale en-US)
+    [515ms]
+    [32m•[39m Flutter version 3.44.6 on channel stable at C:\src\flutter
+    [32m•[39m Upstream repository https://github.com/flutter/flutter.git
+    [32m•[39m Framework revision ee80f08bbf (5 weeks ago), 2026-07-08 15:02:06 -0700
+    [32m•[39m Engine revision 83675ed276
+    [32m•[39m Dart version 3.12.2
+    [32m•[39m DevTools version 2.57.0
+    [32m•[39m Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop,
+      enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-native-assets,
+      enable-swift-package-manager, omit-legacy-version-file, enable-lldb-debugging,
+      enable-uiscene-migration
+
+[32m[✓][39m Windows Version (11 Pro 64-bit, 25H2, 2009) [2.1s]
+
+[32m[✓][39m Android toolchain - develop for Android devices (Android SDK version 36.1.0) [4.8s]
+    [32m•[39m Android SDK at C:\Users\USER\AppData\Local\Android\sdk
+    [32m•[39m Emulator version 36.4.9.0 (build_id 14788078) (CL:N/A)
+    [32m•[39m Platform android-36.1, build-tools 36.1.0
+    [32m•[39m Java binary at: C:\Program Files\Android\Android Studio\jbr\bin\java
+      This is the JDK bundled with the latest Android Studio installation on this machine.
+      To manually set the JDK path, use: `flutter config --jdk-dir="path/to/jdk"`.
+    [32m•[39m Java version OpenJDK Runtime Environment (build 21.0.9+-14649483-b1163.86)
+    [32m•[39m All Android licenses accepted.
+
+[32m[✓][39m Chrome - develop for the web [156ms]
+    [32m•[39m Chrome at C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
+
+[32m[✓][39m Visual Studio - develop Windows apps (Visual Studio Community 2026 18.3.2) [155ms]
+    [32m•[39m Visual Studio at C:\Program Files\Microsoft Visual Studio\18\Community
+    [32m•[39m Visual Studio Community 2026 version 18.3.11520.95
+    [32m•[39m Windows 10 SDK version 10.0.26100.0
+
+[32m[✓][39m Connected device (3 available) [307ms]
+    [32m•[39m Windows (desktop) • windows • windows-x64    • Microsoft Windows [Version 10.0.26200.9168]
+    [32m•[39m Chrome (web)      • chrome  • web-javascript • Google Chrome 151.0.7922.137
+    [32m•[39m Edge (web)        • edge    • web-javascript • Microsoft Edge 151.0.4129.78
+
+[32m[✓][39m Network resources [1,327ms]
+    [32m•[39m All expected network resources are available.
+
+[32m•[39m No issues found!
+```

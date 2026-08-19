@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
+
+import 'package:studycycle/features/dashboard/screens/groups_screen.dart';
 import 'package:studycycle/features/dashboard/widgets/quick_action_card.dart';
 
 class QuickActions extends StatelessWidget {
@@ -6,33 +10,36 @@ class QuickActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 2,
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      crossAxisSpacing: 16,
-      mainAxisSpacing: 16,
-      childAspectRatio: 1.2,
+    return Row(
       children: [
-        QuickActionCard(
-          icon: Icons.menu_book,
-          title: 'My Courses',
-          onTap: () {},
+        Expanded(
+          child: QuickActionCard(
+            icon: Iconsax.book,
+            title: 'Courses',
+            onTap: () {},
+          ),
         ),
-        QuickActionCard(
-          icon: Icons.calendar_month,
-          title: 'Schedule',
-          onTap: () {},
+
+        const SizedBox(width: 12),
+
+        Expanded(
+          child: QuickActionCard(
+            icon: Iconsax.calendar,
+            title: 'Schedule',
+            onTap: () {},
+          ),
         ),
-        QuickActionCard(
-          icon: Icons.show_chart,
-          title: 'Progress',
-          onTap: () {},
-        ),
-        QuickActionCard(
-          icon: Icons.groups,
-          title: 'Study Groups',
-          onTap: () {},
+
+        const SizedBox(width: 12),
+
+        Expanded(
+          child: QuickActionCard(
+            icon: Iconsax.people,
+            title: 'Groups',
+            onTap: () {
+              Get.to(() => const GroupsScreen());
+            },
+          ),
         ),
       ],
     );

@@ -43,7 +43,7 @@ abstract class AppPages {
     ),
     GetPage(
       name: AppRoutes.circle,
-      page: () => const SCircleScreen(),
+      page: () => const SCirclePage(),
     ),
     GetPage(
       name: AppRoutes.groupChat,

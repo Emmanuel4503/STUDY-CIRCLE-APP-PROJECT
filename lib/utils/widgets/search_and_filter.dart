@@ -29,7 +29,7 @@ class SSearchAndFilter extends StatelessWidget {
           icon: const Icon(Icons.filter_list),
           onPressed: (){}
         ),
-      ],
+      ], 
     );
   }
 }

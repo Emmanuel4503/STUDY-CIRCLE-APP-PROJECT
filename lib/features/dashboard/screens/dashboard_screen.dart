@@ -13,7 +13,9 @@ import 'package:studycycle/utils/constants/sizes.dart';
 
 class DashboardScreen extends StatelessWidget {
   DashboardScreen({super.key});
+
   final controller = Get.put(DashboardController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +40,15 @@ class DashboardScreen extends StatelessWidget {
 
             const SizedBox(height: SSizes.lg),
 
+            // Active Groups
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
+              child: ActiveGroups(),
+            ),
+
+            const SizedBox(height: SSizes.lg),
+
+            // Upcoming Sessions comes before Progress Overview
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
               child: UpcomingSessions(),
@@ -45,6 +56,7 @@ class DashboardScreen extends StatelessWidget {
 
             const SizedBox(height: SSizes.lg),
 
+            // Progress Overview
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
               child: ProgressOverview(),
@@ -52,6 +64,7 @@ class DashboardScreen extends StatelessWidget {
 
             const SizedBox(height: SSizes.lg),
 
+            // Recommended Resources
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
               child: RecommendedResources(),
@@ -59,13 +72,7 @@ class DashboardScreen extends StatelessWidget {
 
             const SizedBox(height: SSizes.lg),
 
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: SSizes.lg), 
-              child: ActiveGroups()
-              ),
-
-            const SizedBox(height: SSizes.lg),
-
+            // Recent Activity
             Padding(
               padding: const EdgeInsets.fromLTRB(
                 SSizes.lg,
@@ -81,4 +88,3 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 }
-

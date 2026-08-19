@@ -22,7 +22,7 @@ class ActivityCard extends StatelessWidget {
     contentPadding: EdgeInsets.zero,
 
     leading: CircleAvatar(
-      backgroundColor: SColors.secondary,
+      backgroundColor: SColors.primary.withValues(alpha: 0.10),
       child: Icon(
         activity.icon,
         color: SColors.primary,
@@ -32,7 +32,9 @@ class ActivityCard extends StatelessWidget {
 
     title: Text(
       activity.title,
-      style: Theme.of(context).textTheme.titleMedium,
+      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+      fontWeight: FontWeight.w600,
+),
     ),
 
     subtitle: Text(

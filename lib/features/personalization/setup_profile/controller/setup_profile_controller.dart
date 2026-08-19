@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:studycycle/features/cycle/Profile/profile.dart';
+import 'package:studycycle/features/personalization/Profile/profile.dart';
 import 'package:studycycle/features/personalization/setup_profile/model/institution_type_model.dart';
 import 'package:studycycle/features/personalization/setup_profile/model/setup_profile_model.dart';
 import 'package:studycycle/utils/storage/dummy_data.dart';
