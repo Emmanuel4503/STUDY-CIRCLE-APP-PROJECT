@@ -1,9 +1,14 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:studycycle/features/cycle/library/widgets/currently_reading.dart';
+import 'package:studycycle/features/cycle/library/widgets/downloaded_book_tile.dart';
+import 'package:studycycle/features/cycle/library/widgets/featured_book_card.dart';
+import 'package:studycycle/features/cycle/library/widgets/library_book_card.dart';
+import 'package:studycycle/features/cycle/library/widgets/library_section_header.dart';
 import 'package:studycycle/features/cycle/library/widgets/pdf_viewer_page.dart';
-import 'package:studycycle/features/cycle/library/widgets/book_display.dart';
+import 'package:studycycle/features/cycle/library/widgets/recently_added_books.dart';
+import 'package:studycycle/features/cycle/library/widgets/recommended_book_grid.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
-import 'package:studycycle/utils/storage/dummy_data.dart';
 import 'package:studycycle/utils/widgets/app_double_text.dart';
 import 'package:studycycle/utils/widgets/custom_appbar.dart';
 import 'package:studycycle/utils/widgets/search_and_filter.dart';
@@ -172,56 +177,117 @@ class _LibraryScreenState extends State<LibraryScreen> {
               ),
             ),
 
-          // Popular Books
+
+            // currently reading
+             const SliverToBoxAdapter(
+            child: SizedBox(height: SSizes.spaceBtwItems),
+          ),
+
           const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: SSizes.defaultSpace,
-              ),
-              child: AppDoubleText(
-                bigText: "Popular Books",
-                smallText: "View All",
-              ),
+            child: CurrentlyReadingScreen(),
+          ),
+
+          // Popular
+          const SliverToBoxAdapter(
+            child: LibrarySectionHeader(
+              title: 'Popular Books',
             ),
           ),
 
           const SliverToBoxAdapter(
-            child: SizedBox(
-              height: SSizes.spaceBtwItems,
+            child: SizedBox(height: SSizes.spaceBtwItems),
+          ),
+
+          const SliverPadding(
+            padding: EdgeInsets.symmetric(
+              horizontal: SSizes.defaultSpace,
             ),
+            sliver: PopularBookGrid(),
           ),
-
-          BookDisplay(
-            count: DummyData.books.length - 4,
-          ),
-
+          // Featured
           const SliverToBoxAdapter(
-            child: SizedBox(
-              height: SSizes.spaceBtwSections,
-            ),
-          ),
-
-          // Featured Books
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: SSizes.defaultSpace,
-              ),
-              child: AppDoubleText(
-                bigText: "Featured Books",
-                smallText: "View All",
-              ),
+            child: LibrarySectionHeader(
+              title: 'Featured Books',
             ),
           ),
 
           const SliverToBoxAdapter(
-            child: SizedBox(
-              height: SSizes.spaceBtwItems,
+            child: SizedBox(height: SSizes.spaceBtwItems),
+          ),
+
+          const SliverToBoxAdapter(
+            child: FeaturedBookList(),
+          ),
+
+          // Popular
+          const SliverToBoxAdapter(
+            child: LibrarySectionHeader(
+              title: 'Popular Books',
             ),
           ),
 
-          BookDisplay(
-            count: DummyData.books.length,
+          const SliverToBoxAdapter(
+            child: SizedBox(height: SSizes.spaceBtwItems),
+          ),
+
+          const SliverPadding(
+            padding: EdgeInsets.symmetric(
+              horizontal: SSizes.defaultSpace,
+            ),
+            sliver: PopularBookGrid(),
+          ),
+// Recently Added
+          const SliverToBoxAdapter(
+            child: LibrarySectionHeader(
+              title: 'Recently Added',
+            ),
+          ),
+
+          const SliverToBoxAdapter(
+            child: SizedBox(height: SSizes.spaceBtwItems),
+          ),
+
+          const SliverToBoxAdapter(
+            child: RecentlyAddedBooks(),
+          ),
+
+          // Recommended
+          const SliverToBoxAdapter(
+            child: LibrarySectionHeader(
+              title: 'Recommended For You',
+            ),
+          ),
+
+          const SliverToBoxAdapter(
+            child: SizedBox(height: SSizes.spaceBtwItems),
+          ),
+
+          const SliverPadding(
+            padding: EdgeInsets.symmetric(
+              horizontal: SSizes.defaultSpace,
+            ),
+            sliver: RecommendedBookGrid(),
+          ),
+ // Downloaded
+          const SliverToBoxAdapter(
+            child: LibrarySectionHeader(
+              title: 'Downloaded Books',
+            ),
+          ),
+
+          const SliverToBoxAdapter(
+            child: SizedBox(height: SSizes.spaceBtwItems),
+          ),
+
+          const SliverPadding(
+            padding: EdgeInsets.symmetric(
+              horizontal: SSizes.defaultSpace,
+            ),
+            sliver: DownloadedBookList(),
+          ),
+
+          const SliverToBoxAdapter(
+            child: SizedBox(height: 40),
           ),
         ],
       ),
