@@ -6,6 +6,7 @@ import 'package:studycycle/features/cycle/circle/circle.dart';
 import 'package:studycycle/features/cycle/circle/screens/group_chat_screen.dart';
 import 'package:studycycle/features/cycle/library/library.dart';
 import 'package:studycycle/features/personalization/setup_profile/setup_profile.dart';
+import 'package:studycycle/features/personalization/Profile/theme_settings.dart';
 
 import '../bindings/splash_binding.dart';
 import '../bindings/onboarding_binding.dart';
@@ -52,6 +53,10 @@ abstract class AppPages {
     GetPage(
       name: AppRoutes.setupProfile,
       page: () => const SSetupProfile(),
+    ),
+    GetPage(
+      name: AppRoutes.themeSettings,
+      page: () => const ThemeSettings(),
     ),
     GetPage(
       name: AppRoutes.classroom,

@@ -22,7 +22,7 @@ class GroupCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: SSizes.cardElevation,
-      color: SColors.lightCard,
+      color: Theme.of(context).colorScheme.surface,
       shape: RoundedRectangleBorder(
         borderRadius: SRadius.allLg,
       ),
@@ -51,11 +51,10 @@ class GroupCard extends StatelessWidget {
                   children: [
                     Text(
                       group.title,
-                      style: const TextStyle(
-                        fontSize: SSizes.fontMd,
-                        fontWeight: FontWeight.w600,
-                        color: SColors.lightTextPrimary,
-                      ),
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            fontSize: SSizes.fontMd,
+                            fontWeight: FontWeight.w600,
+                          ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -64,20 +63,19 @@ class GroupCard extends StatelessWidget {
 
                     Row(
                       children: [
-                        const Icon(
+                        Icon(
                           Iconsax.profile_2user,
                           size: SSizes.iconSm,
-                          color: SColors.grey,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
 
                         SSpacing.gapHsm,
 
                         Text(
                           group.members,
-                          style: const TextStyle(
-                            fontSize: SSizes.fontSm,
-                            color: SColors.lightTextSecondary,
-                          ),
+                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                fontSize: SSizes.fontSm,
+                              ),
                         ),
                       ],
                     ),

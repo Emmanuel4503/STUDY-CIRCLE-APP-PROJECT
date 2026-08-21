@@ -66,13 +66,12 @@ class SCirclePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             /// My Groups
-            const Text(
+            Text(
               'My Groups',
-              style: TextStyle(
-                fontSize: SSizes.fontLg,
-                fontWeight: FontWeight.bold,
-                color: SColors.lightTextPrimary,
-              ),
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontSize: SSizes.fontLg,
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
 
             SSpacing.gapVxs,
@@ -80,7 +79,6 @@ class SCirclePage extends StatelessWidget {
             Text(
               'Study and collaborate with your groups.',
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: SColors.lightTextSecondary,
                   ),
             ),
 
@@ -113,13 +111,12 @@ class SCirclePage extends StatelessWidget {
             const SizedBox(height: SSizes.lg),
 
             /// Discover Groups
-            const Text(
+            Text(
               'Discover Groups',
-              style: TextStyle(
-                fontSize: SSizes.fontLg,
-                fontWeight: FontWeight.bold,
-                color: SColors.lightTextPrimary,
-              ),
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontSize: SSizes.fontLg,
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
 
             SSpacing.gapVxs,
@@ -127,7 +124,6 @@ class SCirclePage extends StatelessWidget {
             Text(
               'Find groups that match your learning interests.',
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: SColors.lightTextSecondary,
                   ),
             ),
 

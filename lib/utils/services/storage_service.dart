@@ -22,6 +22,7 @@ class StorageService {
   static const String _kOnboardingSeen = 'onboarding_seen';
   static const String _kAuthToken = 'auth_token';
   static const String _kProfileSetupCompleted = 'profile_setup_completed';
+  static const String _kThemeMode = 'theme_mode';
 
   // ---- Onboarding ----
   bool get hasSeenOnboarding {
@@ -54,6 +55,16 @@ class StorageService {
   Future<void> setProfileSetupCompleted(bool value) {
     _ensureInitialized();
     return _box.write(_kProfileSetupCompleted, value);
+  }
+
+  String? get themeMode {
+    _ensureInitialized();
+    return _box.read(_kThemeMode);
+  }
+
+  Future<void> setThemeMode(String value) {
+    _ensureInitialized();
+    return _box.write(_kThemeMode, value);
   }
 
   /// Clears everything (e.g. on logout).

@@ -41,6 +41,13 @@ class ProfileSetting extends StatelessWidget {
             onTap: () => Get.to(() => const EditPassword()),
           ),
           const SizedBox(height: SSizes.md),
+          ProfileSettingItem(
+            title: 'App Themes',
+            subtitle: 'Switch between light and dark mode',
+            icon: Icons.palette_outlined,
+            onTap: () => Get.toNamed(AppRoutes.themeSettings),
+          ),
+          const SizedBox(height: SSizes.md),
           const _SectionLabel(title: 'Community'),
           const SizedBox(height: SSizes.sm),
           const InviteFriendWidget(),

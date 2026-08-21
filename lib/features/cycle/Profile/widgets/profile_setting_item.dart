@@ -31,7 +31,7 @@ class ProfileSettingItem extends StatelessWidget {
           color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
           border: Border.all(
-            color: Colors.grey.shade300,
+            color: Theme.of(context).dividerColor,
           ),
           boxShadow: [
             BoxShadow(

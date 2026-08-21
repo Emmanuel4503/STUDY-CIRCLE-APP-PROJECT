@@ -50,13 +50,12 @@ class ActiveGroups extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
+            Text(
               'Active Groups',
-              style: TextStyle(
-                fontSize: SSizes.fontLg,
-                fontWeight: FontWeight.bold,
-                color: SColors.lightTextPrimary,
-              ),
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontSize: SSizes.fontLg,
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
 
             TextButton.icon(

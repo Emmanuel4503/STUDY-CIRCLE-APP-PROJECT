@@ -7,6 +7,7 @@ import 'bindings/splash_binding.dart';
 import 'routes/app_pages.dart';
 import 'routes/app_routes.dart';
 import 'theme/app_theme.dart';
+import '../features/cycle/controllers/theme_controller.dart';
 import '../utils/constants/strings.dart';
 //import '../features/authentication/screens/login/login_screen.dart';
 
@@ -15,18 +16,22 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: SStrings.appName,
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
-      initialRoute: AppRoutes.splash,
-      initialBinding: SplashBinding(),
-      getPages: AppPages.pages,
-      unknownRoute: GetPage(
-        name: '/notfound',
-        page: () => const SplashScreen(),
+    final themeController = Get.put(ThemeController(), permanent: true);
+
+    return Obx(
+      () => GetMaterialApp(
+        title: SStrings.appName,
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: themeController.themeMode.value,
+        initialRoute: AppRoutes.splash,
+        initialBinding: SplashBinding(),
+        getPages: AppPages.pages,
+        unknownRoute: GetPage(
+          name: '/notfound',
+          page: () => const SplashScreen(),
+        ),
       ),
     );
   }

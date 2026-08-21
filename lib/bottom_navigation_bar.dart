@@ -5,7 +5,6 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:studycycle/features/personalization/Profile/profile.dart';
 import 'package:studycycle/features/cycle/circle/circle.dart';
 import 'package:studycycle/features/cycle/library/library.dart';
-import 'package:studycycle/utils/constants/colors.dart';
 
 import 'features/dashboard/screens/dashboard_screen.dart';
 
@@ -24,8 +23,9 @@ class BottomNavigationBar extends StatelessWidget {
             selectedIndex: controller.selectedIndex.value,
             onDestinationSelected: (index) =>
                 controller.selectedIndex.value = index,
-            backgroundColor: SColors.white,
-            indicatorColor: SColors.black.withAlpha(30),
+            backgroundColor: Theme.of(context).colorScheme.surface,
+            indicatorColor:
+              Theme.of(context).colorScheme.primary.withValues(alpha: 0.14),
             destinations: [
               const NavigationDestination(
                   icon: Icon(Iconsax.home), label: "Dashboard"),
