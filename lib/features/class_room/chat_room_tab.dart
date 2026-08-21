@@ -19,7 +19,14 @@ class _ChatMessage {
 }
 
 class ChatroomTab extends StatefulWidget {
-  const ChatroomTab({super.key});
+  final String groupTitle;
+  final String groupMembers;
+
+  const ChatroomTab({
+    super.key,
+    this.groupTitle = 'Accounting 101',
+    this.groupMembers = '24 Members',
+  });
 
   @override
   State<ChatroomTab> createState() => _ChatroomTabState();
@@ -94,9 +101,9 @@ class _ChatroomTabState extends State<ChatroomTab> {
         // Chat Header
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-          decoration: const BoxDecoration(
-            color: SColors.white,
-            border: Border(bottom: BorderSide(color: SColors.lightBorder)),
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surface,
+            border: Border(bottom: BorderSide(color: Theme.of(context).dividerColor)),
           ),
           child: Row(
             children: [
@@ -114,12 +121,12 @@ class _ChatroomTabState extends State<ChatroomTab> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Accounting 101',
+                    Text(
+                      widget.groupTitle,
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                     const SizedBox(height: 2),
@@ -134,11 +141,11 @@ class _ChatroomTabState extends State<ChatroomTab> {
                           ),
                         ),
                         const SizedBox(width: 4),
-                        const Text(
-                          '24 members · 8 online',
+                        Text(
+                          '${widget.groupMembers} · 8 online',
                           style: TextStyle(
                             fontSize: 12,
-                            color: SColors.grey,
+                            color: Theme.of(context).colorScheme.onSurfaceVariant,
                           ),
                         ),
                       ],
@@ -148,7 +155,7 @@ class _ChatroomTabState extends State<ChatroomTab> {
               ),
               IconButton(
                 icon: const Icon(Icons.more_vert),
-                color: SColors.grey,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
                 onPressed: () {},
               ),
             ],
@@ -158,7 +165,7 @@ class _ChatroomTabState extends State<ChatroomTab> {
         // Messages Area
         Expanded(
           child: Container(
-            color: SColors.lighterBackground,
+            color: Theme.of(context).scaffoldBackgroundColor,
             child: ListView.builder(
               controller: _scrollController,
               padding: const EdgeInsets.all(16.0),
@@ -187,14 +194,14 @@ class _ChatroomTabState extends State<ChatroomTab> {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
           decoration: BoxDecoration(
-            color: SColors.lightBorder,
+            color: Theme.of(context).colorScheme.surfaceContainerHighest,
             borderRadius: BorderRadius.circular(12),
           ),
-          child: const Text(
+          child: Text(
             'Today',
             style: TextStyle(
               fontSize: 12,
-              color: SColors.darkGrey,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -239,9 +246,9 @@ class _ChatroomTabState extends State<ChatroomTab> {
             const SizedBox(height: 4),
             Text(
               message.time,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 11,
-                color: SColors.grey,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
           ],
@@ -273,17 +280,17 @@ class _ChatroomTabState extends State<ChatroomTab> {
               children: [
                 Text(
                   message.senderName,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
-                    color: SColors.darkGrey,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
                   decoration: BoxDecoration(
-                    color: SColors.white,
+                    color: Theme.of(context).colorScheme.surface,
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(16),
                       topRight: Radius.circular(16),
@@ -300,8 +307,8 @@ class _ChatroomTabState extends State<ChatroomTab> {
                   ),
                   child: Text(
                     message.message,
-                    style: const TextStyle(
-                      color: Colors.black87,
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSurface,
                       fontSize: 14,
                     ),
                   ),
@@ -309,9 +316,9 @@ class _ChatroomTabState extends State<ChatroomTab> {
                 const SizedBox(height: 4),
                 Text(
                   message.time,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 11,
-                    color: SColors.grey,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                 ),
               ],
@@ -325,15 +332,15 @@ class _ChatroomTabState extends State<ChatroomTab> {
   Widget _buildInputBar() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
-      decoration: const BoxDecoration(
-        color: SColors.white,
-        border: Border(top: BorderSide(color: SColors.lightBorder)),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
+        border: Border(top: BorderSide(color: Theme.of(context).dividerColor)),
       ),
       child: Row(
         children: [
           IconButton(
             icon: const Icon(Icons.attach_file_rounded),
-            color: SColors.grey,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
             onPressed: () {},
           ),
           const SizedBox(width: 4),
@@ -341,7 +348,7 @@ class _ChatroomTabState extends State<ChatroomTab> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               decoration: BoxDecoration(
-                color: SColors.lightGrey,
+                color: Theme.of(context).colorScheme.surfaceContainerHighest,
                 borderRadius: BorderRadius.circular(24),
               ),
               child: TextField(

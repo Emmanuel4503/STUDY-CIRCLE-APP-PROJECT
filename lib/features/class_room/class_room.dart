@@ -4,23 +4,32 @@ import 'package:studycycle/features/class_room/assessments_tab.dart';
 import 'package:studycycle/features/class_room/exams_tab.dart';
 import 'package:studycycle/features/class_room/voting_polls_tab.dart';
 import 'package:studycycle/features/class_room/chat_room_tab.dart'; // New feature tab
+import 'package:studycycle/features/dashboard/models/group_model.dart';
 import 'package:studycycle/utils/constants/colors.dart';
 
 class ClassroomScreen extends StatelessWidget {
-  const ClassroomScreen({super.key});
+  final GroupModel? group;
+
+  const ClassroomScreen({super.key, this.group});
 
   @override
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
+    final classroomTextColor = Theme.of(context).brightness == Brightness.dark
+      ? SColors.primaryLight
+      : primaryColor;
+    final selectedTabColor = Theme.of(context).brightness == Brightness.dark
+      ? SColors.primaryLight
+      : primaryColor;
 
     return DefaultTabController(
       length: 4,
       child: Scaffold(
-        backgroundColor: SColors.lighterBackground,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
           automaticallyImplyLeading: true,
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           centerTitle: false,
           title: Stack(
             children: [
@@ -33,7 +42,7 @@ class ClassroomScreen extends StatelessWidget {
                       foreground: Paint()
                         ..style = PaintingStyle.stroke
                         ..strokeWidth = 2
-                        ..color = primaryColor.withValues(alpha: 0.15),
+                        ..color = classroomTextColor.withValues(alpha: 0.22),
                     ),
               ),
               Text(
@@ -41,7 +50,7 @@ class ClassroomScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.w900,
                       letterSpacing: 0.5,
-                      color: primaryColor,
+                      color: classroomTextColor,
                     ),
               ),
             ],
@@ -51,7 +60,7 @@ class ClassroomScreen extends StatelessWidget {
             Container(
               //margin: const EdgeInsets.only(right: 16, top: 8, bottom: 8),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
@@ -81,8 +90,8 @@ class ClassroomScreen extends StatelessWidget {
               ),
               child: TabBar(
                 isScrollable: true,
-                labelColor: Colors.white,
-                unselectedLabelColor: SColors.darkGrey,
+                labelColor: Theme.of(context).colorScheme.onPrimary,
+                unselectedLabelColor: Theme.of(context).colorScheme.onSurfaceVariant,
                 indicatorSize: TabBarIndicatorSize.tab,
 
                 // Extra styling for selected tab
@@ -90,15 +99,15 @@ class ClassroomScreen extends StatelessWidget {
                   borderRadius: BorderRadius.zero,
                   gradient: LinearGradient(
                     colors: [
-                      primaryColor,
-                      primaryColor.withValues(alpha: 0.85)
+                      selectedTabColor,
+                      selectedTabColor.withValues(alpha: 0.85)
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: primaryColor.withValues(alpha: 0.3),
+                      color: selectedTabColor.withValues(alpha: 0.3),
                       blurRadius: 8,
                       offset: const Offset(0, 4),
                     ),
@@ -160,21 +169,24 @@ class ClassroomScreen extends StatelessWidget {
         ),
 
         // --- Core Sub-screen Views Layout ---
-        body: const Padding(
-          padding: EdgeInsets.only(top: 12),
+        body: Padding(
+          padding:const EdgeInsets.only(top: 12),
           child: TabBarView(
             children: [
               // LIVE CHATROOM TAB PANEL
-              ChatroomTab(),
+              ChatroomTab(
+                groupTitle: group?.title ?? 'Accounting 101',
+                groupMembers: group?.members ?? '24 Members',
+              ),
 
               // ASSESSMENTS Tab View Panel
-              AssessmentsTab(),
+              const AssessmentsTab(),
 
               // EXAMINATIONS Tab View Panel
-              ExamsTab(),
+              const ExamsTab(),
 
               // VOTING & POLLS Tab View Panel
-              VotingPollsTab(),
+              VotingPollsTab(groupTitle: group?.title ?? 'Advanced Computer Systems'),
             ],
           ),
         ),

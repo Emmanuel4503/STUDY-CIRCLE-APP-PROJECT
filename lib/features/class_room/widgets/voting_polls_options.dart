@@ -20,7 +20,7 @@ class VotingPollsOptions extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(SSizes.sm),
       decoration: BoxDecoration(
-        color: SColors.lightBackground,
+          color: Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(SRadius.sm),
       ),
       child: Column(

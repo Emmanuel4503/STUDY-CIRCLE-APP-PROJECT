@@ -28,9 +28,9 @@ class ExamCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 14),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: SColors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: SColors.lightBorder, width: 1.2),
+        border: Border.all(color: Theme.of(context).dividerColor, width: 1.2),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.015),
@@ -60,7 +60,7 @@ class ExamCard extends StatelessWidget {
                   children: [
                     Text(
                       course,
-                      style: const TextStyle(
+                      style:const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                           color: SColors.primary),
@@ -68,19 +68,19 @@ class ExamCard extends StatelessWidget {
                     const SizedBox(height: 2),
                     Text(
                       title,
-                      style: const TextStyle(
+                      style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
-                          color: SColors.lightTextPrimary),
+                          color: Theme.of(context).colorScheme.onSurface),
                     ),
                   ],
                 ),
               ),
             ],
           ),
-          const Padding(
+        const  Padding(
             padding: EdgeInsets.symmetric(vertical: 14.0),
-            child: Divider(color: SColors.lightBorder, height: 1),
+            child: Divider(height: 1),
           ),
           Wrap(
             spacing: 12,
@@ -94,17 +94,20 @@ class ExamCard extends StatelessWidget {
                   children: [
                     Text(
                       timeDetail,
-                      style: const TextStyle(
+                      style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
-                          color: SColors.lightTextSecondary),
+                          color: Theme.of(context).colorScheme.onSurfaceVariant),
                     ),
                     const SizedBox(height: 2),
                     Text(
                       metaLabel,
                       style: TextStyle(
                           fontSize: 11,
-                          color: SColors.darkGrey.withValues(alpha: 0.7),
+                            color: Theme.of(context)
+                              .colorScheme
+                              .onSurfaceVariant
+                              .withValues(alpha: 0.7),
                           fontWeight: FontWeight.w600),
                     ),
                   ],
@@ -114,9 +117,12 @@ class ExamCard extends StatelessWidget {
                 onPressed: isInteractive ? () {} : null,
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
-                  backgroundColor:
-                      isInteractive ? SColors.primary : SColors.lightGrey,
-                  foregroundColor: isInteractive ? SColors.white : SColors.grey,
+                    backgroundColor: isInteractive
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).disabledColor.withValues(alpha: 0.15),
+                  foregroundColor: isInteractive
+                    ? Theme.of(context).colorScheme.onPrimary
+                    : Theme.of(context).disabledColor,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   shape: RoundedRectangleBorder(

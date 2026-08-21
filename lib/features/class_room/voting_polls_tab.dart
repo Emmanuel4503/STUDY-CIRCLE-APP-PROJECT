@@ -7,7 +7,12 @@ import 'package:studycycle/utils/constants/radius.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
 class VotingPollsTab extends StatelessWidget {
-  const VotingPollsTab({super.key});
+  final String groupTitle;
+
+  const VotingPollsTab({
+    super.key,
+    this.groupTitle = 'Advanced Computer Systems',
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +22,12 @@ class VotingPollsTab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Live Voting Poll
-          Container(
-            padding: const EdgeInsets.all(SSizes.md + 4),
-            decoration: BoxDecoration(
-              color: SColors.white,
+              Container(
+                padding: const EdgeInsets.all(SSizes.md + 4),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.surface,
               borderRadius: BorderRadius.circular(SRadius.md),
-              border: Border.all(color: SColors.lightBorder, width: 1.2),
+              border: Border.all(color: Theme.of(context).dividerColor, width: 1.2),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withValues(alpha: 0.02),
@@ -63,11 +68,11 @@ class VotingPollsTab extends StatelessWidget {
                       children: [
                         Icon(Iconsax.clock_copy,
                             size: 14,
-                            color: SColors.darkGrey.withValues(alpha: 0.7)),
+                            color: Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.7)),
                         const SizedBox(width: 4),
-                        const Text('Closes in 4h',
+                           Text('Closes in 4h',
                             style: TextStyle(
-                                color: SColors.darkGrey,
+                                color: Theme.of(context).colorScheme.onSurfaceVariant,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500)),
                       ],
@@ -81,7 +86,7 @@ class VotingPollsTab extends StatelessWidget {
                   'When should we hold the exam review sync session?',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
-                        color: SColors.lightTextPrimary,
+                        color: Theme.of(context).colorScheme.onSurface,
                         height: 1.3,
                       ),
                 ),
@@ -109,7 +114,7 @@ class VotingPollsTab extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 11,
                       fontStyle: FontStyle.italic,
-                      color: SColors.grey.withValues(alpha: 0.9)),
+                          color: Theme.of(context).colorScheme.onSurfaceVariant.withValues(alpha: 0.9)),
                 ),
               ],
             ),
@@ -117,17 +122,17 @@ class VotingPollsTab extends StatelessWidget {
           const SizedBox(height: SSizes.spaceBtwSections),
 
           // Classroom Poll Decision History
-          const Text(
+          Text(
             'Past Poll Results',
             style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: SColors.lightTextPrimary),
+                color: Theme.of(context).colorScheme.onSurface),
           ),
           const SizedBox(height: 12),
 
-          const ArchivePool(
-            question: 'Which chapter was hardest in Advanced Computer Systems?',
+          ArchivePool(
+            question: 'Which chapter was hardest in $groupTitle?',
             winnerOption: 'Chapter 4: Micro-kernels & Scheduling',
             totalVotes: 112,
           ),

@@ -18,9 +18,9 @@ class ExamsTab extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: SColors.white,
+              color: Theme.of(context).colorScheme.surface,
               borderRadius: BorderRadius.circular(24),
-              border: Border.all(color: SColors.lightBorder, width: 1.2),
+              border: Border.all(color: Theme.of(context).dividerColor, width: 1.2),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withValues(alpha: 0.03),
@@ -53,30 +53,31 @@ class ExamsTab extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 4),
-                      decoration: const BoxDecoration(
-                          color: SColors.lightGrey,
-                          borderRadius: BorderRadius.all(Radius.circular(8))),
-                      child: const Text('2 Active Units',
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                          borderRadius: const BorderRadius.all(Radius.circular(8))),
+                      child: Text('2 Active Units',
                           style: TextStyle(
-                              color: SColors.darkGrey,
+                              color: Theme.of(context).colorScheme.onSurfaceVariant,
                               fontSize: 11,
                               fontWeight: FontWeight.bold)),
                     ),
                   ],
                 ),
                 const SizedBox(height: 14),
-                const Text(
+                Text(
                   'Examination Portal',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: SColors.lightTextPrimary),
+                      color: Theme.of(context).colorScheme.onSurface),
                 ),
                 const SizedBox(height: 4),
-                const Text(
+                Text(
                   'Track certified institutional benchmarks, take automated mock papers, and monitor grading metrics.',
                   style: TextStyle(
-                      fontSize: 12, color: SColors.lightTextSecondary),
+                      fontSize: 12,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant),
                 ),
               ],
             ),
@@ -84,12 +85,12 @@ class ExamsTab extends StatelessWidget {
           const SizedBox(height: SSizes.spaceBtwSections),
 
           // SECTION TITLE
-          const Text(
+          Text(
             'Your Assigned Exams',
             style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: SColors.lightTextPrimary),
+                color: Theme.of(context).colorScheme.onSurface),
           ),
           const SizedBox(height: 12),
 

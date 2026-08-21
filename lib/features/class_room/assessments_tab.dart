@@ -18,7 +18,7 @@ class AssessmentsTab extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: SColors.white,
+              color: Theme.of(context).colorScheme.surface,
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
                   color: SColors.warning.withValues(alpha: 0.3), width: 1.5),
@@ -46,19 +46,19 @@ class AssessmentsTab extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Text(
                         'Urgent Assessment Due',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
-                            color: SColors.lightTextPrimary),
+                            color: Theme.of(context).colorScheme.onSurface),
                       ),
                       const SizedBox(height: 2),
                       Text(
                         'Your Data Architecture Quiz closes in less than 36 hours.',
                         style: TextStyle(
                             fontSize: 12,
-                            color: SColors.lightTextSecondary
+                            color: Theme.of(context).colorScheme.onSurfaceVariant
                                 .withValues(alpha: 0.9)),
                       ),
                     ],
@@ -72,12 +72,12 @@ class AssessmentsTab extends StatelessWidget {
           const SizedBox(height: SSizes.spaceBtwSections),
 
           // SECTION HEADER 1
-          const Text(
+          Text(
             'Your Open Tasks',
             style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: SColors.lightTextPrimary),
+                color: Theme.of(context).colorScheme.onSurface),
           ),
           const SizedBox(height: 12),
 
@@ -145,10 +145,11 @@ class AssessmentsTab extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 6),
-                const Text(
+                Text(
                   'Submit an early draft of your assignment to get anonymous feedback from your StudyCircle classmates before grading.',
                   style: TextStyle(
-                      fontSize: 12, color: SColors.lightTextSecondary),
+                      fontSize: 12,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant),
                 ),
                 const SizedBox(height: 14),
                 ElevatedButton.icon(

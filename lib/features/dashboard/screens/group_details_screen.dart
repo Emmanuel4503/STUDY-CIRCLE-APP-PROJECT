@@ -31,7 +31,7 @@ class GroupDetailsScreen extends StatelessWidget {
             /// Group Header
             Card(
               elevation: SSizes.cardElevation,
-              color: SColors.lightCard,
+              color: Theme.of(context).colorScheme.surface,
               shape: RoundedRectangleBorder(
                 borderRadius: SRadius.allLg,
               ),
@@ -52,27 +52,27 @@ class GroupDetailsScreen extends StatelessWidget {
                     Text(
                       group.title,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: SSizes.fontXl,
                         fontWeight: FontWeight.bold,
-                        color: SColors.lightTextPrimary,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                     SSpacing.gapVxs,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(
+                        Icon(
                           Iconsax.profile_2user,
                           size: SSizes.iconSm,
-                          color: SColors.grey,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
                         SSpacing.gapHsm,
                         Text(
                           group.members,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: SSizes.fontSm,
-                            color: SColors.lightTextSecondary,
+                            color: Theme.of(context).colorScheme.onSurfaceVariant,
                           ),
                         ),
                       ],
@@ -115,12 +115,12 @@ class GroupDetailsScreen extends StatelessWidget {
             const SizedBox(height: SSizes.lg),
 
             /// About
-            const Text(
+            Text(
               'About this group',
               style: TextStyle(
                 fontSize: SSizes.fontLg,
                 fontWeight: FontWeight.bold,
-                color: SColors.lightTextPrimary,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
 
@@ -129,9 +129,9 @@ class GroupDetailsScreen extends StatelessWidget {
             Text(
               'Study, collaborate and share knowledge with other '
               'students in ${group.title}.',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: SSizes.fontSm,
-                color: SColors.lightTextSecondary,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
                 height: 1.5,
               ),
             ),
@@ -139,12 +139,12 @@ class GroupDetailsScreen extends StatelessWidget {
             const SizedBox(height: SSizes.lg),
 
             /// Upcoming Session
-            const Text(
+            Text(
               'Classroom',
               style: TextStyle(
                 fontSize: SSizes.fontLg,
                 fontWeight: FontWeight.bold,
-                color: SColors.lightTextPrimary,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
 
@@ -152,7 +152,7 @@ class GroupDetailsScreen extends StatelessWidget {
 
             Card(
               elevation: SSizes.cardElevation,
-              color: SColors.lightCard,
+              color: Theme.of(context).colorScheme.surface,
               shape: RoundedRectangleBorder(
                 borderRadius: SRadius.allLg,
               ),
@@ -169,23 +169,23 @@ class GroupDetailsScreen extends StatelessWidget {
                     size: SSizes.iconSm,
                   ),
                 ),
-                title: const Text(
+                title: Text(
                   'My Classroom ',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    color: SColors.lightTextPrimary,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
-                subtitle: const Text(
+                subtitle: Text(
                   style: TextStyle(
                     fontSize: SSizes.fontSm,
-                    color: SColors.lightTextPrimary,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                   'Today • 4:00 PM',
                 ),
                 trailing: IconButton(
                   onPressed: () {
-                    Get.to(() => const ClassroomScreen());
+                    Get.to(() => ClassroomScreen(group: group));
                   },
                   icon: const Icon(
                     Iconsax.arrow_right_3,
@@ -199,12 +199,12 @@ class GroupDetailsScreen extends StatelessWidget {
             const SizedBox(height: SSizes.lg),
 
             /// Group Members
-            const Text(
+            Text(
               'Group Members',
               style: TextStyle(
                 fontSize: SSizes.fontLg,
                 fontWeight: FontWeight.bold,
-                color: SColors.lightTextPrimary,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
 
@@ -212,7 +212,7 @@ class GroupDetailsScreen extends StatelessWidget {
 
             Card(
               elevation: SSizes.cardElevation,
-              color: SColors.lightCard,
+              color: Theme.of(context).colorScheme.surface,
               shape: RoundedRectangleBorder(
                 borderRadius: SRadius.allLg,
               ),
@@ -237,12 +237,12 @@ class GroupDetailsScreen extends StatelessWidget {
                       icon: Iconsax.user,
                     ),
                     SSpacing.gapHsm,
-                    const Text(
+                    Text(
                       '+20 more',
                       style: TextStyle(
                         fontSize: SSizes.fontSm,
                         fontWeight: FontWeight.w500,
-                        color: SColors.lightTextSecondary,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
                     ),
                   ],
@@ -253,18 +253,18 @@ class GroupDetailsScreen extends StatelessWidget {
             const SizedBox(height: SSizes.lg),
 
             /// Recent Activity
-            const Text(
+            Text(
               'Recent Activitives',
               style: TextStyle(
                 fontSize: SSizes.fontLg,
                 fontWeight: FontWeight.bold,
-                color: SColors.lightTextPrimary,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
 
             SSpacing.gapVsm,
 
-            const _ActivityItem(
+           const _ActivityItem(
               icon: Iconsax.document_upload,
               text: 'Sarah shared a study resource',
               color: SColors.primary,
@@ -352,9 +352,9 @@ class _ActivityItem extends StatelessWidget {
           Expanded(
             child: Text(
               text,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: SSizes.fontSm,
-                color: SColors.lightTextPrimary,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
           ),
