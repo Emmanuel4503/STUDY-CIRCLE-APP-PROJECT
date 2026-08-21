@@ -123,7 +123,7 @@ class ExamCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10)),
                 ),
                 child: Text(
-                  isInteractive ? 'Review Result' : statusText,
+                  isInteractive ? 'Review Now' : statusText,
                   style: const TextStyle(
                       fontSize: 12, fontWeight: FontWeight.bold),
                 ),

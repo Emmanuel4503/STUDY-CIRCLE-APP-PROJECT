@@ -1,20 +1,69 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
-class ProfileHeader extends StatelessWidget {
-  const ProfileHeader({super.key});
+class ProfileHeader extends StatefulWidget {
+  final String? initialImageUrl;
+  final Future<String?> Function(Uint8List imageBytes)? onImageUpload;
+
+  const ProfileHeader({
+    super.key,
+    this.initialImageUrl =
+        'https://i.pravatar.cc/300?img=12',
+    this.onImageUpload,
+  });
+
+  @override
+  State<ProfileHeader> createState() => _ProfileHeaderState();
+}
+
+class _ProfileHeaderState extends State<ProfileHeader> {
+  Uint8List? _selectedImageBytes;
+  String? _imageUrl;
+  bool _isUploading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _imageUrl = widget.initialImageUrl;
+  }
+
+  Future<void> _changeProfileImage() async {
+    final result = await FilePicker.platform.pickFiles(
+      type: FileType.image,
+      withData: true,
+    );
+
+    final imageBytes = result?.files.single.bytes;
+    if (imageBytes == null || !mounted) return;
+
+    setState(() {
+      _selectedImageBytes = imageBytes;
+      _isUploading = widget.onImageUpload != null;
+    });
+
+    if (widget.onImageUpload == null) return;
+
+    final uploadedImageUrl = await widget.onImageUpload!(imageBytes);
+    if (!mounted) return;
+
+    setState(() {
+      _isUploading = false;
+      if (uploadedImageUrl != null && uploadedImageUrl.isNotEmpty) {
+        _imageUrl = uploadedImageUrl;
+        _selectedImageBytes = null;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(
-        SSizes.defaultSpace,
-        20,
-        SSizes.defaultSpace,
-        SSizes.defaultSpace,
-      ),
+      padding: const EdgeInsets.fromLTRB(SSizes.defaultSpace, 18, SSizes.defaultSpace, 28),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -30,33 +79,122 @@ class ProfileHeader extends StatelessWidget {
         ),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CircleAvatar(
-            radius: 36,
-            backgroundColor: Colors.white,
-            child: Icon(
-              Icons.person,
-              color: SColors.primary,
-              size: 32,
-            ),
-          ),
-          const SizedBox(height: SSizes.md),
-          Text(
-            "Feranmi Emmanuel",
-            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'My Profile',
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                    ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.16),
+                  borderRadius: BorderRadius.circular(20),
                 ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 8),
-          Text(
-            "feranmiemmanuel01@gmail.com",
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Colors.white70,
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.verified_rounded, color: Colors.white, size: 15),
+                    SizedBox(width: 5),
+                    Text(
+                      'Member',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
                 ),
-            textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+          const SizedBox(height: 28),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  CircleAvatar(
+                    radius: 38,
+                    backgroundColor: Colors.white,
+                    backgroundImage: _selectedImageBytes != null
+                        ? MemoryImage(_selectedImageBytes!)
+                        : (_imageUrl != null
+                            ? NetworkImage(_imageUrl!)
+                            : null),
+                    child: _selectedImageBytes == null && _imageUrl == null
+                        ? const Icon(Icons.person,
+                            color: SColors.primary, size: 34)
+                        : null,
+                  ),
+                  Positioned(
+                    right: -4,
+                    bottom: -4,
+                    child: Material(
+                      color: SColors.primary,
+                      shape: const CircleBorder(),
+                      child: InkWell(
+                        onTap: _isUploading ? null : _changeProfileImage,
+                        customBorder: const CircleBorder(),
+                        child: Padding(
+                          padding: const EdgeInsets.all(7),
+                          child: _isUploading
+                              ? const SizedBox(
+                                  width: 15,
+                                  height: 15,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    color: Colors.white,
+                                  ),
+                                )
+                              : const Icon(Icons.camera_alt_outlined,
+                                  color: Colors.white, size: 15),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(width: SSizes.md),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Feranmi Emmanuel',
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      'feranmiemmanuel01@gmail.com',
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: Colors.white.withValues(alpha: 0.78),
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 22),
+          Text(
+            'Keep your profile current so your circle can recognize you.',
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: Colors.white.withValues(alpha: 0.82),
+                  height: 1.4,
+                ),
           ),
         ],
       ),

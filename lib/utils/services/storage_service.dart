@@ -8,7 +8,15 @@ class StorageService {
   StorageService._();
   static final StorageService instance = StorageService._();
 
-  final GetStorage _box = GetStorage();
+  late final GetStorage _box;
+  bool _initialized = false;
+
+  void _ensureInitialized() {
+    if (!_initialized) {
+      _box = GetStorage();
+      _initialized = true;
+    }
+  }
 
   // ---- Keys ----
   static const String _kOnboardingSeen = 'onboarding_seen';
@@ -16,17 +24,34 @@ class StorageService {
   static const String _kProfileSetupCompleted = 'profile_setup_completed';
 
   // ---- Onboarding ----
-  bool get hasSeenOnboarding => _box.read(_kOnboardingSeen) ?? false;
-  Future<void> setOnboardingSeen(bool value) => _box.write(_kOnboardingSeen, value);
+  bool get hasSeenOnboarding {
+    _ensureInitialized();
+    return _box.read(_kOnboardingSeen) ?? false;
+  }
+
+  Future<void> setOnboardingSeen(bool value) {
+    _ensureInitialized();
+    return _box.write(_kOnboardingSeen, value);
+  }
 
   // ---- Auth token ----
-  String? get authToken => _box.read(_kAuthToken);
-  Future<void> setAuthToken(String? token) => _box.write(_kAuthToken, token);
+  String? get authToken {
+    _ensureInitialized();
+    return _box.read(_kAuthToken);
+  }
+
+  Future<void> setAuthToken(String? token) {
+    _ensureInitialized();
+    return _box.write(_kAuthToken, token);
+  }
 
   // ---- Profile setup ----
   bool get hasCompletedProfileSetup => _box.read(_kProfileSetupCompleted) ?? false;
   Future<void> setProfileSetupCompleted(bool value) => _box.write(_kProfileSetupCompleted, value);
 
   /// Clears everything (e.g. on logout).
-  Future<void> clear() => _box.erase();
+  Future<void> clear() {
+    _ensureInitialized();
+    return _box.erase();
+  }
 }

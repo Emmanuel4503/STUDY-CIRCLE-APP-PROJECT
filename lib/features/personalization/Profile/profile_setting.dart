@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:studycycle/utils/constants/sizes.dart';
+import 'package:studycycle/features/cycle/Profile/widgets/profile_setting_item.dart';
+import 'package:studycycle/features/cycle/Profile/widgets/invite_friend_widget.dart';
+import 'package:studycycle/features/cycle/Profile/widgets/add_socials_widget.dart';
+import 'package:studycycle/features/dashboard/screens/groups_screen.dart';
 import 'package:studycycle/features/personalization/Profile/edit_name.dart';
 import 'package:studycycle/features/personalization/Profile/edit_password.dart';
-import 'package:studycycle/utils/constants/sizes.dart';
+import 'package:studycycle/app/routes/app_routes.dart';
+import 'package:studycycle/utils/services/storage_service.dart';
 
 class ProfileSetting extends StatelessWidget {
   const ProfileSetting({super.key});
@@ -14,212 +20,92 @@ class ProfileSetting extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(//Full Name
-            width: double.infinity,
-            padding: const EdgeInsets.all(SSizes.md),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
-              border: Border.all(
-                color: Colors.grey.shade300,
-              ),
-            ),
-            child: Row(
-              children: [
-                   Icon(Icons.person,
-                    color: Theme.of(context).colorScheme.primary,),
-                
-                const SizedBox(width: SSizes.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Full Name',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        'Change your full name',
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Colors.grey,
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: SSizes.md),
-                IconButton(onPressed: () {
-                   Get.to(const EditName());
-                },
-                icon: Icon(Icons.chevron_right, 
-                color: Colors.grey.shade600)
-                ),
-                
-              ],
-            ),
+         const _SectionLabel(title: 'Account Settings'),
+          const SizedBox(height: SSizes.sm),
+          ProfileSettingItem(
+            title: 'Full Name',
+            subtitle: 'Change your full name',
+            icon: Icons.person,
+            onTap: () => Get.to(() => const EditName()),
           ),
           const SizedBox(height: SSizes.md),
-           Container(//Password
-            width: double.infinity,
-            padding: const EdgeInsets.all(SSizes.md),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
-              border: Border.all(
-                color: Colors.grey.shade300,
-              ),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.lock, color: Theme.of(context).colorScheme.primary),
-                const SizedBox(width: SSizes.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Password',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        'Change your password',
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Colors.grey,),),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: SSizes.md),
-                 IconButton(onPressed: () {
-                Get.to(const EditPassword());
-                 },
-                icon: Icon(Icons.chevron_right, 
-                color: Colors.grey.shade600)
-                ),
-              ],
-            ),
+          ProfileSettingItem(
+            title: 'Password',
+            subtitle: 'Change your password',
+            icon: Icons.lock,
+            onTap: () => Get.to(() => const EditPassword()),
           ),
           const SizedBox(height: SSizes.md),
-           Container(//Invite a Friend
-            width: double.infinity,
-            padding: const EdgeInsets.all(SSizes.md),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
-              border: Border.all(
-                color: Colors.grey.shade300,
-              ),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.group_add, color: Theme.of(context).colorScheme.primary),
-                const SizedBox(width: SSizes.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Invite a Friend',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-               const SizedBox(width: SSizes.md),
-                IconButton(onPressed: () {},
-                icon: Icon(Icons.chevron_right, 
-                color: Colors.grey.shade600)
-                ),
-              ],
-            ),
+          const _SectionLabel(title: 'Community'),
+          const SizedBox(height: SSizes.sm),
+          const InviteFriendWidget(),
+          const SizedBox(height: SSizes.md),
+          ProfileSettingItem(
+            title: 'Check Active Groups',
+            icon: Icons.groups,
+            onTap: () => Get.to(() => const GroupsScreen()),
           ),
           const SizedBox(height: SSizes.md),
-           Container(//Check Active Groups
-            width: double.infinity,
-            padding: const EdgeInsets.all(SSizes.md),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
-              border: Border.all(
-                color: Colors.grey.shade300,
-              ),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.groups_2, color: Theme.of(context).colorScheme.primary),
-                const SizedBox(width: SSizes.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Check Active Groups',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                       ],
-                  ),
-                ),
-               const SizedBox(width: SSizes.md),
-                IconButton(onPressed: () {},
-                icon: Icon(Icons.chevron_right, 
-                color: Colors.grey.shade600)
-                ),
-              ],
-            ),
+          const _SectionLabel(title: 'Connect'),
+          const SizedBox(height: SSizes.sm),
+          const AddSocialsWidget(),
+          const SizedBox(height: SSizes.md),
+          const _SectionLabel(title: 'Session'),
+          const SizedBox(height: SSizes.sm),
+          ProfileSettingItem(
+            title: 'Log Out',
+            subtitle: 'Sign out of your StudyCycle account',
+            icon: Icons.logout_rounded,
+            accentColor: Theme.of(context).colorScheme.error,
+            onTap: () => _confirmLogout(context),
           ),
           const SizedBox(height: SSizes.md),
-          Container(//Add Socials
-            width: double.infinity,
-            padding: const EdgeInsets.all(SSizes.md),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(SSizes.borderRadiusMd),
-              border: Border.all(
-                color: Colors.grey.shade300,
-              ),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.forum, color: Theme.of(context).colorScheme.primary),
-                const SizedBox(width: SSizes.md),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Add Socials',
-                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold, ),),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: SSizes.md),
-                IconButton(onPressed: () {},
-                icon: Icon(Icons.chevron_right, 
-                color: Colors.grey.shade600)
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: SSizes.md),
-
-
         ],
       ),
+    );
+  }
+
+  Future<void> _confirmLogout(BuildContext context) async {
+    final shouldLogout = await Get.dialog<bool>(
+      AlertDialog(
+        title: const Text('Log out?'),
+        content: const Text('You will need to sign in again to access your account.'),
+        actions: [
+          TextButton(
+            onPressed: () => Get.back(result: false),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () => Get.back(result: true),
+            child: const Text('Log out'),
+          ),
+        ],
+      ),
+    );
+
+    if (shouldLogout != true) return;
+
+    await StorageService.instance.clear();
+    if (context.mounted) {
+      Get.offAllNamed(AppRoutes.login);
+    }
+  }
+}
+
+class _SectionLabel extends StatelessWidget {
+  final String title;
+
+  const _SectionLabel({required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title.toUpperCase(),
+      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+            color: Theme.of(context).colorScheme.primary,
+            fontWeight: FontWeight.w800,
+            letterSpacing: 1.1,
+          ),
     );
   }
 }

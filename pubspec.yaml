@@ -23,6 +23,10 @@ dependencies:
   # iOS-style icons.
   cupertino_icons: ^1.0.8
   iconsax_flutter: ^1.0.1
+  file_picker: ^8.0.0
+  open_filex: ^4.5.0
+  web: ^1.1.1
+  pdfrx: ^2.4.7
 
 dev_dependencies:
   flutter_test:

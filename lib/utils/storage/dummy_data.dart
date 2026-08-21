@@ -1,5 +1,5 @@
 import 'package:studycycle/features/authentication/screens/onboarding/models/onboarding_model.dart';
-import 'package:studycycle/features/cycle/library/model/book_model.dart';
+import 'package:studycycle/features/cycle/library/models/book_model.dart';
 import 'package:studycycle/features/personalization/setup_profile/model/institution_type_model.dart';
 import 'package:studycycle/features/personalization/setup_profile/model/setup_profile_model.dart';
 
@@ -33,42 +33,66 @@ abstract class DummyData {
   ];
 
   // Data for Library 
-  static const List<BookModel> books = [
+ static const List<BookModel> books = [
   BookModel(
-    title: "Automated Gas Station",
-    author: "Techtopsy",
-    coverImage: "assets/images/books/book1.jpg",
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    coverImage: 'assets/images/books/habits.jpg',
     rating: 4.8,
+    category: 'Personal Development',
+     totalPages: 312,
+      currentPage: 40,
+    
   ),
+
   BookModel(
-    title: "The creative Work",
-    author: "Eniola",
-    coverImage: "assets/images/books/book2.jpg",
+    title: 'Deep Work',
+    author: 'Cal Newport',
+    coverImage: 'assets/images/books/deepwork.jpg',
     rating: 4.7,
+    category: 'Productivity',
+     totalPages: 288,
+      currentPage: 120,
   ),
+
   BookModel(
-    title: "Solidarity",
-    author: "Temidayo",
-    coverImage: "assets/images/books/book3.jpg",
+    title: 'The Psychology of Money',
+    author: 'Morgan Housel',
+    coverImage: 'assets/images/books/pschomoney.jpg',
+    rating: 4.9,
+    category: 'Finance',
+     totalPages: 256,
+      currentPage: 80,
+  ),
+
+  BookModel(
+    title: 'Rich Dad Poor Dad',
+    author: 'Robert Kiyosaki',
+    coverImage: 'assets/images/books/richdad.jpg',
     rating: 4.6,
+    category: 'Finance',
+    totalPages: 160,
+    currentPage: 40,
   ),
+
   BookModel(
-    title: "Survival of the best price",
-    author: "Emmanuel",
-    coverImage: "assets/images/books/book4.jpg",
-    rating: 4.9,
+    title: 'Think and Grow Rich',
+    author: 'Napoleon Hill',
+    coverImage: 'assets/images/books/thinkgrowrich.jpg',
+    rating: 4.8,
+    category: 'Personal Development',
+    totalPages: 238,
+    currentPage: 135,
   ),
+
   BookModel(
-    title: "Lets study together",
-    author: "Ade",
-    coverImage: "assets/images/books/book2.jpg",
-    rating: 4.9,
-  ),
-  BookModel(
-    title: "Fresh Produce",
-    author: "Emma",
-    coverImage: "assets/images/books/book3.jpg",
-    rating: 4.9,
+    title: 'The 7 Habits of Highly Effective People',
+    author: 'Stephen Covey',
+    coverImage: 'assets/images/books/habits.jpg',
+    rating: 4.7,
+    category: 'Personal Development',
+    totalPages: 224,
+    currentPage: 100,
   ),
 ];
 

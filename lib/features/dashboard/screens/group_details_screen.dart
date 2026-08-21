@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:studycycle/features/class_room/class_room.dart';
 import 'package:studycycle/features/dashboard/models/group_model.dart';
 import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/radius.dart';
@@ -39,17 +41,14 @@ class GroupDetailsScreen extends StatelessWidget {
                   children: [
                     CircleAvatar(
                       radius: 34,
-                      backgroundColor:
-                          group.color.withValues(alpha: 0.15),
+                      backgroundColor: group.color.withValues(alpha: 0.15),
                       child: Icon(
                         group.icon,
                         color: group.color,
                         size: SSizes.iconLg,
                       ),
                     ),
-
                     SSpacing.gapVmd,
-
                     Text(
                       group.title,
                       textAlign: TextAlign.center,
@@ -59,9 +58,7 @@ class GroupDetailsScreen extends StatelessWidget {
                         color: SColors.lightTextPrimary,
                       ),
                     ),
-
                     SSpacing.gapVxs,
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -80,17 +77,15 @@ class GroupDetailsScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-
                     SSpacing.gapVsm,
-
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: SSizes.sm,
-                        vertical: 4,
+                        vertical: 2,
                       ),
                       decoration: BoxDecoration(
                         color: SColors.success.withValues(alpha: 0.12),
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       child: const Row(
                         mainAxisSize: MainAxisSize.min,
@@ -104,8 +99,8 @@ class GroupDetailsScreen extends StatelessWidget {
                           Text(
                             'Active',
                             style: TextStyle(
-                              fontSize: SSizes.fontXl,
-                              fontWeight: FontWeight.w600,
+                              fontSize: SSizes.fontSm,
+                              fontWeight: FontWeight.w200,
                               color: SColors.success,
                             ),
                           ),
@@ -145,7 +140,7 @@ class GroupDetailsScreen extends StatelessWidget {
 
             /// Upcoming Session
             const Text(
-              'Upcoming Session',
+              'Classroom',
               style: TextStyle(
                 fontSize: SSizes.fontLg,
                 fontWeight: FontWeight.bold,
@@ -167,8 +162,7 @@ class GroupDetailsScreen extends StatelessWidget {
                   vertical: SSizes.xs,
                 ),
                 leading: CircleAvatar(
-                  backgroundColor:
-                      SColors.primary.withValues(alpha: 0.12),
+                  backgroundColor: SColors.primary.withValues(alpha: 0.12),
                   child: const Icon(
                     Iconsax.calendar_1,
                     color: SColors.primary,
@@ -176,19 +170,28 @@ class GroupDetailsScreen extends StatelessWidget {
                   ),
                 ),
                 title: const Text(
-                  'Group Study Session',
+                  'My Classroom ',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     color: SColors.lightTextPrimary,
                   ),
                 ),
                 subtitle: const Text(
+                  style: TextStyle(
+                    fontSize: SSizes.fontSm,
+                    color: SColors.lightTextPrimary,
+                  ),
                   'Today • 4:00 PM',
                 ),
-                trailing: const Icon(
-                  Iconsax.arrow_right_3,
-                  color: SColors.primary,
-                  size: SSizes.iconSm,
+                trailing: IconButton(
+                  onPressed: () {
+                    Get.to(() => const ClassroomScreen());
+                  },
+                  icon: const Icon(
+                    Iconsax.arrow_right_3,
+                    color: SColors.primary,
+                    size: SSizes.iconSm,
+                  ),
                 ),
               ),
             ),
@@ -233,9 +236,7 @@ class GroupDetailsScreen extends StatelessWidget {
                       color: SColors.success,
                       icon: Iconsax.user,
                     ),
-
                     SSpacing.gapHsm,
-
                     const Text(
                       '+20 more',
                       style: TextStyle(
@@ -347,9 +348,7 @@ class _ActivityItem extends StatelessWidget {
               color: color,
             ),
           ),
-
           SSpacing.gapHsm,
-
           Expanded(
             child: Text(
               text,
