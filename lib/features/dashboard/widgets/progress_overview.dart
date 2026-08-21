@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/radius.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
@@ -10,11 +9,11 @@ class ProgressOverview extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      color: SColors.lightCard,
+      color: Theme.of(context).colorScheme.surface,
       shape: RoundedRectangleBorder(
         borderRadius: SRadius.allLg,
-        side: const BorderSide(
-          color: SColors.lightBorder,
+        side: BorderSide(
+          color: Theme.of(context).dividerColor,
           width: 1,
         ),
       ),
@@ -35,7 +34,7 @@ class ProgressOverview extends StatelessWidget {
                 Text(
                   '65%',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        color: SColors.primary,
+                        color: Theme.of(context).colorScheme.primary,
                         fontWeight: FontWeight.bold,
                       ),
                 ),
@@ -48,9 +47,12 @@ class ProgressOverview extends StatelessWidget {
               value: 0.65,
               minHeight: 8,
               borderRadius: BorderRadius.circular(10),
-              backgroundColor: Colors.grey.shade300,
-              valueColor: const AlwaysStoppedAnimation(
-                SColors.primary,
+              backgroundColor: Theme.of(context)
+                  .colorScheme
+                  .onSurface
+                  .withValues(alpha: 0.12),
+              valueColor: AlwaysStoppedAnimation(
+                Theme.of(context).colorScheme.primary,
               ),
             ),
 
@@ -104,7 +106,6 @@ class _ProgressItem extends StatelessWidget {
           value,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
                 fontWeight: FontWeight.bold,
-                color: SColors.lightTextPrimary,
               ),
         ),
 
@@ -113,7 +114,6 @@ class _ProgressItem extends StatelessWidget {
         Text(
           title,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                color: SColors.lightTextSecondary,
               ),
         ),
       ],

@@ -42,14 +42,14 @@ class RecommendedResourceCard extends StatelessWidget {
         subtitle: Text(
           type,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: SColors.grey,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
         ),
 
-        trailing: const Icon(
+        trailing: Icon(
           Iconsax.arrow_right_3,
           size: SSizes.iconSm,
-          color: SColors.primary,
+          color: Theme.of(context).colorScheme.primary,
         ),
       ),
     );

@@ -12,37 +12,58 @@ class ChangePassword extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           TextFormField(
-                      decoration: const InputDecoration(
-                        prefixIcon:  Icon(Icons.key),
-                        labelText: 'Old Password',
-                        suffixIcon: Icon(Icons.visibility),
-                      ),
-                    ),
-         const SizedBox(height: SSizes.md),
-         
-          TextFormField(
-                      decoration: const InputDecoration(
-                        prefixIcon:  Icon(Icons.lock),
-                        labelText: 'New Password',
-                        suffixIcon: Icon(Icons.visibility),
-                      ),
-                    ),
-         
+          Text(
+            'Change password',
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+          const SizedBox(height: SSizes.sm),
+          Text(
+            'Use a password you do not reuse elsewhere.',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
           const SizedBox(height: SSizes.md),
-          TextFormField(
-                      decoration: const InputDecoration(
-                        prefixIcon:  Icon(Icons.check_circle_outline),
-                        labelText: 'Confirm New Password',
-                        suffixIcon: Icon(Icons.visibility),
-                      ),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(SSizes.md),
+              child: Column(
+                children: [
+                  TextFormField(
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.key_outlined),
+                      labelText: 'Old Password',
                     ),
+                  ),
+                  const SizedBox(height: SSizes.md),
+                  TextFormField(
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.lock_outline),
+                      labelText: 'New Password',
+                    ),
+                  ),
+                  const SizedBox(height: SSizes.md),
+                  TextFormField(
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.check_circle_outline),
+                      labelText: 'Confirm New Password',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           const SizedBox(height: SSizes.md),
-          ElevatedButton(
-            onPressed: () {
-              Get.back();
-            },
-            child: const Text('Update Password'),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              onPressed: Get.back,
+              icon: const Icon(Icons.shield_outlined),
+              label: const Text('Update Password'),
+            ),
           ),
         ],
       ),

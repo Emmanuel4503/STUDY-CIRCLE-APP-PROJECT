@@ -40,7 +40,7 @@ class ActivityCard extends StatelessWidget {
     subtitle: Text(
       activity.description,
       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-        color: SColors.grey,
+        color: Theme.of(context).colorScheme.onSurfaceVariant,
       ),
     ),
 
@@ -50,15 +50,15 @@ class ActivityCard extends StatelessWidget {
         Text(
           activity.time,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: SColors.grey,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
           ),
         ),
 
         const SizedBox(height: SSizes.xs),
 
-        const Icon(
+        Icon(
           Iconsax.arrow_right_3,
-          color: SColors.primary,
+          color: Theme.of(context).colorScheme.primary,
           size: SSizes.iconSm,
         ),
       ],

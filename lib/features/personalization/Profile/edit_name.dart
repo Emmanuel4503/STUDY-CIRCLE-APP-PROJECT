@@ -12,13 +12,14 @@ class EditName extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            EditProfileHeader(),
+            EditProfileHeader(
+              title: 'Edit Profile',
+              subtitle: 'Update your personal information below.',
+              icon: Icons.person_outline,
+            ),
             SizedBox(height: SSizes.md),
 
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
-            ),
-           ChangeName(),
+            ChangeName(),
           ]
         )
       )

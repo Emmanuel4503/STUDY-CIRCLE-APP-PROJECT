@@ -12,7 +12,7 @@ class ThemeSettings extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('App Themes'),
+        title: const Text('Customise Theme'),
       ),
       body: ListView(
         padding: const EdgeInsets.all(SSizes.defaultSpace),

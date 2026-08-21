@@ -3,18 +3,22 @@ import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
 class EditProfileHeader extends StatelessWidget {
-  const EditProfileHeader({super.key});
+  final String title;
+  final String subtitle;
+  final IconData icon;
+
+  const EditProfileHeader({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
     return   Container(
       width: double.infinity,
-      padding:  const EdgeInsets.fromLTRB(
-        SSizes.defaultSpace,
-        20,
-        SSizes.defaultSpace,
-        SSizes.defaultSpace,
-      ),
+      padding: const EdgeInsets.fromLTRB(SSizes.defaultSpace, 10, SSizes.defaultSpace, 22),
       decoration:  const BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -43,7 +47,7 @@ class EditProfileHeader extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  'Profile Page',
+                  title,
                   style: Theme.of(context)
                       .textTheme
                       .titleLarge
@@ -52,20 +56,20 @@ class EditProfileHeader extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: SSizes.sm),
-          const CircleAvatar(
-            radius: 36,
+          const SizedBox(height: SSizes.md),
+          CircleAvatar(
+            radius: 30,
             backgroundColor: Colors.white,
             child: Icon(
-              Icons.person,
+              icon,
               color: SColors.primary,
-              size: 32,
+              size: 28,
             ),
           ),
-          const SizedBox(height: SSizes.md),
+          const SizedBox(height: SSizes.sm),
 
           Text(
-            "Do you need to edit some of your details? Kindly click on the icon below to update them!",
+            subtitle,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   color: Colors.white70,
                 ),

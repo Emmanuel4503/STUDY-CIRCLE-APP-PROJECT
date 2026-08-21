@@ -12,40 +12,63 @@ class ChangeName extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           TextFormField(
-                      decoration: const InputDecoration(
-                        prefixIcon:  Icon(Icons.person),
-                        labelText: 'full Name',
-                      ),
-                    ),
-         const SizedBox(height: SSizes.md),
-         
-          TextFormField(
-                      decoration: const InputDecoration(
-                        prefixIcon:  Icon(Icons.email),
-                        labelText: 'Email',
-                      ),
-                    ),
+          Text(
+            'Personal details',
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+          const SizedBox(height: SSizes.sm),
+          Text(
+            'Make sure your information is up to date.',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
           const SizedBox(height: SSizes.md),
-          TextFormField(
-                      decoration: const InputDecoration(
-                        prefixIcon:  Icon(Icons.phone),
-                        labelText: 'Phone Number',
-                      ),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(SSizes.md),
+              child: Column(
+                children: [
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.person_outline),
+                      labelText: 'Full Name',
                     ),
-          const SizedBox(height: SSizes.md),
-          TextFormField(
-                      decoration: const InputDecoration(
-                        prefixIcon:  Icon(Icons.lock),
-                        labelText: 'Password',
-                      ),
+                  ),
+                  const SizedBox(height: SSizes.md),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.email_outlined),
+                      labelText: 'Email',
                     ),
+                  ),
+                  const SizedBox(height: SSizes.md),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.phone_outlined),
+                      labelText: 'Phone Number',
+                    ),
+                  ),
+                  const SizedBox(height: SSizes.md),
+                  TextFormField(
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.lock_outline),
+                      labelText: 'Password',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           const SizedBox(height: SSizes.md),
-          ElevatedButton(
-             onPressed: () {
-              Get.back();
-            },
-            child: const Text('Save Changes'),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              onPressed: Get.back,
+              icon: const Icon(Icons.check_rounded),
+              label: const Text('Save Changes'),
+            ),
           ),
         ],
       ),

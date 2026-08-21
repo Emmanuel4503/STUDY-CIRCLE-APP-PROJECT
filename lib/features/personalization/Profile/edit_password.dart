@@ -12,13 +12,14 @@ class EditPassword extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            EditProfileHeader(),
+            EditProfileHeader(
+              title: 'Security',
+              subtitle: 'Keep your account protected with a strong password.',
+              icon: Icons.lock_outline,
+            ),
             SizedBox(height: SSizes.md),
 
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: SSizes.lg),
-            ),
-           ChangePassword(),
+            ChangePassword(),
           ]
         )
       )

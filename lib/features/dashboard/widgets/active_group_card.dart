@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:studycycle/features/dashboard/models/group_model.dart';
-import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/radius.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 import 'package:studycycle/utils/constants/spacing.dart';
@@ -20,11 +19,11 @@ class ActiveGroupCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
         elevation: 0,
-        color: SColors.lightCard,
+        color: Theme.of(context).colorScheme.surface,
         shape: RoundedRectangleBorder(
           borderRadius: SRadius.allLg,
-          side: const BorderSide(
-            color: SColors.lightBorder,
+          side: BorderSide(
+            color: Theme.of(context).dividerColor,
             width: 1,
           ),
         ),
@@ -53,11 +52,10 @@ class ActiveGroupCard extends StatelessWidget {
                   children: [
                     Text(
                       group.title,
-                      style: const TextStyle(
-                        fontSize: SSizes.fontMd,
-                        fontWeight: FontWeight.w600,
-                        color: SColors.lightTextPrimary,
-                      ),
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            fontSize: SSizes.fontMd,
+                            fontWeight: FontWeight.w600,
+                          ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -66,20 +64,19 @@ class ActiveGroupCard extends StatelessWidget {
 
                     Row(
                       children: [
-                        const Icon(
+                        Icon(
                           Iconsax.profile_2user,
                           size: SSizes.iconSm,
-                          color: SColors.grey,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
 
                         SSpacing.gapHsm,
 
                         Text(
                           group.members,
-                          style: const TextStyle(
-                            fontSize: SSizes.fontSm,
-                            color: SColors.lightTextSecondary,
-                          ),
+                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                fontSize: SSizes.fontSm,
+                              ),
                         ),
                       ],
                     ),
@@ -87,9 +84,9 @@ class ActiveGroupCard extends StatelessWidget {
                 ),
               ),
 
-              const Icon(
+              Icon(
                 Iconsax.arrow_right_3,
-                color: SColors.primary,
+                color: Theme.of(context).colorScheme.primary,
                 size: SSizes.iconSm,
               ),
             ],

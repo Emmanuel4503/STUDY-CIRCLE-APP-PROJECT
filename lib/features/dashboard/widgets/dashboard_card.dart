@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/radius.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
@@ -20,15 +19,15 @@ class DashboardCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      color: SColors.white,
+      color: Theme.of(context).colorScheme.surface,
       margin: margin ??
           const EdgeInsets.only(
             bottom: SSizes.spaceBtwItems,
           ),
       shape: RoundedRectangleBorder(
         borderRadius: SRadius.allMd,
-        side: const BorderSide(
-          color: SColors.lightBorder,
+        side: BorderSide(
+          color: Theme.of(context).dividerColor,
           width: 1,
         ),
       ),

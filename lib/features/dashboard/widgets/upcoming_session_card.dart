@@ -59,7 +59,6 @@ class UpcomingSessionCard extends StatelessWidget {
                     Text(
                       time,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: SColors.lightTextPrimary,
                             fontWeight: FontWeight.w500,
                           ),
                     ),
@@ -73,13 +72,16 @@ class UpcomingSessionCard extends StatelessWidget {
                           vertical: 3,
                         ),
                         decoration: BoxDecoration(
-                          color: SColors.primary.withValues(alpha: 0.10),
+                            color: Theme.of(context)
+                              .colorScheme
+                              .primary
+                              .withValues(alpha: 0.10),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: const Text(
+                        child: Text(
                           'Today',
                           style: TextStyle(
-                            color: SColors.primary,
+                            color: Theme.of(context).colorScheme.primary,
                             fontSize: 11,
                             fontWeight: FontWeight.w600,
                           ),
@@ -94,7 +96,6 @@ class UpcomingSessionCard extends StatelessWidget {
                 Text(
                   topic,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: SColors.lightTextSecondary,
                       ),
                 ),
               ],
@@ -104,10 +105,10 @@ class UpcomingSessionCard extends StatelessWidget {
           const SizedBox(width: SSizes.sm),
 
           // Arrow
-          const Center(
+          Center(
             child: Icon(
               Iconsax.arrow_right_3,
-              color: SColors.primary,
+              color: Theme.of(context).colorScheme.primary,
               size: SSizes.iconSm,
             ),
           ),
