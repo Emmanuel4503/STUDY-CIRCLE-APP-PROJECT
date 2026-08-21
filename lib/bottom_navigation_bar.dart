@@ -17,7 +17,27 @@ class BottomNavigationBar extends StatelessWidget {
 
     return Scaffold(
       bottomNavigationBar: Obx(
-        () => NavigationBar(
+        () => NavigationBarTheme(
+          data: NavigationBarThemeData(
+            labelTextStyle: WidgetStateProperty.resolveWith(
+              (states) => TextStyle(
+                color: states.contains(WidgetState.selected)
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.onSurfaceVariant,
+                fontWeight: states.contains(WidgetState.selected)
+                    ? FontWeight.w600
+                    : FontWeight.w500,
+              ),
+            ),
+            iconTheme: WidgetStateProperty.resolveWith(
+              (states) => IconThemeData(
+                color: states.contains(WidgetState.selected)
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
+            ),
+          ),
+          child: NavigationBar(
             height: 80,
             elevation: 0,
             selectedIndex: controller.selectedIndex.value,
@@ -36,6 +56,7 @@ class BottomNavigationBar extends StatelessWidget {
                 const NavigationDestination(
                   icon: Icon(Iconsax.user), label: "Profile"),
             ]),
+          ),
       ),
       body: Obx(() => controller.screens[controller.selectedIndex.value]),
     );
