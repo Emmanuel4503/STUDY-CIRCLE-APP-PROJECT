@@ -46,8 +46,15 @@ class StorageService {
   }
 
   // ---- Profile setup ----
-  bool get hasCompletedProfileSetup => _box.read(_kProfileSetupCompleted) ?? false;
-  Future<void> setProfileSetupCompleted(bool value) => _box.write(_kProfileSetupCompleted, value);
+  bool get hasCompletedProfileSetup {
+    _ensureInitialized();
+    return _box.read(_kProfileSetupCompleted) ?? false;
+  }
+
+  Future<void> setProfileSetupCompleted(bool value) {
+    _ensureInitialized();
+    return _box.write(_kProfileSetupCompleted, value);
+  }
 
   /// Clears everything (e.g. on logout).
   Future<void> clear() {

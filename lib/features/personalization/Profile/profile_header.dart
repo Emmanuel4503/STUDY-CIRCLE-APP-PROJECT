@@ -11,8 +11,7 @@ class ProfileHeader extends StatefulWidget {
 
   const ProfileHeader({
     super.key,
-    this.initialImageUrl =
-        'https://i.pravatar.cc/300?img=12',
+    this.initialImageUrl,
     this.onImageUpload,
   });
 
@@ -21,6 +20,8 @@ class ProfileHeader extends StatefulWidget {
 }
 
 class _ProfileHeaderState extends State<ProfileHeader> {
+  static const _defaultProfileImage = 'assets/images/profile_default.jpg';
+
   Uint8List? _selectedImageBytes;
   String? _imageUrl;
   bool _isUploading = false;
@@ -59,11 +60,28 @@ class _ProfileHeaderState extends State<ProfileHeader> {
     });
   }
 
+  Widget _buildProfileImage() {
+    if (_selectedImageBytes != null) {
+      return Image.memory(_selectedImageBytes!, fit: BoxFit.cover);
+    }
+
+    if (_imageUrl != null && _imageUrl!.isNotEmpty) {
+      return Image.network(
+        _imageUrl!,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) =>
+            Image.asset(_defaultProfileImage, fit: BoxFit.cover),
+      );
+    }
+
+    return Image.asset(_defaultProfileImage, fit: BoxFit.cover);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(SSizes.defaultSpace, 18, SSizes.defaultSpace, 28),
+      padding: const EdgeInsets.fromLTRB(SSizes.defaultSpace, 12, SSizes.defaultSpace, 18),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -115,7 +133,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
               ),
             ],
           ),
-          const SizedBox(height: 28),
+          const SizedBox(height: 16),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -123,17 +141,15 @@ class _ProfileHeaderState extends State<ProfileHeader> {
                 clipBehavior: Clip.none,
                 children: [
                   CircleAvatar(
-                    radius: 38,
+                    radius: 32,
                     backgroundColor: Colors.white,
-                    backgroundImage: _selectedImageBytes != null
-                        ? MemoryImage(_selectedImageBytes!)
-                        : (_imageUrl != null
-                            ? NetworkImage(_imageUrl!)
-                            : null),
-                    child: _selectedImageBytes == null && _imageUrl == null
-                        ? const Icon(Icons.person,
-                            color: SColors.primary, size: 34)
-                        : null,
+                    child: ClipOval(
+                      child: SizedBox(
+                        width: 64,
+                        height: 64,
+                        child: _buildProfileImage(),
+                      ),
+                    ),
                   ),
                   Positioned(
                     right: -4,
@@ -188,7 +204,7 @@ class _ProfileHeaderState extends State<ProfileHeader> {
               ),
             ],
           ),
-          const SizedBox(height: 22),
+          const SizedBox(height: 14),
           Text(
             'Keep your profile current so your circle can recognize you.',
             style: Theme.of(context).textTheme.bodySmall?.copyWith(

@@ -11,7 +11,12 @@ import 'package:studycycle/app/routes/app_routes.dart';
 import 'package:studycycle/utils/services/storage_service.dart';
 
 class ProfileSetting extends StatelessWidget {
-  const ProfileSetting({super.key});
+  final Future<bool> Function(String password)? authenticateDeletion;
+
+  const ProfileSetting({
+    super.key,
+    this.authenticateDeletion,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +65,14 @@ class ProfileSetting extends StatelessWidget {
             onTap: () => _confirmLogout(context),
           ),
           const SizedBox(height: SSizes.md),
+          ProfileSettingItem(
+            title: 'Delete Account',
+            subtitle: 'Permanently remove your account and data',
+            icon: Icons.delete_forever_rounded,
+            accentColor: Theme.of(context).colorScheme.error,
+            onTap: () => _confirmAccountDeletion(context),
+          ),
+          const SizedBox(height: SSizes.md),
         ],
       ),
     );
@@ -89,6 +102,85 @@ class ProfileSetting extends StatelessWidget {
     if (context.mounted) {
       Get.offAllNamed(AppRoutes.login);
     }
+  }
+
+  Future<void> _confirmAccountDeletion(BuildContext context) async {
+    final shouldDelete = await Get.dialog<bool>(
+      AlertDialog(
+        title: const Text('Delete account?'),
+        content: const Text(
+          'This will permanently remove your local account data. This action cannot be undone.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Get.back(result: false),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: Colors.red,
+              foregroundColor: Colors.white,
+            ),
+            onPressed: () => Get.back(result: true),
+            child: const Text('Delete account'),
+          ),
+        ],
+      ),
+    );
+
+    if (shouldDelete != true) return;
+
+    final password = await _requestDeletionPassword();
+    if (password == null) return;
+
+    final isPasswordValid = authenticateDeletion != null &&
+        await authenticateDeletion!(password);
+    if (!isPasswordValid) {
+      Get.snackbar(
+        'Deletion cancelled',
+        'The password was incorrect. Your account was not deleted.',
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.red.shade700,
+        colorText: Colors.white,
+      );
+      return;
+    }
+
+    // Delete the remote account here before clearing local account data.
+    await StorageService.instance.clear();
+    if (context.mounted) {
+      Get.offAllNamed(AppRoutes.login);
+    }
+  }
+
+  Future<String?> _requestDeletionPassword() async {
+    final passwordController = TextEditingController();
+    final password = await Get.dialog<String>(
+      AlertDialog(
+        title: const Text('Confirm your password'),
+        content: TextField(
+          controller: passwordController,
+          obscureText: true,
+          autofocus: true,
+          decoration: const InputDecoration(
+            labelText: 'Password',
+            prefixIcon: Icon(Icons.lock_outline),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Get.back(),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () => Get.back(result: passwordController.text),
+            child: const Text('Confirm'),
+          ),
+        ],
+      ),
+    );
+    passwordController.dispose();
+    return password?.isNotEmpty == true ? password : null;
   }
 }
 
