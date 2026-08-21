@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:studycycle/features/personalization/Profile/profile.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
 class ChangeName extends StatelessWidget {
@@ -43,8 +42,8 @@ class ChangeName extends StatelessWidget {
                     ),
           const SizedBox(height: SSizes.md),
           ElevatedButton(
-            onPressed: () {
-              Get.to(const ProfileScreen());
+             onPressed: () {
+              Get.back();
             },
             child: const Text('Save Changes'),
           ),

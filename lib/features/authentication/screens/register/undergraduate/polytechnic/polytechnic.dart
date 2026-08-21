@@ -4,6 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 import 'package:studycycle/utils/widgets/search_only.dart';
 
+const List<String> polytechnicOptions = [
+  'Lagos Polytechnic, Lagos State',
+  'Ondo Polytechnic, Ondo State',
+  'Ibadan Polytechnic, Oyo State',
+  'Zaria Polytechnic, Kaduna State',
+  'Federal Polytechnic, Ede, Osun State',
+  'Federal Polytechnic, Bida, Niger State',
+  'Federal Polytechnic, Nekede, Imo State',
+  'Federal Polytechnic, Bauchi, Bauchi State',
+  'Federal Polytechnic, Ilaro, Ogun State',
+  'Federal Polytechnic, Offa, Kwara State',
+];
+
 class Polytechnic extends StatefulWidget {
   const Polytechnic({super.key});
 
@@ -13,20 +26,6 @@ class Polytechnic extends StatefulWidget {
 
 class _PolytechnicState extends State<Polytechnic> {
   String? _selectedPolytechnic;
-
-  final List<String> _polytechnic = [
-    'Lagos Polytechnic, Lagos State',
-    'Ondo Polytechnic, Ondo State',
-    'Ibadan Polytechnic, Oyo State',
-    'Zaria Polytechnic, Kaduna State',
-    'University of Nigeria (UNN), Nsukka, Enugu State',
-    'University of Benin (UNIBEN) Benin City',
-    'University of Ilorin (UNILORIN) Ilorin, Kwara State',
-    'Bayero University Kano (BUK) Kano, Kano State',
-    'University of Port Harcourt (UNIPORT) Port Harcourt, Rivers State',
-    'Federal University of Agriculture, Abeokuta (FUNAAB) Abeokuta, Ogun State',
-    'National Open University of Nigeria (NOUN) Lagos State'
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -40,10 +39,10 @@ class _PolytechnicState extends State<Polytechnic> {
           const SizedBox(height: SSizes.spaceBtwSections),
           Expanded(
             child: ListView.separated(
-              itemCount: _polytechnic.length,
+              itemCount: polytechnicOptions.length,
               separatorBuilder: (_, __) => const SizedBox(height: SSizes.spaceBtwItems),
               itemBuilder: (context, index) {
-                final institution = _polytechnic[index];
+                final institution = polytechnicOptions[index];
                 final selected = institution == _selectedPolytechnic;
 
                 return InkWell(

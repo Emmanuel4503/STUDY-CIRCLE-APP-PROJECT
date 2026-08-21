@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:studycycle/features/authentication/screens/splash/screens/splash_screen.dart';
 //import 'package:studycycle/features/authentication/screens/register/register_screen.dart';
-import 'package:studycycle/features/class_room/class_room.dart';
 //import 'package:studycycle/features/authentication/screens/verify_email/verify_email.dart';
 import 'bindings/splash_binding.dart';
 import 'routes/app_pages.dart';
@@ -26,7 +26,7 @@ class App extends StatelessWidget {
       getPages: AppPages.pages,
       unknownRoute: GetPage(
         name: '/notfound',
-        page: () => const ClassroomScreen(),
+        page: () => const SplashScreen(),
       ),
     );
   }

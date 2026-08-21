@@ -13,6 +13,7 @@ class StorageService {
   // ---- Keys ----
   static const String _kOnboardingSeen = 'onboarding_seen';
   static const String _kAuthToken = 'auth_token';
+  static const String _kProfileSetupCompleted = 'profile_setup_completed';
 
   // ---- Onboarding ----
   bool get hasSeenOnboarding => _box.read(_kOnboardingSeen) ?? false;
@@ -21,6 +22,10 @@ class StorageService {
   // ---- Auth token ----
   String? get authToken => _box.read(_kAuthToken);
   Future<void> setAuthToken(String? token) => _box.write(_kAuthToken, token);
+
+  // ---- Profile setup ----
+  bool get hasCompletedProfileSetup => _box.read(_kProfileSetupCompleted) ?? false;
+  Future<void> setProfileSetupCompleted(bool value) => _box.write(_kProfileSetupCompleted, value);
 
   /// Clears everything (e.g. on logout).
   Future<void> clear() => _box.erase();

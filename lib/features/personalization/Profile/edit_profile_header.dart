@@ -16,10 +16,17 @@ class EditProfileHeader extends StatelessWidget {
         SSizes.defaultSpace,
       ),
       decoration:  const BoxDecoration(
-        color: SColors.primary,
+        gradient: LinearGradient(
+          colors: [
+            SColors.primary,
+            SColors.primaryDark,
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(30),
-          bottomRight: Radius.circular(30),
+          bottomLeft: Radius.circular(36),
+          bottomRight: Radius.circular(36),
         ),
       ),
       child: Column(

@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 import 'package:studycycle/utils/widgets/search_only.dart';
 
+const List<String> collegeOfEducationOptions = [
+  'Federal College of Education (Abeokuta, Ogun State)',
+  'Federal College of Education (Kano, Kano State)',
+  'Federal College of Education (Special) (Oyo, Oyo State)',
+  'Federal College of Education (Technical) (Akoka, Lagos State)',
+  'Alvan Ikoku Federal College of Education (Owerri, Imo State)',
+  'Federal College of Education (Zaria, Kaduna State)',
+];
+
 class CollegeOfEdu extends StatefulWidget {
   const CollegeOfEdu({super.key});
 
@@ -11,15 +20,6 @@ class CollegeOfEdu extends StatefulWidget {
 
 class _CollegeOfEduState extends State<CollegeOfEdu> {
   String? _selectedCollegeOfEducation;
-
-  final List<String> _collegeOfEducation = [
-    'Federal College of Education (Abeokuta, Ogun State)',
-    'Federal College of Education (Kano, Kano State)',
-    'Federal College of Education (Special) (Oyo, Oyo State)',
-    'Federal College of Education (Technical) (Akoka, Lagos State)',
-    'Alvan Ikoku Federal College of Education (Owerri, Imo State)',
-    'Federal College of Education (Zaria, Kaduna State)',
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +33,10 @@ class _CollegeOfEduState extends State<CollegeOfEdu> {
           const SizedBox(height: SSizes.spaceBtwSections),
           Expanded(
             child: ListView.separated(
-              itemCount: _collegeOfEducation.length,
+              itemCount: collegeOfEducationOptions.length,
               separatorBuilder: (_, __) => const SizedBox(height: SSizes.spaceBtwItems),
               itemBuilder: (context, index) {
-                final institution = _collegeOfEducation[index];
+                final institution = collegeOfEducationOptions[index];
                 final selected = institution == _selectedCollegeOfEducation;
 
                 return InkWell(

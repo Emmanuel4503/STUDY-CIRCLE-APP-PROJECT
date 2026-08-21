@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:studycycle/features/personalization/Profile/profile.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
 class ChangePassword extends StatelessWidget {
@@ -41,7 +40,7 @@ class ChangePassword extends StatelessWidget {
           const SizedBox(height: SSizes.md),
           ElevatedButton(
             onPressed: () {
-              Get.to(const ProfileScreen());
+              Get.back();
             },
             child: const Text('Update Password'),
           ),
