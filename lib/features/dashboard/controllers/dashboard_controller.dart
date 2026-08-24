@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:studycycle/features/personalization/setup_popup.dart';
+import 'package:studycycle/features/personalization/setup_profile/widgets/setup_popup.dart';
 
 class DashboardController extends GetxController {
   @override

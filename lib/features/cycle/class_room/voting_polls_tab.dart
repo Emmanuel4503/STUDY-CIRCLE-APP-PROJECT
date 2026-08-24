@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-import 'package:studycycle/features/class_room/widgets/archive_pool.dart';
-import 'package:studycycle/features/class_room/widgets/voting_polls_options.dart';
+import 'package:studycycle/features/cycle/class_room/widgets/archive_pool.dart';
+import 'package:studycycle/features/cycle/class_room/widgets/voting_polls_options.dart';
 import 'package:studycycle/utils/constants/colors.dart';
 import 'package:studycycle/utils/constants/radius.dart';
 import 'package:studycycle/utils/constants/sizes.dart';

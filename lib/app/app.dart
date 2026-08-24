@@ -7,7 +7,7 @@ import 'bindings/splash_binding.dart';
 import 'routes/app_pages.dart';
 import 'routes/app_routes.dart';
 import 'theme/app_theme.dart';
-import '../features/cycle/controllers/theme_controller.dart';
+import '../features/personalization/Profile/controller/theme_controller.dart';
 import '../utils/constants/strings.dart';
 //import '../features/authentication/screens/login/login_screen.dart';
 

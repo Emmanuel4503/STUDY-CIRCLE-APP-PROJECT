@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:studycycle/features/cycle/Profile/widgets/profile_setting_item.dart';
-import 'package:studycycle/features/cycle/Profile/screens/invite_friend_screen.dart';
+import 'package:studycycle/features/personalization/Profile/widgets/profile_setting_item.dart';
+import 'package:studycycle/features/personalization/Profile/screens/invite_friend_screen.dart';
 
 class InviteFriendWidget extends StatelessWidget {
   const InviteFriendWidget({super.key});

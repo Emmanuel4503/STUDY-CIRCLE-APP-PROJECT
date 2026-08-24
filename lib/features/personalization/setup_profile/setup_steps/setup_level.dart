@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studycycle/features/personalization/setup_profile/controller/setup_profile_controller.dart';
-import 'package:studycycle/features/personalization/widgets/setup_option_tile.dart';
+import 'package:studycycle/features/personalization/setup_profile/widgets/setup_option_tile.dart';
 
 class SetupLevel extends GetView<SetupProfileController> {
   const SetupLevel({super.key});

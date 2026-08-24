@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:studycycle/features/cycle/Profile/widgets/profile_setting_item.dart';
-import 'package:studycycle/features/cycle/Profile/screens/add_socials_screen.dart';
+import 'package:studycycle/features/personalization/Profile/widgets/profile_setting_item.dart';
+import 'package:studycycle/features/personalization/Profile/screens/add_socials_screen.dart';
 
 class AddSocialsWidget extends StatelessWidget {
   const AddSocialsWidget({super.key});

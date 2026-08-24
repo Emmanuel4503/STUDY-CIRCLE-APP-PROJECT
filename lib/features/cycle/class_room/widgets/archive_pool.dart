@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
-import '../../../utils/constants/colors.dart';
-import '../../../utils/constants/radius.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/radius.dart';
 
 class ArchivePool extends StatelessWidget {
   const ArchivePool({

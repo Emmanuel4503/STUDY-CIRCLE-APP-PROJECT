@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-import 'package:studycycle/features/class_room/assessments_tab.dart';
-import 'package:studycycle/features/class_room/exams_tab.dart';
-import 'package:studycycle/features/class_room/voting_polls_tab.dart';
-import 'package:studycycle/features/class_room/chat_room_tab.dart'; // New feature tab
+import 'package:studycycle/features/cycle/class_room/assessments_tab.dart';
+import 'package:studycycle/features/cycle/class_room/exams_tab.dart';
+import 'package:studycycle/features/cycle/class_room/voting_polls_tab.dart';
+import 'package:studycycle/features/cycle/class_room/chat_room_tab.dart'; // New feature tab
 import 'package:studycycle/features/dashboard/models/group_model.dart';
 import 'package:studycycle/utils/constants/colors.dart';
 

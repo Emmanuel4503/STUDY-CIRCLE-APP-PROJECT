@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:studycycle/features/cycle/controllers/theme_controller.dart';
+import 'package:studycycle/features/personalization/Profile/controller/theme_controller.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 
 class ThemeSettings extends StatelessWidget {

@@ -1,12 +1,12 @@
 import 'package:get/get.dart';
 import 'package:studycycle/bottom_navigation_bar.dart';
 import 'package:studycycle/features/authentication/screens/splash/screens/splash_screen.dart';
-import 'package:studycycle/features/class_room/class_room.dart';
+import 'package:studycycle/features/cycle/class_room/class_room.dart';
 import 'package:studycycle/features/cycle/circle/circle.dart';
 import 'package:studycycle/features/cycle/circle/screens/group_chat_screen.dart';
 import 'package:studycycle/features/cycle/library/library.dart';
 import 'package:studycycle/features/personalization/setup_profile/setup_profile.dart';
-import 'package:studycycle/features/personalization/Profile/theme_settings.dart';
+import 'package:studycycle/features/personalization/Profile/screens/theme_settings.dart';
 
 import '../bindings/splash_binding.dart';
 import '../bindings/onboarding_binding.dart';

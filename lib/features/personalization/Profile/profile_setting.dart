@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
-import 'package:studycycle/features/cycle/Profile/widgets/profile_setting_item.dart';
-import 'package:studycycle/features/cycle/Profile/widgets/invite_friend_widget.dart';
-import 'package:studycycle/features/cycle/Profile/widgets/add_socials_widget.dart';
+import 'package:studycycle/features/personalization/Profile/widgets/profile_setting_item.dart';
+import 'package:studycycle/features/personalization/Profile/widgets/invite_friend_widget.dart';
+import 'package:studycycle/features/personalization/Profile/widgets/add_socials_widget.dart';
 import 'package:studycycle/features/dashboard/screens/groups_screen.dart';
 import 'package:studycycle/features/personalization/Profile/edit_name.dart';
 import 'package:studycycle/features/personalization/Profile/edit_password.dart';

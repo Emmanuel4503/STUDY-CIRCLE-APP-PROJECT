@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-import 'package:studycycle/features/class_room/widgets/classroom_task_card.dart';
+import 'package:studycycle/features/cycle/class_room/widgets/classroom_task_card.dart';
 import 'package:studycycle/utils/constants/sizes.dart';
 import 'package:studycycle/utils/constants/colors.dart'; // Utilizing your color palette
 
