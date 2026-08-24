@@ -20,9 +20,10 @@ class GroupDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        title: group.title,
+      appBar: const CustomAppBar(
+        title: 'Group Details',
       ),
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(SSizes.lg),
         child: Column(
@@ -36,11 +37,14 @@ class GroupDetailsScreen extends StatelessWidget {
                 borderRadius: SRadius.allLg,
               ),
               child: Padding(
-                padding: const EdgeInsets.all(SSizes.lg),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: SSizes.lg,
+                  vertical: SSizes.md,
+                ),
                 child: Column(
                   children: [
                     CircleAvatar(
-                      radius: 34,
+                      radius: 28,
                       backgroundColor: group.color.withValues(alpha: 0.15),
                       child: Icon(
                         group.icon,
@@ -48,7 +52,9 @@ class GroupDetailsScreen extends StatelessWidget {
                         size: SSizes.iconLg,
                       ),
                     ),
-                    SSpacing.gapVmd,
+
+                    SSpacing.gapVsm,
+
                     Text(
                       group.title,
                       textAlign: TextAlign.center,
@@ -58,26 +64,32 @@ class GroupDetailsScreen extends StatelessWidget {
                         color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
+
                     SSpacing.gapVxs,
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
                           Iconsax.profile_2user,
                           size: SSizes.iconSm,
-                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                          color:
+                              Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
                         SSpacing.gapHsm,
                         Text(
                           group.members,
                           style: TextStyle(
                             fontSize: SSizes.fontSm,
-                            color: Theme.of(context).colorScheme.onSurfaceVariant,
+                            color:
+                                Theme.of(context).colorScheme.onSurfaceVariant,
                           ),
                         ),
                       ],
                     ),
-                    SSpacing.gapVsm,
+
+                    SSpacing.gapVxs,
+
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: SSizes.sm,
@@ -114,31 +126,7 @@ class GroupDetailsScreen extends StatelessWidget {
 
             const SizedBox(height: SSizes.lg),
 
-            /// About
-            Text(
-              'About this group',
-              style: TextStyle(
-                fontSize: SSizes.fontLg,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.onSurface,
-              ),
-            ),
-
-            SSpacing.gapVsm,
-
-            Text(
-              'Study, collaborate and share knowledge with other '
-              'students in ${group.title}.',
-              style: TextStyle(
-                fontSize: SSizes.fontSm,
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-                height: 1.5,
-              ),
-            ),
-
-            const SizedBox(height: SSizes.lg),
-
-            /// Upcoming Session
+            /// Classroom
             Text(
               'Classroom',
               style: TextStyle(
@@ -156,41 +144,71 @@ class GroupDetailsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: SRadius.allLg,
               ),
-              child: ListTile(
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: SSizes.md,
-                  vertical: SSizes.xs,
-                ),
-                leading: CircleAvatar(
-                  backgroundColor: SColors.primary.withValues(alpha: 0.12),
-                  child: const Icon(
-                    Iconsax.calendar_1,
-                    color: SColors.primary,
-                    size: SSizes.iconSm,
-                  ),
-                ),
-                title: Text(
-                  'My Classroom ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    color: Theme.of(context).colorScheme.onSurface,
-                  ),
-                ),
-                subtitle: Text(
-                  style: TextStyle(
-                    fontSize: SSizes.fontSm,
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  ),
-                  'Today • 4:00 PM',
-                ),
-                trailing: IconButton(
-                  onPressed: () {
-                    Get.to(() => ClassroomScreen(group: group));
-                  },
-                  icon: const Icon(
-                    Iconsax.arrow_right_3,
-                    color: SColors.primary,
-                    size: SSizes.iconSm,
+              
+              child: InkWell(
+                borderRadius: SRadius.allLg,
+                onTap: () {
+                  Get.to(
+                    () => ClassroomScreen(
+                      group: group,
+                    ),
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(SSizes.md),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          color: SColors.primary.withValues(alpha: 0.12),
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(
+                          Iconsax.teacher,
+                          color: SColors.primary,
+                        ),
+                      ),
+
+                      SSpacing.gapHmd,
+
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Enter Classroom',
+                              style: TextStyle(
+                                fontSize: SSizes.fontMd,
+                                fontWeight: FontWeight.w600,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onSurface,
+                              ),
+                            ),
+
+                            SSpacing.gapVxs,
+
+                            Text(
+                              'Join your virtual classroom',
+                              style: TextStyle(
+                                fontSize: SSizes.fontSm,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onSurfaceVariant,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const Icon(
+                        Iconsax.arrow_right_3,
+                        color: SColors.primary,
+                        size: SSizes.iconSm,
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -216,34 +234,66 @@ class GroupDetailsScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: SRadius.allLg,
               ),
+              
               child: Padding(
                 padding: const EdgeInsets.all(SSizes.md),
-                child: Row(
+                child: Column(
                   children: [
-                    _MemberAvatar(
-                      color: group.color,
-                      icon: Iconsax.user,
-                    ),
-                    const _MemberAvatar(
-                      color: SColors.info,
-                      icon: Iconsax.user,
-                    ),
-                    const _MemberAvatar(
-                      color: SColors.warning,
-                      icon: Iconsax.user,
-                    ),
-                    const _MemberAvatar(
-                      color: SColors.success,
-                      icon: Iconsax.user,
-                    ),
-                    SSpacing.gapHsm,
-                    Text(
-                      '+20 more',
-                      style: TextStyle(
-                        fontSize: SSizes.fontSm,
-                        fontWeight: FontWeight.w500,
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      ),
+                    Row(
+                      children: [
+                        const SizedBox(
+                          width: 160,
+                          height: 42,
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                left: 0,
+                                child: _MemberAvatar(
+                                  color: SColors.primary,
+                                  icon: Iconsax.user,
+                                ),
+                              ),
+                              Positioned(
+                                left: 28,
+                                child: _MemberAvatar(
+                                  color: SColors.info,
+                                  icon: Iconsax.user,
+                                ),
+                              ),
+                              Positioned(
+                                left: 56,
+                                child: _MemberAvatar(
+                                  color: SColors.warning,
+                                  icon: Iconsax.user,
+                                ),
+                              ),
+                              Positioned(
+                                left: 84,
+                                child: _MemberAvatar(
+                                  color: SColors.success,
+                                  icon: Iconsax.user,
+                                ),
+                              ),
+                              Positioned(
+                                left: 112,
+                                child: _MemberAvatar(
+                                  color: SColors.error,
+                                  icon: Iconsax.user,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        Text(
+                          '+20 more',
+                          style: TextStyle(
+                            fontSize: SSizes.fontSm,
+                            fontWeight: FontWeight.w500,
+                            color: Theme.of(context).colorScheme.onSurfaceVariant,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -254,7 +304,7 @@ class GroupDetailsScreen extends StatelessWidget {
 
             /// Recent Activity
             Text(
-              'Recent Activitives',
+              'Recent Activities',
               style: TextStyle(
                 fontSize: SSizes.fontLg,
                 fontWeight: FontWeight.bold,
@@ -264,7 +314,7 @@ class GroupDetailsScreen extends StatelessWidget {
 
             SSpacing.gapVsm,
 
-           const _ActivityItem(
+            const _ActivityItem(
               icon: Iconsax.document_upload,
               text: 'Sarah shared a study resource',
               color: SColors.primary,
@@ -304,10 +354,14 @@ class _MemberAvatar extends StatelessWidget {
     return Container(
       width: 38,
       height: 38,
-      margin: const EdgeInsets.only(right: 4),
+      margin: EdgeInsets.zero,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: color.withValues(alpha: 0.15),
+        color: Color.lerp(
+          Colors.white,
+          color,
+          0.15,
+        ),
       ),
       child: Icon(
         icon,
@@ -348,7 +402,9 @@ class _ActivityItem extends StatelessWidget {
               color: color,
             ),
           ),
+
           SSpacing.gapHsm,
+
           Expanded(
             child: Text(
               text,

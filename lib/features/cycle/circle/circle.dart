@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:studycycle/bottom_navigation_bar.dart';
 import 'package:studycycle/features/dashboard/models/group_model.dart';
-import 'package:studycycle/features/dashboard/screens/dashboard_screen.dart';
 import 'package:studycycle/features/dashboard/screens/group_details_screen.dart';
 import 'package:studycycle/features/dashboard/widgets/group_card.dart';
 import 'package:studycycle/utils/constants/colors.dart';
@@ -56,7 +56,8 @@ class SCirclePage extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         onBack: () {
-          Get.offAll(() => DashboardScreen());
+          final controller = Get.find<NavigationMenuController>();
+          controller.selectedIndex.value = 0;
         },
         title: 'Circle',
       ),
