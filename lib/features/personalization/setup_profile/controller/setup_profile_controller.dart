@@ -20,12 +20,16 @@ class SetupProfileController extends GetxController {
   final selectedInstitution = Rxn<InstitutionTypeModel>();
   final selectedLevel = ''.obs;
   final selectedSchool = ''.obs;
+  final schoolSearchQuery = ''.obs;
 
   final schoolController = TextEditingController();
 
   bool get requiresSchoolSelection {
     final category = selectedCategory.value?.category ?? '';
-    return category == 'Tertiary' || category == 'Postgraduate';
+    return category == 'Primary School' ||
+        category == 'Secondary School' ||
+        category == 'Tertiary' ||
+        category == 'Postgraduate';
   }
 
   /// Furthest page the user has reached
@@ -40,6 +44,8 @@ class SetupProfileController extends GetxController {
 
     selectedInstitution.value = null;
     selectedLevel.value = '';
+    selectedSchool.value = '';
+    schoolSearchQuery.value = '';
     schoolController.clear();
 
     if (category.institutions != null) {
@@ -59,6 +65,7 @@ class SetupProfileController extends GetxController {
     selectedInstitution.value = institution;
 
     selectedLevel.value = '';
+    schoolSearchQuery.value = '';
 
     currentStep.value = 2;
 
@@ -72,6 +79,7 @@ class SetupProfileController extends GetxController {
   void selectLevel(String level) {
     selectedLevel.value = level;
     selectedSchool.value = '';
+    schoolSearchQuery.value = '';
     schoolController.clear();
 
     if (requiresSchoolSelection) {
@@ -91,6 +99,13 @@ class SetupProfileController extends GetxController {
       currentStep.value = 4;
       _updateHighestPage();
     }
+  }
+
+  void submitSchoolName() {
+    final school = schoolController.text.trim();
+    if (school.isEmpty) return;
+
+    selectSchool(school);
   }
 
   //==================================================
